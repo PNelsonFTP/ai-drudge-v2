@@ -2,7 +2,7 @@
 
 A Drudge-style AI news front page: a build pipeline reads a registry of 414 sources, clusters and ranks what they published, and writes static JSON; a React single-page app renders it with no server, no accounts and no tracking (reader state lives in `localStorage`). Coverage is weighted toward AI security, local and open models, AI regulation in finance (SEC, FINRA and peers) and model releases.
 
-**Status (2026-11-20):** V2 is an uncommitted working tree on branch `v2` and is not deployed. V1 stays live at https://pnelsonftp.github.io/ai-drudge/ from branch `main`. See [Status](#status).
+**Status (2026-11-20):** V2 is live at https://pnelsonftp.github.io/ai-drudge-v2/ from this repository (`PNelsonFTP/ai-drudge-v2`, branch `main`); a custom domain is planned ([docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md) §16). V1 stays live and unchanged at https://pnelsonftp.github.io/ai-drudge/. See [Status](#status).
 
 ## V2 at a glance
 
@@ -212,10 +212,10 @@ Shortcuts (`src/keyboard/keymap.ts`). They are ignored while typing and with Ctr
 
 ## Status
 
-- **V2 is a fork in a git worktree, branch `v2`, with every change uncommitted by design.** The branch still points at the V1 commit it was cut from (`8d5cbc26`). The cut-over commit is the owner's step.
-- **V1 remains live** at https://pnelsonftp.github.io/ai-drudge/ (repository https://github.com/PNelsonFTP/ai-drudge, branch `main`) and is not touched by anything in this tree.
-- **Not deployed.** The proposed V2 repository and Pages site (`pnelsonftp.github.io/ai-drudge-v2/`) do not exist yet. The three workflows are inert until the repository variable `V2_DEPLOY=true` is set and have never run on GitHub. Go-live options, the pre-flight checklist and the untested register are in [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md).
-- **Known open items** (the full list of 58 is [docs/HANDOFF.md](./docs/HANDOFF.md) section 7; how they were found is [docs/REVIEW_2026-11-20.md](./docs/REVIEW_2026-11-20.md)): no browser verification in the last two rounds; nothing run on Node 24 or Linux; ranking rules calibrated on one news day; entry bundle above its 85 kB gzip target; hosting V2 on the same origin as V1 would share `localStorage` with a site that ships no CSP ([docs/SECURITY.md](./docs/SECURITY.md)).
+- **V2 is its own repository**, `PNelsonFTP/ai-drudge-v2`, started on 2026-11-20 with one commit (no V1 history). Nothing in the V1 repository changed.
+- **V1 remains live** at https://pnelsonftp.github.io/ai-drudge/ (repository https://github.com/PNelsonFTP/ai-drudge, branch `main`).
+- **Deployed 2026-11-20** (Option A of [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md), record in its §0): Pages source = GitHub Actions, repository variable `V2_DEPLOY=true`. The first run passed every job on Node 24 / Ubuntu, gate PASS, 402 of 413 feeds OK: the 10 feeds hosted on `*.substack.com` answer HTTP 403 to GitHub's runners. No `ANTHROPIC_API_KEY` is set, so no Daily Brief is shown (owner decision: later).
+- **Known open items** (the full list of 58 is [docs/HANDOFF.md](./docs/HANDOFF.md) section 7; how they were found is [docs/REVIEW_2026-11-20.md](./docs/REVIEW_2026-11-20.md)): a production smoke check only, no full visual QA; ranking rules calibrated on one news day; entry bundle above its 85 kB gzip target; until the custom domain is live, V2 shares the `pnelsonftp.github.io` origin, and so `localStorage`, with V1, which ships no CSP ([docs/SECURITY.md](./docs/SECURITY.md)).
 
 ## Documentation
 

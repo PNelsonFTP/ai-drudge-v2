@@ -3,7 +3,15 @@
 Written 2026-11-20 (04:35 UTC); brought up to the closing round and re-verified at 05:30 UTC. Read
 this file first. It is for the engineer or AI session that takes over cold.
 
-**Answer first.** V2 is complete, tested and gated as a local working tree, and **nothing of it is
+**Go-live update (2026-11-20, 20:00 UTC).** V2 is now committed to its own repository,
+`PNelsonFTP/ai-drudge-v2` (one initial commit, no V1 history; local clone
+`~/Documents/Development/ai-drudge-v2`), and live at https://pnelsonftp.github.io/ai-drudge-v2/. The
+first GitHub run passed every job. The record, and three items the first run found, are in
+[DEPLOYMENT.md](./DEPLOYMENT.md) §0; the custom-domain procedure is §16. The rows of §1 below were
+updated; the rest of this document is the pre-go-live snapshot. The worktree
+`~/Documents/Development/ai-drudge/v2` (branch `v2` of the V1 repository) is obsolete.
+
+**Answer first (pre-go-live).** V2 is complete, tested and gated as a local working tree, and **nothing of it is
 committed or deployed**. V1 is the only live site. The next step is not code: it is four owner
 decisions (§2), a browser pass that the last two rounds were not allowed to do, one local commit
 and the first run on GitHub (which is also the first run on Node 24 and Linux).
@@ -26,16 +34,16 @@ Sections: [1 State](#1-state-in-one-screen) · [2 What to do first](#2-what-to-d
 | Fact | Value on 2026-11-20 |
 |---|---|
 | What V2 is | A static AI news front page. Pipeline (`scripts/pipeline`: ingest -> normalize -> relevance -> cluster -> score -> route -> emit) reads the registry and writes JSON to `public/data/v2/`; a Vite 8 + React 19 + TypeScript 6 single-page app renders it (hash routes, `localStorage`, no server) |
-| Where | Git worktree `~/Documents/Development/ai-drudge/v2`, local branch `v2`, no upstream. The only remote is `origin` = the V1 repository |
-| Committed | **Nothing.** `HEAD` is still the V1 data commit `8d5cbc26` the branch was cut from. `git status --short` lists 99 entries: 21 modified, 48 deleted (V1 files), 30 untracked paths (all of V2) |
-| Live | **V1 only**: https://pnelsonftp.github.io/ai-drudge/ from branch `main`, whose checkout is the parent directory. No V2 repository and no V2 Pages site exist (both answered 404 in the link check of 04:25Z) |
-| GitHub | The three V2 workflows have never run. They are inert until the repository variable `V2_DEPLOY=true` is set |
+| Where | Repository `PNelsonFTP/ai-drudge-v2`, branch `main`; local clone `~/Documents/Development/ai-drudge-v2`. Until 2026-11-20 V2 lived in a worktree of the V1 repository (`~/Documents/Development/ai-drudge/v2`, branch `v2`); that copy is obsolete |
+| Committed | One initial commit (2026-11-20, no V1 history). Branch `data` holds the pipeline state (one orphan commit, force-pushed by every build) |
+| Live | V2: https://pnelsonftp.github.io/ai-drudge-v2/ (first deploy 2026-11-20 19:45Z). V1: https://pnelsonftp.github.io/ai-drudge/, unchanged |
+| GitHub | Repository variable `V2_DEPLOY=true`; no secrets. First run (dispatch, 2026-11-20 19:44Z): guard, build, deploy, persist and alert all succeeded on Node 24 / Ubuntu |
 | Registry | 414 sources (413 active, 1 paused: `venturebeat-ai`), 405 publisher entries (317 own a source), 10 denied outlets, 12 `probation` tags. Tiers 1/2/3/4: 6 / 66 / 255 / 87 |
 | Local data | `public/data/v2/` holds the closing build of 2026-11-20T05:16:55.936Z (keyless): 412/413 sources OK, 1 carried forward (`arxiv-cs-cr-llm-agent-security`, HTTP 429), 322 stories in 367 rows, 143 homepage rows, TOP 12, gate PASS with 0 warnings |
 | Fixture | `test/fixtures/v2/` is the same build (refreshed in the closing round) plus three synthetic health rows (§5.7) |
 | Checks (re-run at 05:25Z) | `npx tsc -b` exit 0; `npm test` 2,782 pass / 0 fail (449 suites, 132 test files, about 19 s); `npm run build:check` PASS; `npm run sbom -- --check` "SBOM is current" |
 | Checks (integration step, 04:20-04:25Z, not re-run) | `npm audit` 0 vulnerabilities; `validate:feeds` 413/413 OK; `check:links -- --data` 0 broken registry links, 0 broken article links. The docs group of the link check was re-run at 05:47Z: 4 "broken" of 1,908, none a dead reader link (§5.8) |
-| Never verified | Anything in a browser (last two rounds); anything on GitHub; Node 24 on Linux (all results are Node 26.7.0 on macOS); the model-written brief (every build was keyless); ranking behaviour at the real 30-minute cadence |
+| Never verified | A full visual QA (a production smoke check of four routes was done after the first deploy, 0 console errors); the model-written brief (no key, by owner decision); ranking behaviour at the real 30-minute cadence; the custom domain |
 | Dev server | The session that wrote this had one on port 5180 serving the closing build. A new session starts its own (command 3 below) |
 
 See V2 in three commands (fresh clone; Node >= 22.15.0, CI pins 24 in `.node-version`):

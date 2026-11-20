@@ -3,11 +3,36 @@
 Written 2026-11-20. Audience: the engineer (or agent) who takes V2 from an uncommitted working tree
 to a live GitHub Pages site.
 
-**Answer first.** V2 is not deployed and not committed. The recommended path is **Option A: a new
+**Answer first (pre-go-live; see §0 for what was done).** V2 is not deployed and not committed. The recommended path is **Option A: a new
 public repository `PNelsonFTP/ai-drudge-v2`**, which leaves V1 and its repository untouched and runs
 both sites side by side. Go-live is: one local commit, one `git push`, enable Pages
 (source = GitHub Actions), set the repository variable `V2_DEPLOY=true`, dispatch `refresh.yml` once.
 Every step that touches GitHub is **untested**: the three workflows have never run there.
+
+## 0. Go-live record (2026-11-20)
+
+Option A with the single-commit variant (§8.1) was carried out on 2026-11-20. Sections 1-15 are the
+pre-go-live snapshot and are kept as written; where they say "not committed" or "never run on
+GitHub", this section supersedes them. The custom-domain procedure is §16.
+
+| Step | Result |
+|---|---|
+| Repository | `PNelsonFTP/ai-drudge-v2`, public, default branch `main`, one initial commit (no V1 history). Local clone `~/Documents/Development/ai-drudge-v2` |
+| Clean-copy checks before the push | 463 files (tracked and untracked, not ignored, without `public/feed.xml`); `npm ci --ignore-scripts`, `npx tsc -b`, `npm test` (2,782 / 2,782), `npm run build` all passed |
+| Pages | `build_type: workflow`, https://pnelsonftp.github.io/ai-drudge-v2/ |
+| Variables and secrets | `V2_DEPLOY=true`. `SITE_URL` and `SITE_BASE` unset (the defaults match). No secrets: no `ANTHROPIC_API_KEY`, so the fallback brief is used and no Daily Brief is shown (owner decision: later) |
+| Push run | The push started `refresh.yml`; every job was skipped (`V2_DEPLOY` was not yet set), as designed |
+| First build | Dispatch, 19:44Z. Guard, build, deploy, persist and alert all succeeded on Node 24 / Ubuntu. Data build 38 s; 402 / 413 feeds OK; 324 stories, TOP 12, no empty section; gate PASS with one warning (the chronic list below); branch `data` created; `state.json` absent from the site (HTTP 404), as designed |
+| Browser | Production build at the live URL: `#/`, `#/sources`, `#/s/ai_security`, `#/q/FINRA` render; 0 console errors with the CSP active |
+| Dependabot | Started its first update jobs after the push |
+
+Items the first GitHub run found:
+
+| ID | Item | Action |
+|---|---|---|
+| GL-1 | The 10 registry feeds on `*.substack.com` (`chinai`, `gary-marcus`, `sacr-software-analyst`, `concordia-ai-safety-china`, `clouded-judgement`, `key-context-tae-kim`, `ramp-economics-lab`, `thesequence`, `more-than-moore`, `the-kaitchup`) answer HTTP 403 to GitHub's hosted runners; all 10 answered 200 from the owner's network the same day. Substack newsletters on their own domains (`understanding-ai`, `big-technology`) are unaffected. All 10 carry the `probation` tag, so the gate lists them as chronic and the Sources page shows them failing | Per source: use the newsletter's own domain where one exists; otherwise pause with a note, or accept. A self-hosted runner would also avoid the block. Not a blocker |
+| GL-2 | `nature-ml-news` returned an HTML page instead of its feed from the runner (`not_feed`) | Watch for a week; pause if it persists |
+| GL-3 | No Mac launch agent for V2 yet, so GitHub's cron (about 20% of slots fire, measured on V1) is the only clock; the stale banner shows when no build lands for 120 minutes | §10.1 when the owner wants it |
 
 Snapshot: written at 2026-11-20 02:50 UTC, while the final round was still changing source files,
 and corrected after that round's closing step (05:30 UTC): test counts, bundle sizes, the last
@@ -719,3 +744,62 @@ Everything below has never been exercised. Treat the first occurrence of each as
 | Unit tests gate every scheduled refresh | A test flake stops that slot's deploy and opens "V2 refresh failing". The one known flake (a wall-clock budget) was raised from 2 s to 15 s in the closing round | Owner decision whether scheduled runs should skip the tests ([HANDOFF.md](./HANDOFF.md) §2.1, decision 13) |
 | Disclosure before the repository is public | The registry tag and notes that described the reader were removed; `docs/SOURCE_RESEARCH.md` still explains choices by the reader's local-model lab | Read [SECURITY.md](./SECURITY.md) §2.5 before the first push |
 | Shared `pnelsonftp.github.io` origin | Reader state readable by any script on that origin | Custom domain (§6), or accept |
+
+---
+
+## 16. Custom domain (subdomain on an owned domain)
+
+Written 2026-11-20 for moving V2 from `https://pnelsonftp.github.io/ai-drudge-v2/` to a subdomain,
+written here as `<host>` (for example `news.example.com`, apex `example.com`). `[UNTESTED]` until
+done once. Pages from a GitHub Actions workflow needs no `CNAME` file in the artifact; the domain
+lives in the repository's Pages settings.
+
+### 16.1 DNS records (at the domain's DNS provider)
+
+| # | Type | Name | Value | Notes |
+|---|---|---|---|---|
+| 1 | `TXT` | `_github-pages-challenge-PNelsonFTP.<apex>` | the code GitHub shows in step 16.2-1 | Domain verification. Keep it permanently: it stops any other GitHub account from claiming the domain or its subdomains |
+| 2 | `CNAME` | `<host>` (the subdomain label, e.g. `news`) | `pnelsonftp.github.io.` | The account's Pages host, **without** the repository name. TTL 3600 or lower. No `A`/`AAAA` records for this name |
+| 3 | `CAA` (only if the apex already has CAA records) | `<apex>` | `0 issue "letsencrypt.org"` | GitHub's certificates come from Let's Encrypt; without this entry HTTPS cannot be issued |
+
+If the DNS is served by Cloudflare or another proxying provider, set record 2 to **DNS only** (no
+proxy), at least until the certificate is issued. Do not create a wildcard record pointing at
+GitHub.
+
+Check before going on:
+
+```bash
+dig +short CNAME <host>          # expect: pnelsonftp.github.io.
+dig +short TXT _github-pages-challenge-PNelsonFTP.<apex>
+```
+
+### 16.2 GitHub steps (in this order, in one sitting)
+
+| # | Action | Command or location |
+|---|---|---|
+| 1 | Verify the apex for the account | github.com > profile picture > Settings > Pages > **Add a domain** > `<apex>`; GitHub shows the TXT value for 16.1 record 1; after DNS answers, press **Verify** |
+| 2 | Set the site variables | `gh variable set SITE_URL --body https://<host>/ --repo PNelsonFTP/ai-drudge-v2` and `gh variable set SITE_BASE --body / --repo PNelsonFTP/ai-drudge-v2` |
+| 3 | Set the Pages custom domain | `gh api -X PUT repos/PNelsonFTP/ai-drudge-v2/pages -f cname=<host>` (or Settings > Pages > Custom domain) |
+| 4 | Rebuild at once | `gh workflow run refresh.yml --repo PNelsonFTP/ai-drudge-v2 --ref main` |
+| 5 | Enforce HTTPS once the certificate exists (minutes; up to about an hour) | `gh api repos/PNelsonFTP/ai-drudge-v2/pages --jq .https_certificate.state` shows `approved`, then `gh api -X PUT repos/PNelsonFTP/ai-drudge-v2/pages -F https_enforced=true` |
+
+Between steps 3 and 4 completing (about 2 minutes) the custom host serves the previous build, whose
+assets are under `/ai-drudge-v2/`, so the page is blank; the old `github.io` address already
+redirects to `<host>`. Doing steps 2-4 back to back keeps that window short. The preflight's
+`*.github.io` check does not apply to another host (§4.3).
+
+### 16.3 Verify
+
+| Check | Expected |
+|---|---|
+| `curl -sI https://pnelsonftp.github.io/ai-drudge-v2/` | `301` to `https://<host>/` |
+| `curl -s https://<host>/data/v2/status.json` | `generatedAt` of the run from step 4 |
+| `curl -s https://<host>/feed.xml \| grep -m1 'rel="self"'` | the self link names `https://<host>/feed.xml` |
+| Browser at `https://<host>/` | page loads, assets from `/assets/`, no console errors; `localStorage` starts empty on the new origin (Settings > backup export/import carries reader state across) |
+
+### 16.4 Undo
+
+Clear the domain (Settings > Pages > Custom domain > Remove, or
+`echo '{"cname":null}' | gh api -X PUT repos/PNelsonFTP/ai-drudge-v2/pages --input -`), delete the
+two variables (`gh variable delete SITE_URL --repo PNelsonFTP/ai-drudge-v2`, same for `SITE_BASE`)
+and dispatch `refresh.yml`. The DNS records can stay.

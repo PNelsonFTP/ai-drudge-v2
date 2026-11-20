@@ -26,7 +26,7 @@ for this index.
 
 | Item | State | Checked |
 |---|---|---|
-| V2 | Uncommitted working tree on branch `v2` (a git worktree). Not pushed, not deployed. No workflow has run on GitHub | `git status` for the working tree; the rest as recorded in [DEPLOYMENT.md](./DEPLOYMENT.md) section 1 |
+| V2 | Live at https://pnelsonftp.github.io/ai-drudge-v2/ from repository `PNelsonFTP/ai-drudge-v2`, branch `main` (first deploy 2026-11-20 19:45Z). Custom domain planned | [DEPLOYMENT.md](./DEPLOYMENT.md) sections 0 and 16 |
 | V1 | Live at https://pnelsonftp.github.io/ai-drudge/ from branch `main`. Not touched by the V2 work | reported by the final integration run; not re-checked for this index. History in [PROJECT_HISTORY.md](./PROJECT_HISTORY.md) |
 | Stack | Vite 8, React 19, TypeScript 6, Tailwind 4, `fast-xml-parser` 5 (build only). Node 24 in CI (`.node-version`); `engines` allows 22.15.0 and later | `package.json` |
 | Architecture | Build pipeline (`scripts/pipeline/`: ingest, normalize, relevance, cluster, score, route, emit) writes JSON to `public/data/v2/`; a static single-page app in `src/` renders it. No server | [CONTRACTS.md](./CONTRACTS.md) sections 4 and 5 |
