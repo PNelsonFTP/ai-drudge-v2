@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-16T17:47:42+09:00</updated><id>/feed.xml</id><title type="html">Blog</title><subtitle>&amp;copy; &lt;a href=&quot;/&quot;&gt;Sakana AI 株式会社&lt;/a&gt;</subtitle><author><name>Sakana AI</name></author><entry xml:lang="ja"><title type="html">JFinBench: 最新の金融資格試験を用いた日本語金融ベンチマークの公開</title><link href="/jfinbench/" rel="alternate" type="text/html" title="JFinBench: 最新の金融資格試験を用いた日本語金融ベンチマークの公開" /><published>2026-11-17T00:00:00+09:00</published><updated>2026-11-17T00:00:00+09:00</updated><id>/jfinbench</id><content type="html" xml:base="/jfinbench/"><![CDATA[<center>
+<img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/assets/jfinbench/hero.png?v=2" style="width: 100%;" />
+<small><i>図：Sakana AIが開発した日本語金融ベンチマーク「JFinBench」の全体スコアと1問あたりのコスト（ツールなし設定）。主要ベンチマークでプロプライエタリモデルに肩を並べつつあるオープンウェイトモデルも、JFinBenchでは大きな差がある。</i></small>
+</center>
+
+<!--more-->
+
+<p><br /></p>
+
+<h2 id="概要">概要</h2>
+
+<p>Sakana AIは、日本の金融分野に強いAIの開発に向けて、LLMの能力を評価するベンチマーク「JFinBench」を構築しました。JFinBenchは、公認会計士試験や税理士試験など、日本の6つの金融資格試験の2026年版から作成したベンチマークです。最新の12のLLMを評価した結果、主要なベンチマークではGPT-6 Astraに匹敵すると報告されているKimi K3.1 Proも、JFinBenchではGPT-6 Astraに約10ポイント及ばず、既存のベンチマークでは見えない差が浮き彫りになりました。失敗の主な原因は計算ではなく、日本の制度に関する知識の不足でした。また、構築作業の大部分をコーディングエージェントが担い、人間が全問を検証するパイプラインにより、新しい試験が実施されるたびに少ない人手で更新できます。</p>
+
+<p>今回公開するリソースは以下です。</p>
+
+<ul>
+  <li>論文: <a href="https://arxiv.org/abs/2611.18130">]]></content><author><name>Sakana AI</name></author><category term="media" /><summary type="html"><![CDATA[図：Sakana AIが開発した日本語金融ベンチマーク「JFinBench」の全体スコアと1問あたりのコスト（ツールなし設定）。主要ベンチマークでプロプライエタリモデルに肩を並べつつあるオープンウェイトモデルも、JFinBenchでは大きな差がある。]]></summary></entry>
+<entry xml:lang="ja"><title type="html">マイケル・ロジャース米退役海軍大将、トム・モラン元CIA支局長がSakana AIのシニアアドバイザーに就任</title><link href="/michael-tom/" rel="alternate" type="text/html" title="マイケル・ロジャース米退役海軍大将、トム・モラン元CIA支局長がSakana AIのシニアアドバイザーに就任" /><published>2026-11-11T00:00:00+09:00</published><updated>2026-11-11T00:00:00+09:00</updated><id>/michael-tom</id><content type="html" xml:base="/michael-tom/"><![CDATA[<center>
+<img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/assets/michael-tom/michael-tom.jpg" style="width: 100%;" /><br />
+<small><i>写真左：マイケル・ロジャース氏、写真右：トム・モラン氏</i></small>
+</center>
+
+<!--more-->
+
+<hr />
+
+<p><i><small><a href="#English" style="color:#555;">（English Announcement Below.）</a></small></i></p>
+
+<p><br /></p>
+
+<p>AIは、国家の安全保障のあり方を左右する重要なテクノロジーになりつつあります。この変化に日本が向き合うために、Sakana AIは本日、元米国家安全保障局（NSA）長官兼米サイバー軍司令官のマイケル・ロジャース（Michael Rogers）退役海軍大将と、元米中央情報局（CIA）幹部のトム・モラン（Tom Moran）氏が、ともにシニアアドバイザーに就任したことを発表します。両氏は、防衛分野の強化とサイバーセキュリティの強化の2つの軸で、当社に助言を行います。</p>
+
+<p>2名のアドバイザーは、異なるインテリジェンスの領域で、それぞれ最前線に立ってきました。</p>
+
+<h2 id="マイケルロジャース退役海軍大将"><strong>マイケル・ロジャース退役海軍大将</strong></h2>
+
+<p>マイケル・ロジャース氏は、37年にわたる米海軍でのキャリアを、軍事作戦、インテリジェンス、サイバーセキュリティの最前線で歩んできました。</p>
+
+<p>]]></content><author><name>Sakana AI</name></author><category term="media" /><summary type="html"><![CDATA[写真左：マイケル・ロジャース氏、写真右：トム・モラン氏]]></summary></entry>
+<entry xml:lang="ja"><title type="html">【開催レポート】Sakana AIシンポジウム：Jürgen Schmidhuberが語るAIのこれまでとこれから、日本から挑む言語モデル・世界モデル・Physical AI</title><link href="/symposium-2026/" rel="alternate" type="text/html" title="【開催レポート】Sakana AIシンポジウム：Jürgen Schmidhuberが語るAIのこれまでとこれから、日本から挑む言語モデル・世界モデル・Physical AI" /><published>2026-11-02T00:00:00+09:00</published><updated>2026-11-02T00:00:00+09:00</updated><id>/symposium-2026</id><content type="html" xml:base="/symposium-2026/"><![CDATA[<center>
+<img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/assets/symposium-2026/keynote.jpg" style="width: 100%;" /><br />
+<small><i>基調講演を行うSakana AI Chief Scientific Advisorのユルゲン・シュミットフーバー教授</i></small>
+</center>
+
+<!--more-->
+
+<hr />
+
+<p><i><small><a href="#English" style="color:#CC2B2B; font-weight:bold;">（English Report Below.）</a></small></i></p>
+
+<p><br /></p>
+
+<p>2026年10月26日、Sakana AIは東京・一橋講堂でシンポジウム「From World Models to Real-World AI — 日本から拓くAIの新時代」を開催しました。9月に<a href="https://sakana.ai/schmidhuber/#Japanese">Chief Scientific Advisorとしてお迎えした</a>ユルゲン・シュミットフーバー（Jürgen Schmidhuber）教授は、1980年代から、最初のTransformer（正規化なし線形Transformer）、深層ニューラルネットワークの事前学習と蒸留、現代的な世界モデル、生成的・敵対的なネットワークによる人工好奇心、再帰的自己改善など、いまの深層学習と生成AIの土台となる数多くのアイデアを切り拓いてきた研究者です。20世紀で最も引用されたAI論文となった1997年のLSTM論文の共著者でもあります。教授の基調講演と、2018年に教授と論文「<a href="https://worldmodels.g]]></content><author><name>Sakana AI</name></author><category term="media" /><summary type="html"><![CDATA[基調講演を行うSakana AI Chief Scientific Advisorのユルゲン・シュミットフーバー教授]]></summary></entry>
+<entry xml:lang="ja"><title type="html">Intelligence Report: SNSのAI分析からみる米中間選挙</title><link href="/us-midterms-analysis/" rel="alternate" type="text/html" title="Intelligence Report: SNSのAI分析からみる米中間選挙" /><published>2026-10-30T00:00:00+09:00</published><updated>2026-10-30T00:00:00+09:00</updated><id>/us-midterms-analysis</id><content type="html" xml:base="/us-midterms-analysis/"><![CDATA[<p><img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/assets/us-midterms-analysis/us-midterms-analysis.png" style="width: 100%;" /><br /></p>
+
+<!--more-->
+
+<hr />
+
+<p>Sakana AIは、金融と並ぶ注力領域として「防衛・インテリジェンス」に取り組んでいます。AIが人間には読み切れない量のデータから仮説をつくり、分析者がその仮説を根拠とともに使える状態を目指しています。<a href="/narrative-intelligence/">今年3月には読売新聞社と共同で、SNS上の110万件の投稿から中国による対日批判のナラティブを分析しました。</a>この分析では、AIが立てた仮説を記者の取材によって裏付けています。</p>
+
+<p>SNSは一見、世論を映す鏡のように思えますが、投稿の数を数えるだけでは見落とすことが多くあります。たとえば選挙前に支持が厚く見えた候補が、実は党内の動員に支えられていただけだったり、急に増えた反応のほとんどが実は批判だったりします。本当の情勢をつかむには、数十万件の言葉を「誰が・なぜ書いたのか」まで遡って読む必要があります。</p>
+
+<p>AIを使えば、こうした投稿の内容にまで踏み込んだSNS分析が可能になります。今回はそのケーススタディとして、11月3日に投票が行われる米国中間選挙を分析しました。</p>
+
+<p>▶ レポート全文（PDF）：<a href="/assets/us-midterms-analysis/sakana-intelligence-report-us-midterms-analysis.pdf">米中間選挙のAI分析 — テキサス州上院選</a></p>
+
+<p><br /></p>]]></content><author><name>Sakana AI</name></author><category term="media" /><summary type="html"><![CDATA[]]></summary></entry></feed>

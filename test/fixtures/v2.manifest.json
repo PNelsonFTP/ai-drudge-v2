@@ -1,0 +1,90 @@
+{
+  "note": "Written by `npm run fixture:refresh` (scripts/tools/fixture-refresh.ts) - do not edit the fixture files by hand. healthCases lists the SYNTHETIC health rows; every file with modified=false is the build's own file, byte for byte.",
+  "buildId": "2026-11-20T05:16:55.936Z",
+  "generatedAt": "2026-11-20T05:16:55.936Z",
+  "tool": "scripts/tools/fixture-refresh.ts",
+  "options": {
+    "riverRows": 1500,
+    "healthCases": true
+  },
+  "river": {
+    "rowsIn": 1086,
+    "rowsOut": 1086
+  },
+  "healthCases": [
+    {
+      "kind": "host-backoff",
+      "id": "chinai",
+      "name": "ChinAI (Jeffrey Ding)"
+    },
+    {
+      "kind": "failing",
+      "id": "concordia-ai-safety-china",
+      "name": "AI Safety in China"
+    },
+    {
+      "kind": "quarantined",
+      "id": "clouded-judgement",
+      "name": "Clouded Judgement"
+    }
+  ],
+  "totalBytes": 678112,
+  "files": {
+    "front.json": {
+      "bytes": 146614,
+      "gzipBytes": 44976,
+      "sha256": "b318f70d04fd01ad541d9085f83799567646df66cc4094269d463af54ef7d3e7",
+      "sourceSha256": "9c911f3221538cacd14da78611a3f2e6e224e9117cb4786fea5da5319e02ffd8",
+      "modified": true
+    },
+    "rest.json": {
+      "bytes": 106422,
+      "gzipBytes": 36398,
+      "sha256": "dc44ddfce49b4b7e9227a4a6ee5fc17cba602ed192c7220feebaf6348e2ea450",
+      "sourceSha256": "dc44ddfce49b4b7e9227a4a6ee5fc17cba602ed192c7220feebaf6348e2ea450",
+      "modified": false
+    },
+    "river.json": {
+      "bytes": 243885,
+      "gzipBytes": 90234,
+      "sha256": "4ab0a2795b499c4da8dbe423972b0e0e16054de299b1d38ed735f1969a44676f",
+      "sourceSha256": "4ab0a2795b499c4da8dbe423972b0e0e16054de299b1d38ed735f1969a44676f",
+      "modified": false
+    },
+    "health.json": {
+      "bytes": 47580,
+      "gzipBytes": 4659,
+      "sha256": "5a29c983e7821b1c174eb570909828e59d458a5972a653c2d3e4da7c33d1bcf2",
+      "sourceSha256": "10240ffad028a1c280646625cc3c8345719f79548743b5cdec941a51961cf0a5",
+      "modified": true
+    },
+    "sources.json": {
+      "bytes": 130297,
+      "gzipBytes": 21167,
+      "sha256": "f6c5823b0bc583d4da937f89110a47a04e94635a65e9f7edd0fe0bb9a6c72b4d",
+      "sourceSha256": "f6c5823b0bc583d4da937f89110a47a04e94635a65e9f7edd0fe0bb9a6c72b4d",
+      "modified": false
+    },
+    "status.json": {
+      "bytes": 776,
+      "gzipBytes": 470,
+      "sha256": "acd2107bf5252480425f2acc98b2fa84ef0a8b886ca79d9eb7d48c60124c24b5",
+      "sourceSha256": "4b0761e7296f8538d7d6920dea326b87c20ee3eac59e1ea7a0bcbf299c106897",
+      "modified": true
+    },
+    "brief.json": {
+      "bytes": 1386,
+      "gzipBytes": 596,
+      "sha256": "81497b3024f5b7294ca5ec3d4fb87a7f6dceacbff487a76902ef30d623e5c3ae",
+      "sourceSha256": "81497b3024f5b7294ca5ec3d4fb87a7f6dceacbff487a76902ef30d623e5c3ae",
+      "modified": false
+    },
+    "stocks.json": {
+      "bytes": 1152,
+      "gzipBytes": 338,
+      "sha256": "6aaf6093f703238ca88c757ec3537035b1208267636019b47bed4e82a01d4aba",
+      "sourceSha256": "6aaf6093f703238ca88c757ec3537035b1208267636019b47bed4e82a01d4aba",
+      "modified": false
+    }
+  }
+}

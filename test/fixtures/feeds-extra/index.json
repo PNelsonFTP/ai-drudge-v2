@@ -1,0 +1,38 @@
+[
+ {
+  "file": "atom-sakana-relative-links.xml",
+  "url": "https://sakana.ai/feed.xml",
+  "format": "atom",
+  "itemCount": 4,
+  "notes": "Jekyll Atom with RELATIVE entry links (/jfinbench/) and a relative xml:base on <content>; V1 published the relative links. First 4 of 10 entries, content truncated.",
+  "bytes": 10017,
+  "capturedAt": "2026-11-19"
+ },
+ {
+  "file": "rss2-scottaaronson-query-permalinks.xml",
+  "url": "https://scottaaronson.blog/?feed=rss2",
+  "format": "rss",
+  "itemCount": 4,
+  "notes": "WordPress ?p=<id> permalinks (identity-bearing query). First 4 of 10 items, content truncated.",
+  "bytes": 8267,
+  "capturedAt": "2026-11-19"
+ },
+ {
+  "file": "github-releases-vllm-rc-tags.atom",
+  "url": "https://github.com/vllm-project/vllm/releases.atom",
+  "format": "atom",
+  "itemCount": 10,
+  "notes": "Release feed with rc tags and commit-subject titles next to the stable release. All 10 entries, content truncated to ~500 chars.",
+  "bytes": 6768,
+  "capturedAt": "2026-11-19"
+ },
+ {
+  "file": "rss2-bair-style-block.xml",
+  "url": "https://bair.berkeley.edu/blog/feed.xml",
+  "format": "rss",
+  "itemCount": 2,
+  "notes": "Description starts with a ~6 kB escaped <style> block; http:// links. First 2 of 10 items, description truncated to 9 kB.",
+  "bytes": 19110,
+  "capturedAt": "2026-11-19"
+ }
+]

@@ -1,0 +1,718 @@
+<!doctype html>
+<html><head></head><body>
+<!-- fixture: page chrome before the advisory list removed -->
+<include-fragment data-nonce="v2:11a576e8-c7ff-78ba-aebf-09a57480cab8" data-view-component="true">
+<span data-view-component="true">
+<span class="sr-only">Loading</span>
+</span>
+<div data-show-on-forbidden-error hidden>
+<div class="Box">
+<div class="blankslate-container">
+<div data-view-component="true" class="blankslate blankslate-spacious color-bg-default rounded-2">
+<h3 data-view-component="true" class="blankslate-heading"> Uh oh!
+</h3>
+<p data-view-component="true" class="blankslate-description"> <p class="color-fg-muted my-2 mb-2 ws-normal">There was an error while loading. <a class="Link--inTextBlock" data-turbo="false" href="" aria-label="Please reload this page">Please reload this page</a>.</p>
+</p>
+</div> </div>
+</div> </div>
+</include-fragment> </details-menu>
+</details>
+</div>
+<div>
+<button type="button" class="tmp-ml-3 d-none d-md-block btn-link color-fg-muted no-underline select-menu-button" aria-haspopup="menu" data-toggle-for="advisories-sort-filter">
+Sort
+</button>
+<details class="details-reset details-overlay select-menu hx_rsm flex-shrink-0 position-relative" id="advisories-sort-filter">
+<summary tabindex="-1" aria-label="Sort" class="d-none"></summary>
+<details-menu class="select-menu-modal position-absolute right-0">
+<div class="select-menu-header">
+<span class="select-menu-title">Sort by</span>
+<button data-toggle-for="advisories-sort-filter" aria-label="Close menu" type="button" data-view-component="true" class="close-button hx_rsm-close-button btn-link"></button>
+</div>
+<div class="select-menu-list" data-pjax>
+<a href="/advisories?query=ollama+OR+vllm+OR+litellm+OR+%22llama.cpp%22+OR+%22open+webui%22+OR+%22model+context+protocol%22" aria-checked="true" class="select-menu-item" role="menuitemradio" aria-label="Sort by - Newest">
+<div class="select-menu-item-text">Newest</div>
+</a>
+<a href="/advisories?query=ollama+OR+vllm+OR+litellm+OR+%22llama.cpp%22+OR+%22open+webui%22+OR+%22model+context+protocol%22+sort%3Apublished-asc" aria-checked="false" class="select-menu-item" role="menuitemradio" aria-label="Sort by - Oldest">
+<div class="select-menu-item-text">Oldest</div>
+</a>
+<a href="/advisories?query=ollama+OR+vllm+OR+litellm+OR+%22llama.cpp%22+OR+%22open+webui%22+OR+%22model+context+protocol%22+sort%3Aupdated-desc" aria-checked="false" class="select-menu-item" role="menuitemradio" aria-label="Sort by - Recently updated">
+<div class="select-menu-item-text">Recently updated</div>
+</a>
+<a href="/advisories?query=ollama+OR+vllm+OR+litellm+OR+%22llama.cpp%22+OR+%22open+webui%22+OR+%22model+context+protocol%22+sort%3Aupdated-asc" aria-checked="false" class="select-menu-item" role="menuitemradio" aria-label="Sort by - Least recently updated">
+<div class="select-menu-item-text">Least recently updated</div>
+</a>
+</div>
+</details-menu>
+</details>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-9f95-xfwr-j77p" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM before 0.33.0 contains a path traversal vulnerability that allows malicious model publishers...
+</a>
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning v-align-middle">
+Moderate
+</span>
+<span id="label-08700b" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-130684
+</span>
+was published
+<relative-time datetime="2026-11-18T12:31:28Z" class="no-wrap">Nov 18, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-rqcj-6434-qfch" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM from 0.6.0 before 0.33.0 lacks a request-wide media budget, allowing remote inference...
+</a>
+<span title="Severity: high" data-view-component="true" class="Label Label--orange v-align-middle">
+High
+</span>
+<span id="label-b68b4d" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-130686
+</span>
+was published
+<relative-time datetime="2026-11-18T12:31:28Z" class="no-wrap">Nov 18, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-cf32-wrp7-cjrw" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM from 0.28.0 before 0.33.0 contains an improper input validation vulnerability that allows...
+</a>
+<span title="Severity: high" data-view-component="true" class="Label Label--orange v-align-middle">
+High
+</span>
+<span id="label-fe59bf" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-130685
+</span>
+was published
+<relative-time datetime="2026-11-18T12:31:28Z" class="no-wrap">Nov 18, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-mgp8-8cpj-8cjj" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+llama.cpp MTMD Multimodal GGUF File Parsing Integer Overflow Remote Code Execution Vulnerability....
+</a>
+<span title="Severity: high" data-view-component="true" class="Label Label--orange v-align-middle">
+High
+</span>
+<span id="label-7b4715" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-126976
+</span>
+was published
+<relative-time datetime="2026-11-18T00:33:25Z" class="no-wrap">Nov 18, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-6q2w-jx57-7qrg" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+llama.cpp GGUF File Parsing Heap-based Buffer Overflow Remote Code Execution Vulnerability. This...
+</a>
+<span title="Severity: high" data-view-component="true" class="Label Label--orange v-align-middle">
+High
+</span>
+<span id="label-386cef" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-126975
+</span>
+was published
+<relative-time datetime="2026-11-18T00:33:25Z" class="no-wrap">Nov 18, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-935v-h6wh-q726" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+llama.cpp GGUF File Parsing Integer Overflow Remote Code Execution Vulnerability. This...
+</a>
+<span title="Severity: high" data-view-component="true" class="Label Label--orange v-align-middle">
+High
+</span>
+<span id="label-9915c7" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-126974
+</span>
+was published
+<relative-time datetime="2026-11-18T00:33:25Z" class="no-wrap">Nov 18, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-g35j-5g93-mgff" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+AdminNeo before 5.9.1 contains a missing authentication vulnerability in the ClaudeSqlPlugin,...
+</a>
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning v-align-middle">
+Moderate
+</span>
+<span id="label-f3b53b" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-130358
+</span>
+was published
+<relative-time datetime="2026-11-17T03:31:43Z" class="no-wrap">Nov 17, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-8vf2-hxg5-crqh" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+Kubeshark: MCP `start_kubeshark` argument injection via `pod_regex` → image redirect → cluster takeover
+</a>
+<span title="Severity: high" data-view-component="true" class="Label Label--orange v-align-middle">
+High
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-129236
+</span>
+was published
+for
+<span>
+github.com/kubeshark/kubeshark
+</span>
+(Go)
+<relative-time datetime="2026-11-16T22:17:32Z" class="no-wrap">Nov 16, 2026</relative-time>
+</div>
+</div>
+</div>
+<div data-view-component="true" class="AvatarStack tmp-mx-3 tmp-mt-3 AvatarStack--right">
+<div data-view-component="true" class="AvatarStack-body">
+<span data-view-component="true" class="position-relative"><a id="avatar-46aa19ec-7689-4b41-b7b8-fc5d5663e173" href="/advisories?query=credit%3Anovice-22" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/120405029?s=60&amp;v=4" alt="novice-22" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-b30c1a9f-04c3-4371-873c-ab138bb126a0" for="avatar-46aa19ec-7689-4b41-b7b8-fc5d5663e173" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">Credited to novice-22</tool-tip></span>
+</div></div> </div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-w553-pwx6-3mg9" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+lightsaml allows Signature wrapping bypass
+</a>
+<span title="Severity: high" data-view-component="true" class="Label Label--orange v-align-middle">
+High
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-63182
+</span>
+was published
+for
+<span>
+litesaml/lightsaml
+</span>
+(Composer)
+<relative-time datetime="2026-11-16T22:08:38Z" class="no-wrap">Nov 16, 2026</relative-time>
+</div>
+</div>
+</div>
+<div data-view-component="true" class="AvatarStack tmp-mx-3 tmp-mt-3 AvatarStack--right AvatarStack--two">
+<div data-view-component="true" class="AvatarStack-body">
+<span data-view-component="true" class="position-relative"><a id="avatar-7b7bfebc-7c17-4c7f-8bf3-9ba42dec9e6a" href="/advisories?query=credit%3Aericchiang" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/2342749?s=60&amp;v=4" alt="ericchiang" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-3828e469-606d-488b-80c3-d040497a33e7" for="avatar-7b7bfebc-7c17-4c7f-8bf3-9ba42dec9e6a" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">Credited to ericchiang and jfarthing84</tool-tip></span>
+<span data-view-component="true" class="position-relative"><a id="avatar-464a7849-29d3-4ce4-9ba5-1667074c7aee" href="/advisories?query=credit%3Ajfarthing84" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/1168843?s=60&amp;v=4" alt="jfarthing84" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-763922b3-2550-4b51-8f67-9d1ee57e7b2e" for="avatar-464a7849-29d3-4ce4-9ba5-1667074c7aee" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">jfarthing84</tool-tip></span>
+</div></div> </div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-fj8v-85jv-jwpv" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+A vulnerability was found in vllm-project vllm 0.30.0/0.31.0. This vulnerability affects unknown...
+</a>
+<span title="Severity: low" data-view-component="true" class="Label Label--primary v-align-middle">
+Low
+</span>
+<span id="label-849d2b" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-129356
+</span>
+was published
+<relative-time datetime="2026-11-15T03:30:43Z" class="no-wrap">Nov 15, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-gm8j-8578-p8q4" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM from 0.19.0 before 0.31.0 contains a resource exhaustion vulnerability that allows inference...
+</a>
+<span title="Severity: high" data-view-component="true" class="Label Label--orange v-align-middle">
+High
+</span>
+<span id="label-fa426c" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-126399
+</span>
+was published
+<relative-time datetime="2026-11-13T12:31:22Z" class="no-wrap">Nov 13, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-h8w4-vgpr-474w" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM from 0.10.1 before 0.31.0 forwards a request-controlled mm_processor_kwargs.max_patches...
+</a>
+<span title="Severity: high" data-view-component="true" class="Label Label--orange v-align-middle">
+High
+</span>
+<span id="label-644b2a" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-126397
+</span>
+was published
+<relative-time datetime="2026-11-13T12:31:21Z" class="no-wrap">Nov 13, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-8hqr-48h6-r93j" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM from 0.14.0rc1 before 0.31.0 contains an information disclosure vulnerability in...
+</a>
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning v-align-middle">
+Moderate
+</span>
+<span id="label-a1a43a" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-126395
+</span>
+was published
+<relative-time datetime="2026-11-13T12:31:21Z" class="no-wrap">Nov 13, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-cj94-896r-fxx6" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM 0.30.0 before 0.31.0 contains a resource exhaustion vulnerability in...
+</a>
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning v-align-middle">
+Moderate
+</span>
+<span id="label-df5b64" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-126394
+</span>
+was published
+<relative-time datetime="2026-11-13T12:31:21Z" class="no-wrap">Nov 13, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-pjrq-r86m-9r53" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM from 0.28.0 before 0.30.0 contains a reachable assertion vulnerability in GPUModelRunner...
+</a>
+<span title="Severity: high" data-view-component="true" class="Label Label--orange v-align-middle">
+High
+</span>
+<span id="label-7a055d" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-126398
+</span>
+was published
+<relative-time datetime="2026-11-13T12:31:21Z" class="no-wrap">Nov 13, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-292g-3f4p-4ffc" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM from 0.24.0 before 0.31.0 contains a resource exhaustion vulnerability in the MiniMax M3 VL...
+</a>
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning v-align-middle">
+Moderate
+</span>
+<span id="label-0d6c2f" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-126396
+</span>
+was published
+<relative-time datetime="2026-11-13T12:31:21Z" class="no-wrap">Nov 13, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-rr32-94xq-hrxw" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+llama.cpp b2877 before b11935 contains an uncaught exception vulnerability in the ggml-rpc server...
+</a>
+<span title="Severity: high" data-view-component="true" class="Label Label--orange v-align-middle">
+High
+</span>
+<span id="label-caf574" data-view-component="true" class="IssueLabel hx_IssueLabel ml-1 tmp-ml-1 v-align-middle">
+Unreviewed
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-119052
+</span>
+was published
+<relative-time datetime="2026-10-29T15:30:53Z" class="no-wrap">Oct 29, 2026</relative-time>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-vvpg-rrww-wpmh" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM: Permissive default CORS origins allow cross-origin requests to the vLLM HTTP server
+</a>
+<span title="Severity: low" data-view-component="true" class="Label Label--primary v-align-middle">
+Low
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-115917
+</span>
+was published
+for
+<span>
+vllm
+</span>
+(pip)
+<relative-time datetime="2026-10-28T21:15:49Z" class="no-wrap">Oct 28, 2026</relative-time>
+</div>
+</div>
+</div>
+<div data-view-component="true" class="AvatarStack tmp-mx-3 tmp-mt-3 AvatarStack--right AvatarStack--two">
+<div data-view-component="true" class="AvatarStack-body">
+<span data-view-component="true" class="position-relative"><a id="avatar-42a46fef-6058-4c6d-b58d-6b5c2181216b" href="/advisories?query=credit%3Aprnjlksingh" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/174644555?s=60&amp;v=4" alt="prnjlksingh" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-25b47f0c-395c-4f12-9f25-b44e827576cf" for="avatar-42a46fef-6058-4c6d-b58d-6b5c2181216b" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">Credited to prnjlksingh and jperezdealgaba</tool-tip></span>
+<span data-view-component="true" class="position-relative"><a id="avatar-857f836b-dfcd-48a5-8b8e-a8a10cb6cc21" href="/advisories?query=credit%3Ajperezdealgaba" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/124347725?s=60&amp;v=4" alt="jperezdealgaba" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-2100f4f3-989d-476d-95dd-73d894b24e3c" for="avatar-857f836b-dfcd-48a5-8b8e-a8a10cb6cc21" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">jperezdealgaba</tool-tip></span>
+</div></div> </div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-8397-8qf6-f2gm" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM: Phi-4 multimodal audio encoder materializes and retains full attention matrices: a single max-length audio OOM-crashes the vLLM engine
+</a>
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning v-align-middle">
+Moderate
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-115913
+</span>
+was published
+for
+<span>
+vllm
+</span>
+(pip)
+<relative-time datetime="2026-10-28T21:15:41Z" class="no-wrap">Oct 28, 2026</relative-time>
+</div>
+</div>
+</div>
+<div data-view-component="true" class="AvatarStack tmp-mx-3 tmp-mt-3 AvatarStack--right AvatarStack--two">
+<div data-view-component="true" class="AvatarStack-body">
+<span data-view-component="true" class="position-relative"><a id="avatar-1c81dac0-0a6d-4f7e-8637-bf99d780eafb" href="/advisories?query=credit%3AC1ves" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/183331986?s=60&amp;v=4" alt="C1ves" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-c8fa145a-0385-4892-9637-5b0240c95f67" for="avatar-1c81dac0-0a6d-4f7e-8637-bf99d780eafb" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">Credited to C1ves and jperezdealgaba</tool-tip></span>
+<span data-view-component="true" class="position-relative"><a id="avatar-1d04a18b-ca9b-4685-b048-d3caeb872324" href="/advisories?query=credit%3Ajperezdealgaba" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/124347725?s=60&amp;v=4" alt="jperezdealgaba" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-5c973cb4-5f44-4c4c-b894-d8a6ff58ec77" for="avatar-1d04a18b-ca9b-4685-b048-d3caeb872324" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">jperezdealgaba</tool-tip></span>
+</div></div> </div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-gq5q-89c7-vhvx" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM DeepSeek-OCR image processing vulnerable to denial of service
+</a>
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning v-align-middle">
+Moderate
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-115914
+</span>
+was published
+for
+<span>
+vllm
+</span>
+(pip)
+<relative-time datetime="2026-10-28T21:15:35Z" class="no-wrap">Oct 28, 2026</relative-time>
+</div>
+</div>
+</div>
+<div data-view-component="true" class="AvatarStack tmp-mx-3 tmp-mt-3 AvatarStack--right AvatarStack--three-plus">
+<div data-view-component="true" class="AvatarStack-body">
+<span data-view-component="true" class="position-relative"><a id="avatar-f26b2b6a-54ee-49bd-81c2-841af32cd994" href="/advisories?query=credit%3AC1ves" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/183331986?s=60&amp;v=4" alt="C1ves" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-f8946693-ea2e-4610-9284-0859164e46ff" for="avatar-f26b2b6a-54ee-49bd-81c2-841af32cd994" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">Credited to C1ves, jperezdealgaba, and JSGforever</tool-tip></span>
+<span data-view-component="true" class="position-relative"><a id="avatar-f2f383ca-18e5-463c-93cb-721de263c551" href="/advisories?query=credit%3Ajperezdealgaba" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/124347725?s=60&amp;v=4" alt="jperezdealgaba" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-74a095a9-2095-4ee1-ae50-6b814dc10628" for="avatar-f2f383ca-18e5-463c-93cb-721de263c551" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">jperezdealgaba</tool-tip></span>
+<div class="avatar avatar-more"></div>
+<span data-view-component="true" class="position-relative"><a id="avatar-da51e4d9-fb6a-4f42-9075-8a3833d09060" href="/advisories?query=credit%3AJSGforever" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/85541948?s=60&amp;v=4" alt="JSGforever" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-ff2cbdfb-01c6-4ddf-9aea-ae0c1ad2da4c" for="avatar-da51e4d9-fb6a-4f42-9075-8a3833d09060" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">JSGforever</tool-tip></span>
+</div></div> </div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-h3rc-j82p-2c3h" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM: Untrusted EPS inputs can trigger denial of service or Ghostscript RCE
+</a>
+<span title="Severity: high" data-view-component="true" class="Label Label--orange v-align-middle">
+High
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-115915
+</span>
+was published
+for
+<span>
+vllm
+</span>
+(pip)
+<relative-time datetime="2026-10-28T21:15:29Z" class="no-wrap">Oct 28, 2026</relative-time>
+</div>
+</div>
+</div>
+<div data-view-component="true" class="AvatarStack tmp-mx-3 tmp-mt-3 AvatarStack--right AvatarStack--two">
+<div data-view-component="true" class="AvatarStack-body">
+<span data-view-component="true" class="position-relative"><a id="avatar-1a2c900e-e058-49e6-af99-df2bfed63656" href="/advisories?query=credit%3ALittlehamsterXu" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/295553624?s=60&amp;v=4" alt="LittlehamsterXu" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-4d428d14-d25e-4def-811c-7cc6a307c599" for="avatar-1a2c900e-e058-49e6-af99-df2bfed63656" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">Credited to LittlehamsterXu and jperezdealgaba</tool-tip></span>
+<span data-view-component="true" class="position-relative"><a id="avatar-2e1d415f-f229-43fe-9bee-039a6c6c02a2" href="/advisories?query=credit%3Ajperezdealgaba" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/124347725?s=60&amp;v=4" alt="jperezdealgaba" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-f218e0ea-e798-4b9d-92ea-a772f24e6efc" for="avatar-2e1d415f-f229-43fe-9bee-039a6c6c02a2" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">jperezdealgaba</tool-tip></span>
+</div></div> </div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-6757-hggm-hp2w" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM: Public multimodal SHM handle forgery reaches worker-side `pickle.loads()` with insecure serialization disabled
+</a>
+<span title="Severity: high" data-view-component="true" class="Label Label--orange v-align-middle">
+High
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-115912
+</span>
+was published
+for
+<span>
+vllm
+</span>
+(pip)
+<relative-time datetime="2026-10-28T21:15:15Z" class="no-wrap">Oct 28, 2026</relative-time>
+</div>
+</div>
+</div>
+<div data-view-component="true" class="AvatarStack tmp-mx-3 tmp-mt-3 AvatarStack--right AvatarStack--three-plus">
+<div data-view-component="true" class="AvatarStack-body">
+<span data-view-component="true" class="position-relative"><a id="avatar-9a2876bd-5583-4702-9a23-5a2ad768a31b" href="/advisories?query=credit%3AKernelClint" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/1033162?s=60&amp;v=4" alt="KernelClint" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-ae2aed82-8528-4e69-b3ef-2eafb98e3697" for="avatar-9a2876bd-5583-4702-9a23-5a2ad768a31b" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">Credited to KernelClint, DarkLight1337, and jperezdealgaba</tool-tip></span>
+<span data-view-component="true" class="position-relative"><a id="avatar-a93c754c-400b-481e-bb69-4cebbafa31f9" href="/advisories?query=credit%3ADarkLight1337" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/44970335?s=60&amp;v=4" alt="DarkLight1337" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-c2c2951d-4f84-4aea-950f-4e4209c2b993" for="avatar-a93c754c-400b-481e-bb69-4cebbafa31f9" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">DarkLight1337</tool-tip></span>
+<div class="avatar avatar-more"></div>
+<span data-view-component="true" class="position-relative"><a id="avatar-96453d12-f5f7-4ae3-8ad8-d4cf2a420e10" href="/advisories?query=credit%3Ajperezdealgaba" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/124347725?s=60&amp;v=4" alt="jperezdealgaba" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-e099c3f4-921c-491a-8f23-cf06767cb62c" for="avatar-96453d12-f5f7-4ae3-8ad8-d4cf2a420e10" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">jperezdealgaba</tool-tip></span>
+</div></div> </div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-q97c-p368-75c4" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM: Out-of-vocabulary prompt token id passes input validation and triggers a CUDA device-side assert (engine crash / DoS)
+</a>
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning v-align-middle">
+Moderate
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-115916
+</span>
+was published
+for
+<span>
+vllm
+</span>
+(pip)
+<relative-time datetime="2026-10-28T21:15:08Z" class="no-wrap">Oct 28, 2026</relative-time>
+</div>
+</div>
+</div>
+<div data-view-component="true" class="AvatarStack tmp-mx-3 tmp-mt-3 AvatarStack--right AvatarStack--two">
+<div data-view-component="true" class="AvatarStack-body">
+<span data-view-component="true" class="position-relative"><a id="avatar-3c398b39-30f2-421c-b5ff-4303eefcca9c" href="/advisories?query=credit%3Ashijie-lyu" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/115741859?s=60&amp;v=4" alt="shijie-lyu" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-6d33874b-942a-47ca-a95e-80e179e74f80" for="avatar-3c398b39-30f2-421c-b5ff-4303eefcca9c" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">Credited to shijie-lyu and jperezdealgaba</tool-tip></span>
+<span data-view-component="true" class="position-relative"><a id="avatar-1d83a42e-0edf-4612-9db4-18cd97fb167e" href="/advisories?query=credit%3Ajperezdealgaba" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/124347725?s=60&amp;v=4" alt="jperezdealgaba" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-e9fa73a9-bf7f-41ab-a8fa-f775c8430816" for="avatar-1d83a42e-0edf-4612-9db4-18cd97fb167e" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">jperezdealgaba</tool-tip></span>
+</div></div> </div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-x567-49g5-p4cf" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM: Responses API bypasses trust_request_chat_template for chat_template_kwargs
+</a>
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning v-align-middle">
+Moderate
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-115918
+</span>
+was published
+for
+<span>
+vllm
+</span>
+(pip)
+<relative-time datetime="2026-10-28T21:14:59Z" class="no-wrap">Oct 28, 2026</relative-time>
+</div>
+</div>
+</div>
+<div data-view-component="true" class="AvatarStack tmp-mx-3 tmp-mt-3 AvatarStack--right AvatarStack--two">
+<div data-view-component="true" class="AvatarStack-body">
+<span data-view-component="true" class="position-relative"><a id="avatar-4655c605-2935-4797-a81e-728d96ed3f00" href="/advisories?query=credit%3Arexpository" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/30176934?s=60&amp;v=4" alt="rexpository" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-fc3403d5-362e-42e3-950a-460269c1b6bb" for="avatar-4655c605-2935-4797-a81e-728d96ed3f00" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">Credited to rexpository and jperezdealgaba</tool-tip></span>
+<span data-view-component="true" class="position-relative"><a id="avatar-c02fa63a-bf5d-4253-b786-4ecc7a301faf" href="/advisories?query=credit%3Ajperezdealgaba" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/124347725?s=60&amp;v=4" alt="jperezdealgaba" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-88ab4779-1731-43b1-b593-3886862c869b" for="avatar-c02fa63a-bf5d-4253-b786-4ecc7a301faf" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">jperezdealgaba</tool-tip></span>
+</div></div> </div>
+</div>
+<div class="Box-row Box-row--focus-gray p-0 js-navigation-item" >
+<div class="d-flex position-relative">
+<div class="d-flex flex-auto flex-column tmp-p-3">
+<div class="lh-condensed flex-auto">
+<a href="/advisories/GHSA-542m-9234-8gvf" class="Link--primary v-align-middle no-underline h4 js-navigation-open" data-pjax>
+vLLM: DoS via unbounded chat_template Jinja2 rendering exhausts the renderer thread pool
+</a>
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning v-align-middle">
+Moderate
+</span>
+<div class="mt-1 text-small color-fg-muted">
+<span class="text-bold">
+CVE-2026-115911
+</span>
+was published
+for
+<span>
+vllm
+</span>
+(pip)
+<relative-time datetime="2026-10-28T21:14:52Z" class="no-wrap">Oct 28, 2026</relative-time>
+</div>
+</div>
+</div>
+<div data-view-component="true" class="AvatarStack tmp-mx-3 tmp-mt-3 AvatarStack--right AvatarStack--two">
+<div data-view-component="true" class="AvatarStack-body">
+<span data-view-component="true" class="position-relative"><a id="avatar-c456ba95-da6d-418d-bc8e-61e5eda83b51" href="/advisories?query=credit%3Aoran-s" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/252446027?s=60&amp;v=4" alt="oran-s" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-7253c9e2-9509-482d-b721-af132ef6ba89" for="avatar-c456ba95-da6d-418d-bc8e-61e5eda83b51" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">Credited to oran-s and jperezdealgaba</tool-tip></span>
+<span data-view-component="true" class="position-relative"><a id="avatar-b015614d-5e44-46a7-a675-98172e3302df" href="/advisories?query=credit%3Ajperezdealgaba" data-view-component="true" class="avatar avatar-small circle lh-0 Link"><img data-octo-click="global_advisory_credit_avatar" data-octo-dimensions="click_on_self:false" src="https://avatars.githubusercontent.com/u/124347725?s=60&amp;v=4" alt="jperezdealgaba" size="20" height="20" width="20" data-view-component="true" /></a> <tool-tip id="tooltip-88d37272-4e31-4ab6-adb0-2ae226cddef0" for="avatar-b015614d-5e44-46a7-a675-98172e3302df" popover="manual" data-direction="s" data-type="description" data-view-component="true" class="sr-only position-absolute">jperezdealgaba</tool-tip></span>
+</div></div> </div>
+</div>
+</div>
+<div class="paginate-container">
+<div class="d-block d-md-none">
+<div role="navigation" aria-label="Pagination" class="pagination" data-pjax="true"><span class="previous_page disabled" role="link" aria-label="Previous page" aria-disabled="true">Previous</span><a class="current d-inline-block" aria-label="Page 1" aria-current="page" data-total-pages="24" href="/advisories?page=1&amp;query=ollama+OR+vllm+OR+litellm+OR+%22llama.cpp%22+OR+%22open+webui%22+OR+%22model+context+protocol%22">1</a><span class="gap d-inline-block">…</span><a aria-label="Page 24" class="d-inline-block" href="/advisories?page=24&amp;query=ollama+OR+vllm+OR+litellm+OR+%22llama.cpp%22+OR+%22open+webui%22+OR+%22model+context+protocol%22">
+<!-- fixture truncated here -->
+</body></html>

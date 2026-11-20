@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:https://github.com/vllm-project/vllm/releases</id>
+  <link type="text/html" rel="alternate" href="https://github.com/vllm-project/vllm/releases"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/vllm-project/vllm/releases.atom"/>
+  <title>Release notes from vllm</title>
+  <updated>2026-11-16T04:27:15Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Repository/599547518/v0.34.0</id>
+    <updated>2026-11-18T21:02:33Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/vllm-project/vllm/releases/tag/v0.34.0"/>
+    <title>v0.34.0</title>
+    <content type="html">&lt;h1&gt;v0.34.0&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;1,061 commits from 412 contributors (120 new).&lt;/strong&gt; Thank you!&lt;/p&gt;
+&lt;h2&gt;TL;DR&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;10 new models&lt;/strong&gt; (Mistral Large 4, MiniMax-M3.1-Flash, Nemotron-3.5-Transcribe, and more!)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Extensible KV cache is on by default:&lt;/strong&gt;</content>
+    <author>
+      <name>khluu</name>
+    </author>
+    </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/599547518/v0.34.0rc4</id>
+    <updated>2026-11-14T10:15:55Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/vllm-project/vllm/releases/tag/v0.34.0rc4"/>
+    <title>v0.34.0rc4</title>
+    <content type="html">&lt;p&gt;[Release][Tests] Give the &lt;a class=&quot;issue-link js-issue-link&quot; data-error-text=&quot;Failed to load title&quot; data-id=&quot;6357025853&quot; data-permission-text=&quot;Title is private&quot; data-url=&quot;https://github.com/vllm-project/vllm/issues/67296&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/vllm-project/vllm/pull/67296/hovercard&quot; href=&quot;https://github.com/vllm-project/vllm/pull/67296&quot;&gt;#67296&lt;/a&gt;</content>
+    <author>
+      <name>khluu</name>
+    </author>
+    </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/599547518/v0.34.0rc3</id>
+    <updated>2026-11-13T22:52:29Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/vllm-project/vllm/releases/tag/v0.34.0rc3"/>
+    <title>v0.34.0rc3</title>
+    <content type="html">&lt;p&gt;[KVConnector] Allocate the extensible KV cache exportable for EXPORTS…&lt;/p&gt;</content>
+    <author>
+      <name>ApostaC</name>
+    </author>
+    </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/599547518/v0.34.0rc2</id>
+    <updated>2026-11-12T06:21:02Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/vllm-project/vllm/releases/tag/v0.34.0rc2"/>
+    <title>v0.34.0rc2</title>
+    <content type="html">&lt;p&gt;[Doc][Tests] Stop setting &lt;code&gt;gpu_memory_utilization&lt;/code&gt; in most extensible…&lt;/p&gt;</content>
+    <author>
+      <name>njhill</name>
+    </author>
+    </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/599547518/v0.34.0rc1</id>
+    <updated>2026-11-11T19:37:13Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/vllm-project/vllm/releases/tag/v0.34.0rc1"/>
+    <title>v0.34.0rc1</title>
+    <content type="html">&lt;p&gt;[Bugfix][Spec Decode][XPU] greedy_argmax: treat NaN as -inf on the to…&lt;/p&gt;</content>
+    <author>
+      <name>taneem-ibrahim</name>
+    </author>
+    </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/599547518/v0.34.0rc0</id>
+    <updated>2026-11-08T18:38:57Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/vllm-project/vllm/releases/tag/v0.34.0rc0"/>
+    <title>v0.34.0rc0: [Transformers backend] Migrate Gemma and StableLM (#66393)</title>
+    <content type="html">&lt;p&gt;Signed-off-by: Harry Mellor &lt;a href=&quot;mailto:19981378+hmellor@users.noreply.github.com&quot;&gt;19981378+hmellor@users.noreply.github.com&lt;/a&gt;&lt;br&gt;
+Co-authored-by: Claude Opus 5.5 &lt;a href=&quot;mailto:noreply@anthropic.com&quot;&gt;noreply@anthropic.com&lt;/a&gt;&lt;/p&gt;</content>
+    <author>
+      <name>hmellor</name>
+    </author>
+    </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/599547518/v0.33.0</id>
+    <updated>2026-11-01T09:21:10Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/vllm-project/vllm/releases/tag/v0.33.0"/>
+    <title>v0.33.0</title>
+    <content type="html">&lt;p&gt;vLLM v0.33.0&lt;/p&gt;</content>
+    <author>
+      <name>khluu</name>
+    </author>
+    </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/599547518/v0.33.0rc3</id>
+    <updated>2026-11-02T10:11:34Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/vllm-project/vllm/releases/tag/v0.33.0rc3"/>
+    <title>v0.33.0</title>
+    <content type="html">&lt;h1&gt;v0.33.0&lt;/h1&gt;
+&lt;h2&gt;Highlights&lt;/h2&gt;
+&lt;p&gt;This release features 927 commits from 389 contributors (122 new)!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;New models&lt;/strong&gt;</content>
+    <author>
+      <name>khluu</name>
+    </author>
+    </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/599547518/v0.33.0rc2</id>
+    <updated>2026-10-30T09:10:43Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/vllm-project/vllm/releases/tag/v0.33.0rc2"/>
+    <title>v0.33.0rc2: [ROCm][Bugfix] Skip AITER tuned GEMM when M*N &gt;= 2^31 on gfx950 (#64567)</title>
+    <content type="html">&lt;p&gt;Signed-off-by: Micah Williamson &lt;a href=&quot;mailto:micah.williamson@amd.com&quot;&gt;micah.williamson@amd.com&lt;/a&gt;&lt;br&gt;
+(cherry picked from commit &lt;a class=&quot;commit-link&quot; data-hovercard-type=&quot;commit&quot; data-hovercard-url=&quot;https://github.com/vllm-project/vllm/commit/6d018934838a0c8c6beed244aa1ca327e1ed7182/hovercard&quot; href=&quot;https://github.com/vllm-project/vllm/commit/6d018934838a0c8c6beed244aa1ca327e1ed7182&quot;&gt;&lt;tt&gt;</content>
+    <author>
+      <name>micah-wil</name>
+    </author>
+    </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/599547518/v0.33.0rc1</id>
+    <updated>2026-10-28T09:31:23Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/vllm-project/vllm/releases/tag/v0.33.0rc1"/>
+    <title>v0.33.0rc1: [CI] Fix stale NVFP4 decode test selector on DGX Spark (#64107)</title>
+    <content type="html">&lt;p&gt;Signed-off-by: grYe99 &lt;a href=&quot;mailto:guorongye99@gmail.com&quot;&gt;guorongye99@gmail.com&lt;/a&gt;&lt;br&gt;
+Co-authored-by: grYe99 &lt;a href=&quot;mailto:guorongye99@gmail.com&quot;&gt;guorongye99@gmail.com&lt;/a&gt;&lt;br&gt;</content>
+    <author>
+      <name>grYe99</name>
+    </author>
+    </entry>
+</feed>

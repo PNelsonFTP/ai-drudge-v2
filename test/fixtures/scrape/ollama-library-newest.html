@@ -1,0 +1,622 @@
+
+<!doctype html>
+<html class="h-full overflow-y-scroll">
+<head></head>
+<body
+class="
+antialiased
+bg-white
+min-h-screen
+w-full
+m-0
+flex
+flex-col
+"
+hx-on:keydown="
+if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+// Ignore key events in input fields.
+return;
+}
+if ((event.metaKey && event.key === 'k') || event.key === '/') {
+const sp = htmx.find('#search') || htmx.find('#form-input') || htmx.find('#filter');
+if (sp) {
+event.preventDefault();
+sp.focus();
+}
+}
+"
+>
+<header class="sticky top-0 z-40 flex h-20 shrink-0 items-center border-b border-transparent bg-white px-5 sm:px-6 lg:px-8 text-black">
+<nav aria-label="Main navigation" class="flex w-full items-center justify-between gap-6 text-lg leading-6 tracking-tight font-normal">
+<div class="flex min-w-0 flex-1 items-center gap-6">
+<a href="/" aria-label="Ollama home" class="-ml-0.5 flex-none"><img src="/public/ollama-nav.png" alt="Ollama logo" width="37" height="43" class="h-auto w-[37px]" /></a>
+</div>
+<div class="hidden items-center gap-7 md:flex">
+<a href="https://github.com/ollama/ollama" class="flex items-center gap-1.5 text-[17px]">
+<span class="sr-only">GitHub</span>
+<span class="tabular-nums">187.7K</span>
+</a>
+<a href="/download" class="underline-offset-4 hover:underline">Download</a>
+<a href="/search" class="underline-offset-4 hover:underline">Models</a>
+<a href="https://docs.ollama.com" class="underline-offset-4 hover:underline">Docs</a>
+<a href="/pricing" class="underline-offset-4 hover:underline">Pricing</a>
+<a href="/signin" class="underline-offset-4 hover:underline">Sign in</a>
+</div>
+<div class="flex items-center md:hidden">
+<input type="checkbox" id="menu" class="peer hidden" />
+<label for="menu" aria-label="Open menu" class="z-50 block cursor-pointer peer-checked:hidden">
+</label>
+<label for="menu" aria-label="Close menu" class="fixed right-5 sm:right-6 lg:right-8 top-[26px] z-50 hidden cursor-pointer peer-checked:block">
+</label>
+<div class="fixed inset-0 z-40 hidden overflow-y-auto bg-white peer-checked:block">
+<div class="flex flex-col space-y-5 px-5 sm:px-6 lg:px-8 pb-8 pt-[5.5rem] text-3xl">
+<a href="/download">Download</a>
+<a href="/search">Models</a>
+<a href="https://docs.ollama.com">Docs</a>
+<a href="/pricing">Pricing</a>
+<a href="/signin">Sign in</a>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<main class="w-full px-5 pb-16 text-ink sm:px-6">
+<form
+class="mx-auto max-w-[44rem] xl:grid xl:max-w-none xl:grid-cols-[minmax(0,1fr)_minmax(0,44rem)_minmax(23.25rem,1fr)] xl:grid-rows-[auto_1fr]"
+hx-get="/search"
+hx-target="#searchresults"
+hx-trigger="submit, keyup changed delay:100ms from:[name=q], search"
+hx-include="[name=q], [name=c], [name=o], [name=s]"
+hx-replace-url="true"
+hx-on:change="
+const size = this.querySelector('[name=s]');
+if (this.querySelector('[value=cloud]:checked')) size.value = '';
+document.getElementById('filters-count').textContent = [...this.querySelectorAll('input[name=c]:checked')].filter(i => i.value).length + (size.value ? 1 : 0) || '';
+"
+>
+<input type="checkbox" id="filters-toggle" class="peer sr-only">
+<div class="flex h-[5.75rem] items-center gap-1.5 xl:col-start-2 xl:row-start-1">
+<h1 class="sr-only">Models</h1>
+<div class="flex h-[3.25rem] min-w-0 flex-1 items-center rounded-full bg-fill pr-1.5 text-muted">
+<label for="form-input" class="flex h-full min-w-0 flex-1 cursor-text items-center gap-3 pl-[1.125rem]">
+<input
+id="form-input"
+name="q"
+type="search"
+value=""
+class="h-full min-w-0 flex-1 border-0 bg-transparent p-0 text-base text-ink placeholder:text-muted focus:outline-hidden focus:ring-0"
+placeholder="Search models"
+aria-label="Search models"
+autofocus
+autocomplete="off"
+spellcheck="false"
+/>
+</label>
+<div id="search-sort-control" class="relative flex-none">
+<label id="search-sort-native" class="relative flex h-10 cursor-pointer items-center gap-1.5 rounded-full px-3.5 text-body font-medium text-secondary">
+<select id="search-sort" hx-get="/search" name="o" aria-label="Sort" class="cursor-pointer appearance-none border-0 bg-transparent bg-none p-0 text-body font-medium text-current">
+<option value="popular" >Popular</option>
+<option value="newest" selected>Newest</option>
+<option value="name" >Name</option>
+<option value="price" >Price</option>
+<option value="context" >Context</option>
+</select>
+</label>
+<button hidden id="search-sort-button" type="button" tabindex="0" aria-label="Sort: Newest" aria-haspopup="menu" aria-expanded="false" aria-controls="search-sort-menu" class="flex h-10 items-center gap-1.5 rounded-full px-3.5 text-body font-medium text-secondary hover:bg-hover hover:text-ink aria-expanded:bg-hover max-sm:px-2.5">
+<span id="search-sort-label" class="hidden sm:inline">Newest</span>
+</button>
+<div hidden id="search-sort-menu" role="menu" aria-label="Sort models" class="absolute right-0 top-full z-50 mt-1 w-44 rounded-2xl border border-line bg-white p-1.5 shadow-lg">
+<button type="button" role="menuitemradio" aria-checked="false" data-value="popular" tabindex="-1" class="group flex min-h-10 w-full items-center justify-between gap-4 rounded-xl px-3 py-2 text-left text-ui text-secondary hover:bg-hover focus:bg-hover">
+<span>Popular</span>
+</button>
+<button type="button" role="menuitemradio" aria-checked="true" data-value="newest" tabindex="-1" class="group flex min-h-10 w-full items-center justify-between gap-4 rounded-xl px-3 py-2 text-left text-ui text-secondary hover:bg-hover focus:bg-hover">
+<span>Newest</span>
+</button>
+<button type="button" role="menuitemradio" aria-checked="false" data-value="name" tabindex="-1" class="group flex min-h-10 w-full items-center justify-between gap-4 rounded-xl px-3 py-2 text-left text-ui text-secondary hover:bg-hover focus:bg-hover">
+<span>Name</span>
+</button>
+<button type="button" role="menuitemradio" aria-checked="false" data-value="price" tabindex="-1" class="group flex min-h-10 w-full items-center justify-between gap-4 rounded-xl px-3 py-2 text-left text-ui text-secondary hover:bg-hover focus:bg-hover">
+<span>Price</span>
+</button>
+<button type="button" role="menuitemradio" aria-checked="false" data-value="context" tabindex="-1" class="group flex min-h-10 w-full items-center justify-between gap-4 rounded-xl px-3 py-2 text-left text-ui text-secondary hover:bg-hover focus:bg-hover">
+<span>Context</span>
+</button>
+</div>
+</div>
+</div>
+<label for="filters-toggle" aria-label="Filters" class="relative grid size-11 flex-none cursor-pointer select-none place-items-center rounded-full hover:bg-hover xl:hidden">
+<span id="filters-count" class="absolute right-0 top-0 grid h-[1.125rem] min-w-[1.125rem] place-items-center rounded-full bg-ink px-1 text-[0.6875rem]"></span>
+</label>
+</div>
+<div class="group mb-6 hidden peer-checked:block xl:sticky xl:top-0 xl:col-start-3 xl:row-span-2 xl:row-start-1 xl:mb-0">
+<h2 class="sr-only">Filters</h2>
+<div class="flex flex-col gap-8">
+<fieldset>
+<legend class="sr-only">Where</legend>
+<div class="group/where relative isolate grid h-10 grid-cols-3">
+<span aria-hidden="true" class="absolute inset-y-0 left-0 -z-10 w-1/3 rounded-full border border-black/25 bg-white transition-transform duration-300"></span>
+<label class="flex cursor-pointer items-center justify-center gap-1.5 rounded-full text-body font-semibold text-muted">
+<input hx-get="/search" type="radio" name="c" value="" checked class="sr-only">Any</label>
+<label class="flex cursor-pointer items-center justify-center gap-1.5 rounded-full text-body font-semibold text-muted">
+<input hx-get="/search" type="radio" name="c" value="local" class="sr-only">Local</label>
+<label class="flex cursor-pointer items-center justify-center gap-1.5 rounded-full text-body font-semibold text-muted">
+<input hx-get="/search" type="radio" name="c" value="cloud" class="sr-only">Cloud</label>
+</div>
+</fieldset>
+<fieldset>
+<legend class="mb-3 text-body font-medium">Capabilities</legend>
+<div class="grid grid-cols-2 gap-2">
+<label class="flex h-10 cursor-pointer items-center gap-2.5 rounded-full border-[0.5px] border-outline pl-3.5 pr-4 text-body">
+<input hx-get="/search" type="checkbox" name="c" value="tools" class="sr-only">Tools
+</label>
+<label class="flex h-10 cursor-pointer items-center gap-2.5 rounded-full border-[0.5px] border-outline pl-3.5 pr-4 text-body">
+<input hx-get="/search" type="checkbox" name="c" value="thinking" class="sr-only">Thinking
+</label>
+<label class="flex h-10 cursor-pointer items-center gap-2.5 rounded-full border-[0.5px] border-outline pl-3.5 pr-4 text-body">
+<input hx-get="/search" type="checkbox" name="c" value="vision" class="sr-only">Vision
+</label>
+<label class="flex h-10 cursor-pointer items-center gap-2.5 rounded-full border-[0.5px] border-outline pl-3.5 pr-4 text-body">
+<input hx-get="/search" type="checkbox" name="c" value="embedding" class="sr-only">Embedding
+</label>
+<label class="flex h-10 cursor-pointer items-center gap-2.5 rounded-full border-[0.5px] border-outline pl-3.5 pr-4 text-body">
+<input hx-get="/search" type="checkbox" name="c" value="decision" class="sr-only">Decision
+</label>
+</div>
+</fieldset>
+<fieldset class="group-has-[[value=cloud]:checked]:hidden">
+<legend class="mb-3 text-body font-medium">Download size</legend>
+<select id="search-size" hx-get="/search" name="s" aria-label="Download size" class="h-10 w-full cursor-pointer rounded-full border-[0.5px] border-outline bg-white bg-[position:right_1rem_center] pl-4">
+<option value="" selected>Any size</option>
+<option value="8" >Up to 8 GB</option>
+<option value="16" >Up to 16 GB</option>
+<option value="32" >Up to 32 GB</option>
+<option value="64" >Up to 64 GB</option>
+<option value="over64" >Over 64 GB</option>
+</select>
+</fieldset>
+</div>
+<button type="button" id="filters-done" class="mt-8 h-10 w-full rounded-full bg-ink text-body font-medium text-white xl:hidden" hx-on:click="document.getElementById('filters-toggle').checked = false; document.getElementById('searchresults').scrollIntoView()">Show 20+ models</button>
+</div>
+<div
+id="searchresults"
+class="min-w-0 scroll-mt-24 xl:col-start-2 xl:row-start-2"
+hx-on::after-swap="
+const count = this.querySelector('[data-result-count]');
+const total = Number(count.dataset.resultCount);
+document.getElementById('filters-done').textContent = 'Show ' + total.toLocaleString('en-US') + (count.dataset.hasMore === 'true' ? '+' : '') + (total === 1 ? ' model' : ' models');
+const title = this.querySelector('[data-seo=title]');
+const description = this.querySelector('[data-seo=description]');
+if (title) {
+document.title = title.textContent;
+}
+if (title && description) {
+document.querySelector('meta[property=\'og:title\']').setAttribute('content', title.textContent);
+document.querySelector('meta[property=\'og:description\']').setAttribute('content', description.textContent);
+document.querySelector('meta[property=\'twitter:title\']').setAttribute('content', title.textContent);
+document.querySelector('meta[property=\'twitter:description\']').setAttribute('content', description.textContent);
+document.querySelector('meta[name=\'description\']').setAttribute('content', description.textContent);
+}
+"
+>
+<div hidden data-seo="title">Ollama</div>
+<div hidden data-seo="description">Search for models on Ollama.</div>
+<div hidden data-result-count="20" data-has-more="true"></div>
+<ul role="list" class="overflow-hidden rounded-3xl border-[0.5px] border-line">
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/inkling-2-small" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="inkling-2-small">
+<span >inkling-2-small</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated November 12, 2026">1w</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">tools</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">thinking</span>
+<span class="inline-flex items-center rounded-md bg-cyan-50 px-2 py-0.5 text-xs font-medium text-cyan-500 sm:text-[13px]">cloud</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">594B Mixture-of-Experts model (17B active) with image input and up to 1M tokens of context, built for agentic coding and knowledge work.</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 text-ink sm:mr-1" title="Context window"><span >1M</span></span>
+<span class="font-semibold sm:mr-1" title="Medium usage"><span class="text-ink">$</span><span class="text-ink">$</span><span class="text-neutral-300">$</span><span class="text-neutral-300">$</span></span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/ripple-preview" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="ripple-preview">
+<span >ripple-preview</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated November 9, 2026">1w</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">tools</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">thinking</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">65B dense model built for agentic coding, with up to 1M tokens of context.</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="80,878 downloads"><span >80.9K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >7 tags</span></span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">65b</span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/autotrust-jev" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="autotrust-jev">
+<span >autotrust-jev</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated November 4, 2026">2w</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">decision</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">AutoTrust’s decision models return choices, yes/no probabilities, and ratings for the questions you supply</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="60,922 downloads"><span >60.9K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >11 tags</span></span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">9b</span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">35b</span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/kimi-k3.1-pro" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="kimi-k3.1-pro">
+<span >kimi-k3.1-pro</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated November 4, 2026">2w</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">tools</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">thinking</span>
+<span class="inline-flex items-center rounded-md bg-cyan-50 px-2 py-0.5 text-xs font-medium text-cyan-500 sm:text-[13px]">cloud</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">Kimi K3.1 Pro is an open-weight, natively multimodal agentic model and our most capable 3T-class model to date, with a 1M-token context window and major gains in coding, 3D creation, financial research, and factual accuracy.</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 text-ink sm:mr-1" title="Context window"><span >1M</span></span>
+<span class="font-semibold sm:mr-1" title="Extra High usage"><span class="text-ink">$</span><span class="text-ink">$</span><span class="text-ink">$</span><span class="text-ink">$</span></span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/pplx-decider-flash" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="pplx-decider-flash">
+<span >pplx-decider-flash</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated November 3, 2026">2w</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">decision</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">pplx-decider-flash is a 4B decision model from Perplexity, built on Qwen3.5-4B</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="48,546 downloads"><span >48.5K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >5 tags</span></span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">4b</span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/mimo-v2.6" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="mimo-v2.6">
+<span >mimo-v2.6</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated November 3, 2026">2w</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">tools</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">thinking</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">MiMo-V2.6-Distill-Qwen-9B is Xiaomi MiMo’s 9B model for code and agent workflows</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="126,187 downloads"><span >126.2K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >8 tags</span></span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">9b</span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/lfm3" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="lfm3">
+<span >lfm3</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated October 29, 2026">3w</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">tools</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">thinking</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">LFM3-1.7B is a tri-hybrid model for local agents and specialized applications.</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="106,075 downloads"><span >106.1K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >9 tags</span></span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">1.7b</span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/lfm3-audio" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="lfm3-audio">
+<span >lfm3-audio</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated October 29, 2026">3w</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">tools</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">audio</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">LFM3-Audio-2B is a compact, fully featured audio model.</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="52,338 downloads"><span >52.3K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >8 tags</span></span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">2b</span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/lfm3-omni" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="lfm3-omni">
+<span >lfm3-omni</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated October 29, 2026">3w</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">tools</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">audio</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">a single end-to-end model that understands text, images, video and audio, and answers in text and speech</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="77,870 downloads"><span >77.9K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >8 tags</span></span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">2b</span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/lfm3-vl" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="lfm3-vl">
+<span >lfm3-vl</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated October 29, 2026">3w</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">tools</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">thinking</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">LFM3-VL-2B is a vision-language model for on-device visual understanding.</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="60,858 downloads"><span >60.9K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >9 tags</span></span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">2b</span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/d3" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="d3">
+<span >d3</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated October 30, 2026">2w</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">decision</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">Turn text, structured data, and images into scored choices, yes/no answers, and ratings.</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="113,296 downloads"><span >113.3K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >16 tags</span></span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">2b</span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">4b</span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">9b</span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">27b</span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/phonon" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="phonon">
+<span >phonon</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated October 24, 2026">3w</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">Phonon is Gradium’s text-to-speech family. It turns written text into spoken audio as it generates, making it useful for reading assistant replies, narrating passages, and adding a voice to local apps.</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="160,555 downloads"><span >160.6K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >14 tags</span></span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/minimax-m3.1-flash" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="minimax-m3.1-flash">
+<span >minimax-m3.1-flash</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated October 19, 2026">1mo</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">tools</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">thinking</span>
+<span class="inline-flex items-center rounded-md bg-cyan-50 px-2 py-0.5 text-xs font-medium text-cyan-500 sm:text-[13px]">cloud</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">As a next-generation Flash model, M3.1 Flash delivers a generational leap in agentic tasks, coding, Computer Use and cybersecurity, while making online inference nearly three times faster and reducing usage costs by 70%.</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 text-ink sm:mr-1" title="Context window"><span >976K</span></span>
+<span class="font-semibold sm:mr-1" title="Medium usage"><span class="text-ink">$</span><span class="text-ink">$</span><span class="text-neutral-300">$</span><span class="text-neutral-300">$</span></span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/flint" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="flint">
+<span >flint</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated October 22, 2026">4w</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">tools</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">thinking</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">Flint is a 39.8 billion-parameter mixture-of-experts model from Recursive, built for coding agents.</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="107,668 downloads"><span >107.7K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >7 tags</span></span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">40b</span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/d1-omni" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="d1-omni">
+<span >d1-omni</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated October 27, 2026">3w</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">decision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">audio</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">d1-omni is a multimodal 600M decision model from Liquid AI</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="69,469 downloads"><span >69.5K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >8 tags</span></span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">600m</span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">2b</span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/bonsai-2" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="bonsai-2">
+<span >bonsai-2</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated October 16, 2026">1mo</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">tools</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">thinking</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">Bonsai 2 from Prism ML is a family of vision models built for ternary weights – smaller models with close to full-precision quality.</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="195,821 downloads"><span >195.8K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >9 tags</span></span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">2b</span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">4b</span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">9b</span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">27b</span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/beam" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="beam">
+<span >beam</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated October 16, 2026">1mo</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">tools</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">thinking</span>
+<span class="inline-flex items-center rounded-md bg-cyan-50 px-2 py-0.5 text-xs font-medium text-cyan-500 sm:text-[13px]">cloud</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">Beam is an open model by Reflection designed to deliver strong performance for areas such as agentic tool use, coding and general reasoning with an emphasis on token efficient usage.</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 text-ink sm:mr-1" title="Context window"><span >1M</span></span>
+<span class="font-semibold sm:mr-1" title="Low usage"><span class="text-ink">$</span><span class="text-neutral-300">$</span><span class="text-neutral-300">$</span><span class="text-neutral-300">$</span></span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/muse-spark-open" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="muse-spark-open">
+<span >muse-spark-open</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated October 15, 2026">1mo</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">tools</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">thinking</span>
+<span class="inline-flex items-center rounded-md bg-cyan-50 px-2 py-0.5 text-xs font-medium text-cyan-500 sm:text-[13px]">cloud</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">Muse Spark Open is a natively multimodal model with 816B total parameters (42B active) and a 1M-token context window. Built for coding and agentic work, it excels at long-horizon tasks, complex software engineering, and multi-step reasoning.</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 text-ink sm:mr-1" title="Context window"><span >1M</span></span>
+<span class="font-semibold sm:mr-1" title="High usage"><span class="text-ink">$</span><span class="text-ink">$</span><span class="text-ink">$</span><span class="text-neutral-300">$</span></span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/pplx-decider" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="pplx-decider">
+<span >pplx-decider</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated October 17, 2026">1mo</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">decision</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">pplx-decider is a 27B decision model from Perplexity, fine-tuned from Qwen3.8-27B</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="51,633 downloads"><span >51.6K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >6 tags</span></span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">27b</span>
+</div>
+</a>
+</li>
+<li class="border-t-[0.5px] border-line first:border-t-0">
+<a href="/library/d1" class="group grid grid-cols-1 gap-x-4 px-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] md:px-7">
+<div class="flex min-w-0 items-baseline gap-2.5">
+<h2 class="min-w-0 truncate text-xl font-medium leading-7 tracking-tight underline-offset-4 group-hover:underline" title="d1">
+<span >d1</span>
+</h2>
+<span class="flex-none text-[15px] tabular-nums text-muted" title="Updated October 27, 2026">3w</span>
+</div>
+<div class="order-last mt-3 flex flex-wrap items-center gap-2 text-[13px] leading-5 sm:order-none sm:mt-0 sm:max-w-[20rem] sm:justify-end sm:self-center"><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">vision</span><span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:text-[13px]">decision</span>
+</div>
+<p class="mt-1 line-clamp-2 text-[15px] leading-6 text-black sm:col-span-2">d1 is a 3B decision model from Liquid AI, built on LFM2.5-VL-3B</p>
+<div class="mt-3 flex flex-wrap items-center gap-2 text-sm text-black/60 sm:col-span-2 [&_svg]:size-[15px]">
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1" title="83,688 downloads"><span >83.7K</span></span>
+<span class="inline-flex items-center gap-1.5 tabular-nums text-ink sm:mr-1"><span >7 tags</span></span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">2b</span>
+<span class="inline-flex items-center rounded-md bg-[#ddf4ff] px-2 py-0.5 text-xs font-medium text-blue-600 sm:text-[13px]">3b</span>
+</div>
+</a>
+</li>
+<li
+hx-get="/search?page=2"
+hx-trigger="revealed"
+hx-swap="outerHTML"
+hx-target="this"
+hx-include="[name=c], [name=o], [name=s]"
+hx-replace-url="false"
+></li>
+</ul>
+</div>
+</form>
+</main>
+<footer class="mt-auto underline-offset-4">
+<div class="flex flex-col items-center justify-center px-4 py-4 md:flex-row md:justify-between md:px-6 md:py-3.5 lg:px-gutter">
+<div class="order-2 mt-2 text-sm text-neutral-500 md:order-1 md:mt-0 md:text-xs">&copy; 2026 Ollama</div>
+<ul data-footer-links class="order-1 flex flex-wrap items-center justify-center text-sm text-neutral-500 md:order-2 md:gap-x-6 md:text-xs">
+<li class="mx-2 my-1 md:mx-0 md:my-0">
+<a href="/blog" class="hover:underline">Blog</a>
+</li>
+<li class="mx-2 my-1 md:mx-0 md:my-0">
+<a href="https://docs.ollama.com" class="hover:underline">Docs</a>
+</li>
+<li class="mx-2 my-1 md:mx-0 md:my-0">
+<a href="https://github.com/ollama/ollama" class="hover:underline">GitHub</a>
+</li>
+<li class="mx-2 my-1 md:mx-0 md:my-0">
+<a href="https://discord.com/invite/ollama" class="hover:underline">Discord</a>
+</li>
+<li class="mx-2 my-1 md:mx-0 md:my-0">
+<a href="https://twitter.com/ollama" class="hover:underline">X (Twitter)</a>
+</li>
+<li class="mx-2 my-1 md:mx-0 md:my-0">
+<a href="/support" class="hover:underline">Support</a>
+</li>
+<li class="mx-2 my-1 md:hidden">
+<a href="https://lu.ma/ollama" class="hover:underline">Meetups</a>
+</li>
+<li class="mx-2 my-1 md:mx-0 md:my-0">
+<a href="https://jobs.ashbyhq.com/ollama" class="hover:underline">Careers</a>
+</li>
+<li class="mx-2 my-1 md:mx-0 md:my-0">
+<a href="/privacy" class="hover:underline">Privacy</a>
+</li>
+<li class="mx-2 my-1 md:mx-0 md:my-0">
+<a href="/terms" class="hover:underline">Terms</a>
+</li>
+</ul>
+</div>
+</footer>
+<span class="hidden" id="end_of_template"></span>
+</body>
+</html>

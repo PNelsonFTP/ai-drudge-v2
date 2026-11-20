@@ -1,0 +1,521 @@
+/* Content components. V1 class names are kept (.section-heading .lead-title .headline-critical/
+   high/medium/low .source-badge .panel .brief-box .trend-box .hover-card .related-badge
+   .news-columns .news-col); V2 adds chips, buttons, dialogs, row helpers and the print sheet.
+   No colour literals (see tokens.css). Never use an opacity utility on text or on a control:
+   use .muted / var(--color-muted) / var(--color-seen) / var(--icon-idle) instead. */
+
+@layer components {
+  /* ---- Headings + boxes (V1) ----------------------------------------------------------------- */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    background: linear-gradient(180deg, var(--silver-top) 0%, var(--silver-bot) 100%);
+    border: 1px solid var(--color-line);
+    border-left: 4px solid var(--ft-navy);
+    border-bottom: 2px solid var(--ft-navy);
+    padding: 4px 8px;
+    margin: 0 0 8px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ft-navy-deep);
+  }
+
+  .section-heading a { color: inherit; }
+  /* Counts, "N src", "view all" inside a silver heading (muted grey fails on its dark end). */
+  .section-heading .heading-meta,
+  .heading-meta {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--color-heading-meta);
+  }
+
+  .lead-title {
+    font-weight: 700;
+    font-size: clamp(18px, 2.2vw, 25px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--ft-navy-deep);
+    overflow-wrap: anywhere;
+  }
+
+  .lead-title.headline-critical { color: var(--siren); }
+
+  .panel {
+    margin-bottom: 16px;
+    padding: 0 0 8px;
+  }
+
+  .brief-box, .trend-box {
+    border: 1px solid var(--color-line);
+    background: var(--color-surface);
+    padding: 8px 10px 10px;
+    margin-bottom: 14px;
+  }
+
+  .brief-box .section-heading,
+  .trend-box .section-heading {
+    margin: -8px -10px 8px;
+    border-left-color: var(--ft-gold);
+  }
+
+  .trend-box .section-heading { border-left-color: var(--siren); }
+
+  /* ---- Headlines ----------------------------------------------------------------------------
+     Weight classes come from ArticleV2.w (shared/select.ts weightClass): story size, not feed. */
+  .headline-critical { color: var(--siren); font-weight: 700; }
+  .headline-high { font-weight: 700; color: var(--color-fg); }
+  .headline-medium { font-weight: 500; }
+  .headline-low { font-weight: 400; color: var(--color-muted); }
+
+  .headline-critical, .headline-high, .headline-medium, .headline-low { overflow-wrap: anywhere; }
+
+  a.headline-high:visited,
+  a.headline-medium:visited,
+  a.headline-low:visited,
+  a.headline:visited { color: var(--color-visited); }
+
+  /* Seen in a previous session / stale: title only, solid colour, never row opacity. Put it
+     AFTER the weight class in className (same specificity; it is declared later, so it wins). */
+  .headline-seen,
+  a.headline-seen:visited { color: var(--color-seen); font-weight: 400; }
+
+  .source-badge {
+    display: inline-block;
+    max-width: 100%;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0 4px;
+    border: 1px solid var(--badge-border);
+    color: var(--badge-fg);
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .related-badge {
+    display: inline-block;
+    background: var(--pill-related-bg);
+    color: var(--pill-related-fg);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 0 5px;
+    border: 0;
+    border-radius: 8px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  /* Coverage pill of TOP STORIES ("15 sources"). */
+  .related-badge.siren,
+  .pill-siren { background: var(--pill-siren-bg); color: var(--pill-siren-fg); }
+
+  .new-badge {
+    margin-left: 4px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    vertical-align: top;
+    color: var(--siren);
+  }
+
+  /* Row meta line: source badge, time, actions. */
+  .row-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    margin-top: 2px;
+    font-size: 10px;
+    color: var(--color-muted);
+  }
+
+  .row-meta > time, .row-meta > .row-time { flex: none; white-space: nowrap; }
+
+  /* Icon-only row controls: >= 24 px target, solid idle colour, state by colour + aria-pressed. */
+  .icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--target-min);
+    min-height: var(--target-min);
+    padding: 0;
+    background: none;
+    border: 0;
+    color: var(--icon-idle);
+    cursor: pointer;
+  }
+
+  .icon-btn:hover { color: var(--color-fg); }
+  .icon-btn[aria-pressed="true"] { color: var(--star-active); }
+  .icon-btn.later[aria-pressed="true"] { color: var(--accent); }
+  .icon-btn svg { width: 14px; height: 14px; }
+
+  /* ---- Keyboard cursor (src/keyboard/useKeyboardNav.ts marks the current [data-aid] row) ------ */
+  [data-aid] { padding-block: var(--row-pad-y); scroll-margin-block: 8px; }
+
+  /* A bar + tint, not an outline: the focused link inside the row keeps its own focus ring. */
+  [data-kbd-current] {
+    background: var(--color-surface);
+    box-shadow: inset 3px 0 0 var(--focus);
+  }
+
+  /* ---- Hover card (V1) ----------------------------------------------------------------------- */
+  .hover-card {
+    position: fixed;
+    z-index: 50;
+    width: 340px;
+    max-width: calc(100vw - 32px);
+    border: 1px solid var(--color-line);
+    box-shadow: 0 10px 30px var(--shadow);
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  /* A desktop nicety only: never the sole path to a summary, never shown without a real pointer. */
+  @media (hover: none), (pointer: coarse) {
+    .hover-card { display: none; }
+  }
+
+  /* ---- Chips + buttons ------------------------------------------------------------------------ */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--target-min);
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--chip-fg);
+    background: transparent;
+    border: 1px solid var(--chip-border);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .chip:hover,
+  .chip-active,
+  .chip[aria-pressed="true"],
+  .chip[aria-current="page"],
+  .chip[aria-current="true"] {
+    color: var(--chip-active-fg);
+    background: var(--chip-active-bg);
+    border-color: var(--chip-active-border);
+    text-decoration: none;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--target-min);
+    padding: 2px 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: inherit;
+    background: transparent;
+    border: 1px solid currentColor;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn:hover { background: var(--color-surface); text-decoration: none; }
+
+  .btn-primary,
+  .btn-primary:hover {
+    color: var(--chip-active-fg);
+    background: var(--chip-active-bg);
+    border-color: var(--chip-active-fg);
+  }
+
+  /* A <button> that reads as a text link (footer, inline actions). */
+  .link-btn {
+    display: inline;
+    padding: 0;
+    background: none;
+    border: 0;
+    color: var(--color-link);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .link-btn:hover { text-decoration: underline; text-underline-offset: 2px; }
+
+  /* Form fields outside the header (settings, watchlist editor). */
+  .field {
+    min-height: var(--target-min);
+    padding: 4px 8px;
+    background: var(--field-bg);
+    color: var(--field-fg);
+    border: 1px solid var(--field-border);
+    font-family: inherit;
+    font-size: 13px;
+  }
+
+  kbd, .kbd {
+    display: inline-block;
+    min-width: 1.6em;
+    padding: 1px 5px;
+    border: 1px solid var(--field-border);
+    border-bottom-width: 2px;
+    background: var(--color-surface);
+    color: var(--color-fg);
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 11px;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  /* ---- Dialogs --------------------------------------------------------------------------------
+     Native <dialog class="modal"> opened with showModal(). V1's two dialogs used an undefined
+     variable and rendered black on #161616 in the light theme; these are themed with tokens.
+     margin:auto is required: Tailwind preflight zeroes the UA margin that centres a modal. */
+  .modal {
+    margin: auto;
+    width: calc(100% - 2rem);
+    max-width: 34rem;
+    max-height: min(80vh, 44rem);
+    padding: 0;
+    overflow: hidden;
+    background: var(--dialog-bg);
+    color: var(--dialog-fg);
+    border: 1px solid var(--dialog-border);
+    box-shadow: 0 16px 48px var(--shadow);
+  }
+
+  .modal[open] { display: flex; flex-direction: column; }
+  .modal::backdrop { background: var(--backdrop); }
+
+  .modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0;
+    flex: none;
+  }
+
+  .modal-head.section-heading { margin: 0; border-top: 0; border-right: 0; }
+  .modal-title { margin: 0; font: inherit; }
+  .modal-body { padding: 12px 14px 16px; overflow-y: auto; }
+  .modal-body :where(p, ul, ol, dl, table):last-child { margin-bottom: 0; }
+
+  html:has(dialog.modal[open]) { overflow: hidden; }
+
+  .shortcut-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .shortcut-table caption {
+    padding: 10px 0 4px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .shortcut-table th { width: 9.5em; padding: 3px 8px 3px 0; text-align: left; font-weight: 400; white-space: nowrap; vertical-align: top; }
+  .shortcut-table td { padding: 3px 0; vertical-align: top; }
+  .shortcut-table tr + tr > * { border-top: 1px solid var(--color-line-soft); }
+
+  /* ---- Route outlet states -------------------------------------------------------------------- */
+  .route-status {
+    padding: 48px 12px;
+    text-align: center;
+    color: var(--color-muted);
+  }
+
+  .error-panel {
+    max-width: 34rem;
+    margin: 48px auto;
+    padding: 0 0 14px;
+    border: 1px solid var(--color-line);
+    background: var(--color-surface);
+    color: var(--color-fg);
+  }
+
+  .error-panel .section-heading { border-left-color: var(--siren); }
+  .error-panel > :not(.section-heading) { margin: 8px 12px 0; }
+  .error-panel .error-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .error-panel pre { overflow-x: auto; font-size: 11px; color: var(--color-muted); white-space: pre-wrap; }
+
+  /* ---- News grid: 1 column < 720 px, 2 from 720 px, 3 from 1100 px ----------------------------
+     V1 went to three columns at 768 px (~32 characters per line, 60 % of titles on 3+ lines).
+     The markup may hold one, two or three .news-col wrappers; with three wrappers on a two-column
+     grid the last one spans the row and flows its sections in two CSS columns. */
+  .news-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    margin-top: 8px;
+    --news-cols: 1;
+  }
+
+  .news-col { min-width: 0; }
+  .news-col > * + * { margin-top: var(--section-gap); }
+  .news-col + .news-col { margin-top: var(--section-gap); }
+
+  @media (min-width: 720px) {
+    .news-col + .news-col { margin-top: 0; }
+  }
+
+  @media (min-width: 720px) and (max-width: 1099.98px) {
+    .news-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); --news-cols: 2; }
+    .news-col:nth-child(odd) {
+      padding: 0 14px 0 0;
+      border-right: 1px solid var(--color-line-soft);
+    }
+    .news-col:nth-child(even) { padding: 0 0 0 14px; }
+    .news-col:nth-child(odd):last-child {
+      grid-column: 1 / -1;
+      padding: 0;
+      border-right: 0;
+    }
+    /* Third wrapper of three: full row, its sections flowing in two columns. */
+    .news-col:nth-child(odd):last-child:not(:first-child) {
+      margin-top: var(--section-gap);
+      column-count: 2;
+      column-gap: 28px;
+      column-rule: 1px solid var(--color-line-soft);
+    }
+    .news-col:nth-child(odd):last-child:not(:first-child) > * { break-inside: avoid; }
+  }
+
+  @media (min-width: 1100px) {
+    .news-columns { grid-template-columns: repeat(3, minmax(0, 1fr)); --news-cols: 3; }
+    .news-col {
+      padding: 0 14px;
+      border-right: 1px solid var(--color-line-soft);
+    }
+    .news-col:first-child { padding-left: 0; }
+    .news-col:last-child { border-right: 0; padding-right: 0; }
+  }
+
+  /* Sections are jump targets of the chip nav and of the [ ] keys. */
+  [id^="sec-"] { scroll-margin-top: 4px; }
+
+  /* ---- Notice ("Muted <source> · Undo") -------------------------------------------------------
+     Pinned to the bottom of the viewport, above the hover card and below the skip link. Not a live
+     region: the shell's hidden status region speaks the text (chrome/MuteToast.tsx). */
+  .toast {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 16px;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    width: fit-content;
+    max-width: calc(100% - 24px);
+    margin-inline: auto;
+    padding: 8px 10px 8px 12px;
+    background: var(--dialog-bg);
+    color: var(--dialog-fg);
+    border: 1px solid var(--dialog-border);
+    border-left: 4px solid var(--ft-gold);
+    box-shadow: 0 8px 24px var(--shadow);
+    font-size: 12px;
+  }
+  .toast-text { min-width: 0; overflow-wrap: anywhere; }
+
+  /* ---- Print: a clean briefing ------------------------------------------------------------------
+     Chrome, controls and badges go; headlines, sources and times stay, black on white, two
+     columns. Add .no-print to anything that should not reach paper, .print-only for the reverse. */
+  @media print {
+    /* Paper is black on white whatever the screen theme: reset the palette itself, so every rule
+       that reads a token - including the unlayered feature sheets (headline, home, the secondary
+       pages' kit) this file cannot list class by class - prints in ink. This layer outranks the
+       html.dark declarations of @layer base. Hairlines keep their theme value. */
+    :root, html.dark {
+      color-scheme: light;
+      --color-fg: var(--print-ink);
+      --color-muted: var(--print-ink);
+      --color-link: var(--print-ink);
+      --color-seen: var(--print-ink);
+      --color-visited: var(--print-ink);
+      --color-heading-meta: var(--print-ink);
+      --ft-navy-deep: var(--print-ink);
+      --siren: var(--print-ink);
+      --accent: var(--print-ink);
+      --badge-fg: var(--print-ink);
+      --color-up: var(--print-ink);
+      --color-down: var(--print-ink);
+      --color-bg: var(--print-paper);
+      --color-surface: var(--print-paper);
+    }
+
+    html, body {
+      background: none !important;
+      color: var(--print-ink) !important;
+      font-size: 10.5pt;
+    }
+
+    .skip-link, .toolbar, .menu-btn, .subchrome, .ticker-bar, .banners, .site-footer .footer-links,
+    .hover-card, dialog, .toast, .icon-btn, .chip, .btn, .link-btn, .new-badge, .no-print,
+    /* Controls of the feature sheets: row text buttons ("summary", "+N more"), home page
+       disclosures and banner, the secondary pages' buttons, chips, bars and fields. */
+    .hl-text-btn, .home-more-btn, .home-view-all, .home-chip-btn, .home-banner,
+    .sp-btn, .sp-chip, .sp-bar, .sp-actions, .sp-nav, .sp-input { display: none !important; }
+
+    /* Paper width must not pick the phone layout: Letter is 5 px above the 720 px breakpoint and
+       A4 is 17 px below it, where every section would print its top rows only. */
+    .home-row-extra { display: list-item !important; }
+    .home-band.has-side { grid-template-columns: minmax(0, 5fr) minmax(0, 3fr) !important; }
+
+    .print-only { display: revert !important; }
+
+    .sticky-top { position: static !important; background: none !important; }
+    .header-row {
+      background: none !important;
+      border: 0 !important;
+      border-bottom: 2px solid var(--print-ink) !important;
+      padding: 0 0 4px !important;
+    }
+    .logo, .logo a, .logo .mark, .tagline, .tagline .stale { color: var(--print-ink) !important; }
+
+    .desk { max-width: none !important; margin: 0 !important; padding: 8px 0 0 !important; border: 0 !important; background: none !important; }
+    .desk > main { min-height: 0 !important; }
+
+    a, a:visited,
+    .headline-critical, .headline-high, .headline-medium, .headline-low, .headline-seen, .lead-title {
+      color: var(--print-ink) !important;
+      text-decoration: none !important;
+    }
+
+    .section-heading {
+      background: none !important;
+      border: 0 !important;
+      border-bottom: 1px solid var(--print-ink) !important;
+      padding: 0 0 2px !important;
+      color: var(--print-ink) !important;
+      break-after: avoid;
+    }
+
+    .brief-box, .trend-box, .error-panel { background: none !important; border: 0 !important; padding: 0 !important; }
+    .brief-box .section-heading, .trend-box .section-heading { margin: 0 0 6px !important; }
+    .source-badge, .related-badge, .pill-siren { background: none !important; color: var(--print-ink) !important; border: 0 !important; padding: 0 !important; }
+    .row-meta, .muted, .heading-meta, .site-footer { color: var(--print-ink) !important; }
+
+    .news-columns { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; column-gap: 8mm !important; }
+    .news-col { padding: 0 !important; border: 0 !important; column-count: 1 !important; grid-column: auto !important; }
+    [data-aid] { break-inside: avoid; padding-block: 1.5pt !important; box-shadow: none !important; background: none !important; }
+    .site-footer { margin-top: 12pt !important; border-top: 1px solid var(--print-ink) !important; }
+  }
+}
+
+@page { margin: 12mm; }

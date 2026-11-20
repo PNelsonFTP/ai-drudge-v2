@@ -1,0 +1,1451 @@
+[
+ {
+  "name": "OpenAI News",
+  "url": "https://openai.com/news/rss.xml",
+  "category": "model_releases",
+  "priority": "critical",
+  "type": "feed"
+ },
+ {
+  "name": "Google DeepMind Blog",
+  "url": "https://deepmind.google/blog/rss.xml",
+  "category": "model_releases",
+  "priority": "critical",
+  "type": "feed"
+ },
+ {
+  "name": "Mistral AI",
+  "url": "https://mistral.ai/rss.xml",
+  "category": "model_releases",
+  "priority": "critical",
+  "type": "feed"
+ },
+ {
+  "name": "Hugging Face Blog",
+  "url": "https://huggingface.co/blog/feed.xml",
+  "category": "model_releases",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Meta AI Blog",
+  "url": "https://about.fb.com/feed/",
+  "category": "model_releases",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Google AI Blog",
+  "url": "https://blog.google/technology/ai/rss/",
+  "category": "model_releases",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "The Decoder",
+  "url": "https://the-decoder.com/feed/",
+  "category": "model_releases",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "HN: Chinese Frontier Labs",
+  "url": "https://hnrss.org/newest?q=DeepSeek+OR+Qwen+OR+Kimi+OR+GLM&points=150",
+  "category": "model_releases",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Stability AI News",
+  "url": "https://stability.ai/news-updates?format=rss",
+  "category": "model_releases",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "arXiv cs.AI",
+  "url": "https://rss.arxiv.org/rss/cs.AI",
+  "category": "research",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "arXiv cs.LG",
+  "url": "https://rss.arxiv.org/rss/cs.LG",
+  "category": "research",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "arXiv cs.CL",
+  "url": "https://rss.arxiv.org/rss/cs.CL",
+  "category": "research",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Transformer Circuits",
+  "url": "https://transformer-circuits.pub/feed.xml",
+  "category": "research",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "MIT News AI",
+  "url": "https://news.mit.edu/topic/mitartificial-intelligence2-rss.xml",
+  "category": "research",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Epoch AI",
+  "url": "https://epochai.substack.com/feed",
+  "category": "research",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Microsoft Research Blog",
+  "url": "https://www.microsoft.com/en-us/research/feed/",
+  "category": "research",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "NVIDIA Research",
+  "url": "https://research.nvidia.com/rss.xml",
+  "category": "research",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "IBM Research Blog",
+  "url": "https://research.ibm.com/rss",
+  "category": "research",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "BAIR Blog",
+  "url": "https://bair.berkeley.edu/blog/feed.xml",
+  "category": "research",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "ML@CMU",
+  "url": "https://blog.ml.cmu.edu/feed/",
+  "category": "research",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Ahead of AI (Raschka)",
+  "url": "https://magazine.sebastianraschka.com/feed",
+  "category": "research",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "MarkTechPost",
+  "url": "https://www.marktechpost.com/feed/",
+  "category": "research",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Apple ML",
+  "url": "https://machinelearning.apple.com/rss.xml",
+  "category": "research",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Sakana AI",
+  "url": "https://sakana.ai/feed.xml",
+  "category": "research",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Thinking Machines Lab",
+  "url": "https://thinkingmachines.ai/blog/index.xml",
+  "category": "research",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Nature Machine Intelligence",
+  "url": "https://www.nature.com/natmachintell.rss",
+  "category": "research",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "TheSequence",
+  "url": "https://thesequence.substack.com/feed",
+  "category": "research",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "Lil'Log (Lilian Weng)",
+  "url": "https://lilianweng.github.io/index.xml",
+  "category": "research",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "HF Daily Papers",
+  "url": "https://papers.takara.ai/api/feed",
+  "category": "research",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "Deep Learning Weekly",
+  "url": "https://www.deeplearningweekly.com/feed",
+  "category": "research",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "LangChain Blog",
+  "url": "https://blog.langchain.com/rss.xml",
+  "category": "agents_tools",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Modal Blog",
+  "url": "https://modal.com/blog/atom.xml",
+  "category": "agents_tools",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Cline Blog",
+  "url": "https://cline.ghost.io/rss/",
+  "category": "agents_tools",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Vercel Blog",
+  "url": "https://vercel.com/atom",
+  "category": "agents_tools",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Amp (Sourcegraph)",
+  "url": "https://ampcode.com/news.rss",
+  "category": "agents_tools",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "OpenAI Blog",
+  "url": "https://openai.com/blog/rss.xml",
+  "category": "products",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Cursor Changelog",
+  "url": "https://cursor.com/changelog/rss.xml",
+  "category": "products",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "OpenRouter Blog",
+  "url": "https://openrouter.ai/blog/feed.xml",
+  "category": "products",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Together AI Blog",
+  "url": "https://www.together.ai/blog/rss.xml",
+  "category": "products",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Replicate Blog",
+  "url": "https://replicate.com/blog/rss",
+  "category": "products",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Cloudflare AI",
+  "url": "https://blog.cloudflare.com/tag/ai/rss/",
+  "category": "products",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "GitHub Copilot Changelog",
+  "url": "https://github.blog/changelog/label/copilot/feed/",
+  "category": "products",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "GitHub Blog",
+  "url": "https://github.blog/feed/",
+  "category": "products",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "AWS ML Blog",
+  "url": "https://aws.amazon.com/blogs/machine-learning/feed/",
+  "category": "products",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "TechCrunch AI",
+  "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+  "category": "industry_news",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "VentureBeat AI",
+  "url": "https://venturebeat.com/category/ai/feed/",
+  "category": "industry_news",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Techmeme",
+  "url": "https://www.techmeme.com/feed.xml",
+  "category": "industry_news",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "MIT Tech Review AI",
+  "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
+  "category": "industry_news",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "The Guardian AI",
+  "url": "https://www.theguardian.com/technology/artificialintelligenceai/rss",
+  "category": "industry_news",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "The Register AI/ML",
+  "url": "https://www.theregister.com/software/ai_ml/headlines.atom",
+  "category": "industry_news",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "AI News (smol.ai)",
+  "url": "https://news.smol.ai/rss.xml",
+  "category": "industry_news",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Platformer",
+  "url": "https://www.platformer.news/rss/",
+  "category": "industry_news",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Ars Technica AI",
+  "url": "https://arstechnica.com/ai/feed/",
+  "category": "industry_news",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "The Verge AI",
+  "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+  "category": "industry_news",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Wired AI",
+  "url": "https://www.wired.com/feed/tag/ai/latest/rss",
+  "category": "industry_news",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "CNBC Tech",
+  "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+  "category": "industry_news",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "WSJ Tech",
+  "url": "https://feeds.content.dowjones.io/public/rss/RSSWSJD",
+  "category": "industry_news",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "ZDNet AI",
+  "url": "https://www.zdnet.com/topic/artificial-intelligence/rss.xml",
+  "category": "industry_news",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "IEEE Spectrum AI",
+  "url": "https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss",
+  "category": "industry_news",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "404 Media",
+  "url": "https://www.404media.co/rss/",
+  "category": "industry_news",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Reuters AI (Google News)",
+  "url": "https://news.google.com/rss/search?q=site:reuters.com+AI",
+  "category": "industry_news",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "HN: AI (150+ points)",
+  "url": "https://hnrss.org/newest?q=AI&points=150",
+  "category": "industry_news",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "HN: LLM (100+ points)",
+  "url": "https://hnrss.org/newest?q=LLM&points=100",
+  "category": "industry_news",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "TLDR AI",
+  "url": "https://tldr.tech/api/rss/ai",
+  "category": "industry_news",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Last Week in AI",
+  "url": "https://lastweekin.ai/feed",
+  "category": "industry_news",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Bloomberg Tech",
+  "url": "https://feeds.bloomberg.com/technology/news.rss",
+  "category": "industry_news",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Don't Worry About the Vase (Zvi)",
+  "url": "https://thezvi.substack.com/feed",
+  "category": "safety_policy",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "AI Safety Newsletter (CAIS)",
+  "url": "https://newsletter.safe.ai/feed",
+  "category": "safety_policy",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Transformer",
+  "url": "https://www.transformernews.ai/feed",
+  "category": "safety_policy",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "METR",
+  "url": "https://metr.org/feed.xml",
+  "category": "safety_policy",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "NIST AI News",
+  "url": "https://www.nist.gov/news-events/artificial%20intelligence/rss.xml",
+  "category": "safety_policy",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "AI Now Institute",
+  "url": "https://ainowinstitute.org/feed",
+  "category": "safety_policy",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "CSET Georgetown",
+  "url": "https://cset.georgetown.edu/feed/",
+  "category": "safety_policy",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "EU AI Act Newsletter",
+  "url": "https://artificialintelligenceact.eu/feed/",
+  "category": "safety_policy",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Redwood Research",
+  "url": "https://blog.redwoodresearch.org/feed",
+  "category": "safety_policy",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "GovAI",
+  "url": "https://www.governance.ai/post/rss.xml",
+  "category": "safety_policy",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "AI Policy Perspectives",
+  "url": "https://www.aipolicyperspectives.com/feed",
+  "category": "safety_policy",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "LessWrong",
+  "url": "https://www.lesswrong.com/feed.xml",
+  "category": "safety_policy",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "AI Alignment Forum",
+  "url": "https://www.alignmentforum.org/feed.xml",
+  "category": "safety_policy",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "Embrace The Red",
+  "url": "https://embracethered.com/blog/index.xml",
+  "category": "ai_security",
+  "priority": "critical",
+  "type": "feed"
+ },
+ {
+  "name": "tl;dr sec",
+  "url": "https://tldrsec.com/feed.xml",
+  "category": "ai_security",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Trail of Bits",
+  "url": "https://blog.trailofbits.com/feed/",
+  "category": "ai_security",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "OWASP GenAI Security",
+  "url": "https://genai.owasp.org/feed/",
+  "category": "ai_security",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Promptfoo Blog",
+  "url": "https://www.promptfoo.dev/blog/rss.xml",
+  "category": "ai_security",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Straiker STAR",
+  "url": "https://www.straiker.ai/blog/rss.xml",
+  "category": "ai_security",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Knostic",
+  "url": "https://www.knostic.ai/blog/rss.xml",
+  "category": "ai_security",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "JFrog Security Research",
+  "url": "https://jfrog.com/blog/category/security/feed/",
+  "category": "ai_security",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Joseph Thacker (rez0)",
+  "url": "https://josephthacker.com/feed.xml",
+  "category": "ai_security",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "GN: Prompt Injection",
+  "url": "https://news.google.com/rss/search?q=%22prompt+injection%22+OR+%22LLM+security%22+OR+%22AI+model+vulnerability%22&hl=en-US&gl=US&ceid=US:en",
+  "category": "ai_security",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Noma Security",
+  "url": "https://noma.security/feed/",
+  "category": "ai_security",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "Giskard",
+  "url": "https://www.giskard.ai/knowledge/rss.xml",
+  "category": "ai_security",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "AI Village",
+  "url": "https://aivillage.org/feed.xml",
+  "category": "ai_security",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "Simon Willison",
+  "url": "https://simonwillison.net/atom/everything/",
+  "category": "analysis",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Import AI (Jack Clark)",
+  "url": "https://jack-clark.net/feed/",
+  "category": "analysis",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Interconnects (Lambert)",
+  "url": "https://www.interconnects.ai/feed",
+  "category": "analysis",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Understanding AI (Timothy B. Lee)",
+  "url": "https://www.understandingai.org/feed",
+  "category": "analysis",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "AI Snake Oil",
+  "url": "https://www.normaltech.ai/feed",
+  "category": "analysis",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Stratechery",
+  "url": "https://stratechery.com/feed/",
+  "category": "analysis",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Latent Space",
+  "url": "https://www.latent.space/feed",
+  "category": "analysis",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "ChinAI (Jeffrey Ding)",
+  "url": "https://chinai.substack.com/feed",
+  "category": "analysis",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Big Technology (Kantrowitz)",
+  "url": "https://www.bigtechnology.com/feed",
+  "category": "analysis",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Exponential View (Azhar)",
+  "url": "https://www.exponentialview.co/feed",
+  "category": "analysis",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Ben's Bites",
+  "url": "https://www.bensbites.com/feed",
+  "category": "analysis",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Dwarkesh Podcast",
+  "url": "https://www.dwarkesh.com/feed",
+  "category": "analysis",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Air Street Press (Benaich)",
+  "url": "https://press.airstreet.com/feed",
+  "category": "analysis",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "One Useful Thing",
+  "url": "https://www.oneusefulthing.org/feed",
+  "category": "analysis",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "The Algorithmic Bridge",
+  "url": "https://www.thealgorithmicbridge.com/feed",
+  "category": "analysis",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "Gary Marcus",
+  "url": "https://garymarcus.substack.com/feed",
+  "category": "analysis",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "Where's Your Ed At (Zitron)",
+  "url": "https://www.wheresyoured.at/rss/",
+  "category": "analysis",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "BleepingComputer",
+  "url": "https://www.bleepingcomputer.com/feed/",
+  "category": "cyber_threats",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Krebs on Security",
+  "url": "https://krebsonsecurity.com/feed/",
+  "category": "cyber_threats",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "The Hacker News",
+  "url": "https://feeds.feedburner.com/TheHackersNews",
+  "category": "cyber_threats",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Dark Reading",
+  "url": "https://www.darkreading.com/rss.xml",
+  "category": "cyber_threats",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "The Record",
+  "url": "https://therecord.media/feed/",
+  "category": "cyber_threats",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Schneier on Security",
+  "url": "https://www.schneier.com/feed/",
+  "category": "cyber_threats",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "CrowdStrike Blog",
+  "url": "https://www.crowdstrike.com/blog/feed/",
+  "category": "cyber_defense",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Palo Alto Unit 42",
+  "url": "https://unit42.paloaltonetworks.com/feed/",
+  "category": "cyber_defense",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Microsoft Security",
+  "url": "https://www.microsoft.com/en-us/security/blog/feed/",
+  "category": "cyber_defense",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "SentinelOne",
+  "url": "https://www.sentinelone.com/feed/",
+  "category": "cyber_defense",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Google Project Zero",
+  "url": "https://projectzero.google/feed.xml",
+  "category": "cyber_defense",
+  "priority": "critical",
+  "type": "feed"
+ },
+ {
+  "name": "Talos Intelligence",
+  "url": "https://blog.talosintelligence.com/rss/",
+  "category": "cyber_defense",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "NVIDIA Blog",
+  "url": "https://blogs.nvidia.com/feed/",
+  "category": "hardware",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Chips and Cheese",
+  "url": "https://chipsandcheese.com/feed",
+  "category": "hardware",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "NVIDIA Dev Blog",
+  "url": "https://developer.nvidia.com/blog/feed",
+  "category": "hardware",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "More Than Moore (Cutress)",
+  "url": "https://morethanmoore.substack.com/feed",
+  "category": "hardware",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Fabricated Knowledge",
+  "url": "https://www.fabricatedknowledge.com/feed",
+  "category": "hardware",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "The Next Platform",
+  "url": "https://www.nextplatform.com/index?lab_viewport=rss",
+  "category": "hardware",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "ServeTheHome",
+  "url": "https://www.servethehome.com/feed/",
+  "category": "hardware",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Tom's Hardware",
+  "url": "https://www.tomshardware.com/feeds/news",
+  "category": "hardware",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Data Center Dynamics",
+  "url": "https://www.datacenterdynamics.com/rss/",
+  "category": "hardware",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "Chipstrat",
+  "url": "https://www.chipstrat.com/feed.xml",
+  "category": "hardware",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "Ai2 (Allen Institute)",
+  "url": "https://allenai.org/rss.xml",
+  "category": "open_source",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Crunchbase News AI",
+  "url": "https://news.crunchbase.com/sections/ai/feed/",
+  "category": "funding",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Newcomer",
+  "url": "https://www.newcomer.co/feed",
+  "category": "funding",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "TechCrunch Startups",
+  "url": "https://techcrunch.com/category/startups/feed/",
+  "category": "funding",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Humanoids Daily",
+  "url": "https://www.humanoidsdaily.com/feed.xml",
+  "category": "robotics",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "The Robot Report",
+  "url": "https://www.therobotreport.com/feed/",
+  "category": "robotics",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "IEEE Spectrum Robotics",
+  "url": "https://spectrum.ieee.org/feeds/topic/robotics.rss",
+  "category": "robotics",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "New Atlas Robotics",
+  "url": "https://newatlas.com/robotics/index.rss",
+  "category": "robotics",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Waymo Blog",
+  "url": "https://waymo.com/blog/rss.xml",
+  "category": "robotics",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "TechCrunch Robotics",
+  "url": "https://techcrunch.com/category/robotics/feed/",
+  "category": "robotics",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "Shtetl-Optimized (Aaronson)",
+  "url": "https://scottaaronson.blog/?feed=rss2",
+  "category": "quantum",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "The Quantum Insider",
+  "url": "https://thequantuminsider.com/feed/",
+  "category": "quantum",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "Quantum Computing Report",
+  "url": "https://quantumcomputingreport.com/feed/",
+  "category": "quantum",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "MIT News Quantum",
+  "url": "https://news.mit.edu/rss/topic/quantum-computing",
+  "category": "quantum",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "ollama/ollama",
+  "url": "https://github.com/ollama/ollama/releases.atom",
+  "category": "github_repos",
+  "priority": "critical",
+  "type": "feed"
+ },
+ {
+  "name": "ggml-org/llama.cpp",
+  "url": "https://github.com/ggml-org/llama.cpp/releases.atom",
+  "category": "github_repos",
+  "priority": "critical",
+  "type": "feed"
+ },
+ {
+  "name": "huggingface/transformers",
+  "url": "https://github.com/huggingface/transformers/releases.atom",
+  "category": "github_repos",
+  "priority": "critical",
+  "type": "feed"
+ },
+ {
+  "name": "anthropics/claude-code",
+  "url": "https://github.com/anthropics/claude-code/releases.atom",
+  "category": "github_repos",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "vllm-project/vllm",
+  "url": "https://github.com/vllm-project/vllm/releases.atom",
+  "category": "github_repos",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "langchain-ai/langchain",
+  "url": "https://github.com/langchain-ai/langchain/releases.atom",
+  "category": "github_repos",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "run-llama/llama_index",
+  "url": "https://github.com/run-llama/llama_index/releases.atom",
+  "category": "github_repos",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "continuedev/continue",
+  "url": "https://github.com/continuedev/continue/releases.atom",
+  "category": "github_repos",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "open-webui/open-webui",
+  "url": "https://github.com/open-webui/open-webui/releases.atom",
+  "category": "github_repos",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "openai/codex",
+  "url": "https://github.com/openai/codex/releases.atom",
+  "category": "github_repos",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "google-gemini/gemini-cli",
+  "url": "https://github.com/google-gemini/gemini-cli/releases.atom",
+  "category": "github_repos",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "QwenLM/qwen-code",
+  "url": "https://github.com/QwenLM/qwen-code/releases.atom",
+  "category": "github_repos",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "langchain-ai/langgraph",
+  "url": "https://github.com/langchain-ai/langgraph/releases.atom",
+  "category": "github_repos",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "BerriAI/litellm",
+  "url": "https://github.com/BerriAI/litellm/releases.atom",
+  "category": "github_repos",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "ggml-org/whisper.cpp",
+  "url": "https://github.com/ggml-org/whisper.cpp/releases.atom",
+  "category": "github_repos",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "comfyanonymous/ComfyUI",
+  "url": "https://github.com/comfyanonymous/ComfyUI/releases.atom",
+  "category": "github_repos",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "sgl-project/sglang",
+  "url": "https://github.com/sgl-project/sglang/releases.atom",
+  "category": "github_repos",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "unslothai/unsloth",
+  "url": "https://github.com/unslothai/unsloth/releases.atom",
+  "category": "github_repos",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "crewAIInc/crewAI",
+  "url": "https://github.com/crewAIInc/crewAI/releases.atom",
+  "category": "github_repos",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "All-Hands-AI/OpenHands",
+  "url": "https://github.com/All-Hands-AI/OpenHands/releases.atom",
+  "category": "github_repos",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "stanfordnlp/dspy",
+  "url": "https://github.com/stanfordnlp/dspy/releases.atom",
+  "category": "github_repos",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "lobehub/lobe-chat",
+  "url": "https://github.com/lobehub/lobe-chat/releases.atom",
+  "category": "github_repos",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Significant-Gravitas/AutoGPT",
+  "url": "https://github.com/Significant-Gravitas/AutoGPT/releases.atom",
+  "category": "github_repos",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "modelcontextprotocol spec",
+  "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/releases.atom",
+  "category": "github_repos",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "FT Artificial Intelligence",
+  "url": "https://www.ft.com/artificial-intelligence?format=rss",
+  "category": "ai_finance",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Bloomberg Markets",
+  "url": "https://feeds.bloomberg.com/markets/news.rss",
+  "category": "ai_finance",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "GN: AI x SEC/FINRA",
+  "url": "https://news.google.com/rss/search?q=%22artificial+intelligence%22+(FINRA+OR+SEC+OR+broker-dealer)&hl=en-US&gl=US&ceid=US:en",
+  "category": "ai_finance",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "MarketWatch",
+  "url": "https://feeds.content.dowjones.io/public/rss/mw_topstories",
+  "category": "ai_finance",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "Ollama Blog",
+  "url": "https://ollama.com/blog/rss.xml",
+  "category": "local_models",
+  "priority": "critical",
+  "type": "feed"
+ },
+ {
+  "name": "LM Studio Blog",
+  "url": "https://lmstudio.ai/rss.xml",
+  "category": "local_models",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "vLLM Blog",
+  "url": "https://vllm.ai/blog/rss.xml",
+  "category": "local_models",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "LocalLLaMA Subreddit",
+  "url": "https://www.reddit.com/r/LocalLLaMA.rss",
+  "category": "local_models",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "r/LocalLLM",
+  "url": "https://www.reddit.com/r/LocalLLM.rss",
+  "category": "local_models",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Lemmy c/localllama",
+  "url": "https://sh.itjust.works/feeds/c/localllama.xml?sort=New",
+  "category": "local_models",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "HN: local LLM",
+  "url": "https://hnrss.org/newest?q=%22local+LLM%22&points=20",
+  "category": "local_models",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Puget Systems",
+  "url": "https://www.pugetsystems.com/blog/feed/",
+  "category": "local_models",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "ModularML",
+  "url": "https://www.modular.com/blog/rss.xml",
+  "category": "local_models",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "PremAI Blog",
+  "url": "https://www.premai.io/blog/rss/",
+  "category": "local_models",
+  "priority": "low",
+  "type": "feed"
+ },
+ {
+  "name": "SemiAnalysis Newsletter",
+  "url": "https://newsletter.semianalysis.com/feed",
+  "category": "hardware",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "The Information",
+  "url": "https://www.theinformation.com/feed",
+  "category": "industry_news",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Google Research Blog",
+  "url": "https://research.google/blog/rss/",
+  "category": "research",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Amazon Science",
+  "url": "https://www.amazon.science/index.rss",
+  "category": "research",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Devin (Cognition)",
+  "url": "https://devin.ai/rss.xml",
+  "category": "agents_tools",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Microsoft Agent Framework",
+  "url": "https://devblogs.microsoft.com/agent-framework/feed/",
+  "category": "agents_tools",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "PyTorch Blog",
+  "url": "https://pytorch.org/blog/feed/",
+  "category": "open_source",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "Quanta Magazine AI",
+  "url": "https://www.quantamagazine.org/tag/artificial-intelligence/feed/",
+  "category": "analysis",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "IEEE Spectrum Semiconductors",
+  "url": "https://spectrum.ieee.org/feeds/topic/semiconductors.rss",
+  "category": "hardware",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "EleutherAI",
+  "url": "https://blog.eleuther.ai/index.xml",
+  "category": "open_source",
+  "priority": "high",
+  "type": "feed"
+ },
+ {
+  "name": "HPC Wire",
+  "url": "https://www.hpcwire.com/feed/",
+  "category": "hardware",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "CoreWeave Blog",
+  "url": "https://www.coreweave.com/blog/rss.xml",
+  "category": "hardware",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "EE Times",
+  "url": "https://www.eetimes.com/feed/",
+  "category": "hardware",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "InfoQ AI/ML",
+  "url": "https://feed.infoq.com/ai-ml-data-eng",
+  "category": "agents_tools",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "JetBrains AI",
+  "url": "https://blog.jetbrains.com/ai/feed/",
+  "category": "agents_tools",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Databricks Blog",
+  "url": "https://www.databricks.com/feed",
+  "category": "products",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Mozilla AI",
+  "url": "https://blog.mozilla.org/en/category/ai/feed/",
+  "category": "open_source",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "NCSC UK",
+  "url": "https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml",
+  "category": "cyber_defense",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Science Robotics",
+  "url": "https://www.science.org/action/showFeed?type=etoc&feed=rss&jc=scirobotics",
+  "category": "robotics",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Benedict Evans",
+  "url": "https://www.ben-evans.com/benedictevans/rss.xml",
+  "category": "analysis",
+  "priority": "medium",
+  "type": "feed"
+ },
+ {
+  "name": "Anthropic News",
+  "url": "https://www.anthropic.com/news",
+  "category": "model_releases",
+  "priority": "critical",
+  "type": "scrape"
+ },
+ {
+  "name": "Anthropic Research",
+  "url": "https://www.anthropic.com/research",
+  "category": "safety_policy",
+  "priority": "high",
+  "type": "scrape"
+ },
+ {
+  "name": "UK AISI Blog",
+  "url": "https://www.aisi.gov.uk/blog",
+  "category": "safety_policy",
+  "priority": "high",
+  "type": "scrape"
+ },
+ {
+  "name": "Gray Swan",
+  "url": "https://www.grayswan.ai/blog",
+  "category": "ai_security",
+  "priority": "medium",
+  "type": "scrape"
+ }
+]

@@ -1,0 +1,60 @@
+# Dependabot version updates for AI DRUDGE V2.
+#
+# Takes effect only from the repository's DEFAULT branch (no target-branch is set on purpose): while
+# this file sits on a non-default branch it is inert.
+#
+# - Weekly, grouped: one PR for npm minor + patch updates, one PR for all GitHub Actions bumps.
+#   npm majors arrive as individual PRs so each can be reviewed on its own.
+# - cooldown: a release must be 7 days old before it is proposed (supply-chain safety margin).
+#   Security updates are not delayed by the cooldown.
+# - Actions are pinned by commit SHA in the workflows; Dependabot updates the SHA and the trailing
+#   "# vX.Y.Z" comment together.
+
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+      timezone: America/Chicago
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "chore(deps)"
+    cooldown:
+      default-days: 7
+    groups:
+      npm-minor-patch:
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+    ignore:
+      # Deferred by the V2 dependency review: TypeScript 7 (no JS API / tsserver yet) and Node
+      # typings ahead of the CI runtime (.node-version = 24). Remove an entry to lift the hold.
+      - dependency-name: typescript
+        update-types:
+          - "version-update:semver-major"
+      - dependency-name: "@types/node"
+        update-types:
+          - "version-update:semver-major"
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+      timezone: America/Chicago
+    open-pull-requests-limit: 2
+    commit-message:
+      prefix: "chore(ci)"
+    cooldown:
+      default-days: 7
+    groups:
+      github-actions:
+        patterns:
+          - "*"

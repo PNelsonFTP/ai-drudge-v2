@@ -1,0 +1,42 @@
+{
+  "name": "ai-drudge-v2",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.15.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b",
+    "test": "tsx --tsconfig tsconfig.app.json --test \"shared/**/*.test.ts\" \"scripts/**/*.test.ts\" \"src/**/*.test.ts\" \"test/**/*.test.ts\"",
+    "build:data": "tsx scripts/pipeline/run.ts",
+    "build:check": "tsx scripts/tools/check-data.ts",
+    "data:fixture": "tsx scripts/tools/data-fixture.ts",
+    "fixture:refresh": "tsx scripts/tools/fixture-refresh.ts",
+    "validate:feeds": "tsx scripts/tools/validate-feeds.ts",
+    "check:links": "tsx scripts/tools/check-links.ts",
+    "explain": "tsx scripts/tools/explain.ts",
+    "compare": "tsx scripts/tools/compare-v1-v2.ts",
+    "sbom": "tsx scripts/generate-sbom.ts",
+    "docs:sources": "tsx scripts/tools/gen-sources-doc.ts"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "fast-xml-parser": "^5.12.1",
+    "tailwindcss": "^4.3.5",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.8"
+  }
+}

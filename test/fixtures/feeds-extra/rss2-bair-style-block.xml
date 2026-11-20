@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Berkeley Artificial Intelligence Research Blog</title>
+    <description>The BAIR Blog</description>
+    <link>http://bair.berkeley.edu/blog/</link>
+    <atom:link href="http://bair.berkeley.edu/blog/feed.xml" rel="self" type="application/rss+xml" />
+    
+     
+      <item>
+        <title>BAIR at CoRL 2026</title>
+        <description>&lt;!-- twitter --&gt;
+&lt;meta name=&quot;twitter:title&quot; content=&quot;BAIR at CoRL 2026&quot; /&gt;
+
+&lt;meta name=&quot;twitter:card&quot; content=&quot;summary&quot; /&gt;
+
+&lt;meta name=&quot;keywords&quot; content=&quot;CoRL, robot learning, conference, schedule, BAIR&quot; /&gt;
+
+&lt;meta name=&quot;description&quot; content=&quot;BAIR at CoRL 2026: a day-by-day schedule of Berkeley faculty, student and postdoc research, November 9–12 in Austin, with full author lists.&quot; /&gt;
+
+&lt;meta name=&quot;author&quot; content=&quot;Berkeley AI Research Editors&quot; /&gt;
+
+&lt;p&gt;The Conference on Robot Learning (CoRL) takes place November 9–12, 2026, in Austin, Texas. BAIR faculty, postdocs and students will be presenting research at various sessions, including an Early Career Keynote from Professor Negar Mehr. See below for the full schedule of sessions with BAIR members, including papers co-authored with collaborators at other universities and companies.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;style&gt;
+.corl { font-size: 0.95rem; text-align: left; }
+.corl [hidden] { display: none !important; }
+.corl p, .corl ul, .corl li { text-align: left; }
+.corl a { word-break: break-word; }
+.corl-sans, .corl-meta, .corl-stat, .corl-nav, .corl-tools, .corl-time, .corl-tag, .corl-board,
+.corl-day-sub, .corl-venue, .corl-chair, .corl-also, .corl-sources, .corl-program { font-family: &apos;Lato&apos;, &apos;Helvetica Neue&apos;, Helvetica, sans-serif; }
+.corl-meta { color: #555; margin: 0 0 1.2em; }
+.corl-meta span + span::before { content: &quot;·&quot;; margin: 0 0.5em; color: #aaa; }
+
+.corl-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin: 0 0 1.4em; }
+.corl-stat { border: 1px solid #e3e3e3; border-radius: 6px; padding: 0.7rem 0.8rem; line-height: 1.25; }
+.corl-stat strong { display: block; font-size: 1.7rem; font-weight: 900; color: #003262; }
+.corl-stat span { display: block; font-size: 0.8rem; color: #333; }
+.corl-stat small { display: block; font-size: 0.75rem; color: #777; }
+
+.corl-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0 0 1.2em; }
+.corl-nav a { border: 1px solid #cfd8e3; border-radius: 4px; padding: 0.3rem 0.7rem; text-decoration: none; font-weight: 700; font-size: 0.85rem; }
+.corl-nav a small { font-weight: 400; color: #777; margin-left: 0.3em; }
+.corl-nav a:hover { background: #f2f6fb; }
+.corl-nav-note { font-size: 0.8rem; color: #777; }
+
+.corl-notes { background: #f7f7f7; border-left: 3px solid #FDB515; padding: 0.8rem 1rem; margin: 0 0 1.4em; font-size: 0.85rem; }
+.corl-notes p { margin: 0 0 0.5em; }
+.corl-notes p:last-child { margin-bottom: 0; }
+
+.corl-tools { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: flex-end; margin: 0 0 0.4em; font-size: 0.85rem; }
+.corl-tools label { display: block; font-size: 0.75rem; color: #555; margin-bottom: 0.2em; }
+.corl-tools .corl-field { flex: 1 1 14rem; }
+.corl-tools input, .corl-tools select { width: 100%; font: inherit; padding: 0.35rem 0.5rem; border: 1px solid #ccc; border-radius: 4px; height: auto; margin: 0; }
+.corl-tools button { font: inherit; padding: 0.35rem 0.8rem; border: 1px solid #ccc; border-radius: 4px; background: #fff; cursor: pointer; }
+.corl-status { font-family: &apos;Lato&apos;, &apos;Helvetica Neue&apos;, Helvetica, sans-serif; font-size: 0.75rem; color: #777; margin: 0 0 1.5em; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5em; }
+.corl-empty { padding: 1rem; border: 1px dashed #ccc; border-radius: 6px; text-align: center; }
+
+.corl-day { margin-top: 2.2em; }
+.corl-day &gt; h2 { border-bottom: 2px solid #003262; padding-bottom: 0.3rem; margin-bottom: 0.2rem; }
+.corl-day-sub { font-size: 0.8rem; color: #666; margin: 0 0 1em; }
+.corl-day-sub span + span::before { content: &quot;·&quot;; margin: 0 0.5em; color: #aaa; }
+
+.corl-session { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding: 1rem 0; border-top: 1px solid #eee; }
+.corl-session:first-of-type { border-top: 0; }
+.corl-session.corl-featured { background: #fffbf0; border-left: 3px solid #FDB515; padding-left: 0.8rem; }
+.corl-time { font-weight: 700; font-size: 0.9rem; line-height: 1.3; }
+.corl-time small { display: block; font-weight: 400; font-size: 0.7rem; color: #777; text-transform: uppercase; letter-spacing: 0.03em; }
+.corl-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.1rem 0.45rem; border-radius: 3px; background: #eef2f7; color: #003262; }
+.corl-tag.k-keynote { background: #FDB515; color: #1a1a1a; }
+.corl-tag.k-oral { background: #003262; color: #fff; }
+.corl-tag.k-spotlight { background: #3b7ea1; color: #fff; }
+.corl-tag.k-poster { background: #eef2f7; color: #003262; }
+.corl-tag.k-lbr { background: #e7f3ec; color: #145a32; }
+.corl-tag.k-workshop { background: #f1ecf7; color: #4a2a75; }
+.corl-session h3 { margin: 0.35rem 0 0.15rem; font-size: 1.05rem; }
+.corl-venue { font-size: 0.8rem; color: #666; margin: 0 0 0.6em; }
+.corl-chair { font-weight: 700; color: #333; }
+
+.corl-paper, .corl-appearance { margin: 0 0 0.9em; }
+.corl-paper h4, .corl-appearance h4 { font-size: 0.92rem; margin: 0 0 0.2em; line-height: 1.35; font-family: &apos;Lato&apos;, &apos;Helvetica Neue&apos;, Helvetica, sans-serif; font-weight: 700; }
+.corl-board { display: inline-block; font-size: 0.72rem; color: #555; border: 1px solid #ddd; border-radius: 3px; padding: 0 0.35rem; margin-bottom: 0.25em; }
+.corl-authors { font-size: 0.82rem; margin: 0 0 0.2em; line-height: 1.45; }
+.corl-also, .corl-sources, .corl-program, .corl-see { font-size: 0.75rem; color: #666; margin: 0 0 0.15em; }
+.corl-see { font-family: &apos;Lato&apos;, &apos;Helvetica Neue&apos;, Helvetica, sans-serif; font-style: italic; }
+.corl-talk { font-style: italic; margin: 0 0 0.2em; }
+.corl-appearance p { font-size: 0.85rem; margin: 0 0 0.2em; }
+.corl-organizers { margin: 0; padding-left: 1.1rem; }
+.corl-organizers li { margin-bottom: 0.5em; font-size: 0.88rem; }
+.corl-organizers p { margin: 0; font-size: 0.82rem; color: #444; }
+
+.corl-about { margin-top: 2.5em; border-top: 2px solid #003262; padding-top: 0.5em; font-size: 0.85rem; }
+.corl-about-links { font-family: &apos;Lato&apos;, &apos;Helvetica Neue&apos;, Helvetica, sans-serif; display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; }
+
+@media (max-width: 40em) {
+  .corl-stats { grid-template-columns: repeat(2, 1fr); }
+  .corl-session { grid-template-columns: 1fr; gap: 0.3rem; }
+  .corl-time small { display: inline; margin-left: 0.4em; }
+  .corl-time { font-size: 1rem; }
+  .corl-venue, .corl-also, .corl-sources, .corl-program, .corl-board, .corl-tag, .corl-time small,
+  .corl-day-sub, .corl-stat small, .corl-nav-note, .corl-see { font-size: 0.8rem; }
+  .corl-authors { font-size: 0.9rem; }
+}
+@media print {
+  .corl-tools, .corl-status, .corl-nav, .corl-empty { display: none !important; }
+}
+&lt;/style&gt;
+&lt;div class=&quot;corl&quot; id=&quot;schedule&quot;&gt;
+
+&lt;p class=&quot;corl-meta&quot;&gt;&lt;span&gt;&lt;strong&gt;November 9–12, 2026&lt;/strong&gt;&lt;/span&gt;&lt;span&gt;Austin, Texas&lt;/span&gt;&lt;span&gt;All times CST · UTC−6&lt;/span&gt;&lt;/p&gt;
+
+&lt;div class=&quot;corl-stats&quot;&gt;
+&lt;div class=&quot;corl-stat&quot;&gt;&lt;strong&gt;33&lt;/strong&gt;&lt;span&gt;Main-conference papers&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;corl-stat&quot;&gt;&lt;strong&gt;4&lt;/strong&gt;&lt;span&gt;Late-breaking results (LBR) posters&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;corl-stat&quot;&gt;&lt;strong&gt;10&lt;/strong&gt;&lt;span&gt;Orals &amp;amp; spotlights&lt;/span&gt;&lt;small&gt;3 orals · 7 spotlights&lt;/small&gt;&lt;/div&gt;
+&lt;div class=&quot;corl-stat&quot;&gt;&lt;strong&gt;4&lt;/strong&gt;&lt;span&gt;Days of research&lt;/span&gt;&lt;small&gt;November 9–12&lt;/small&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;nav class=&quot;corl-nav&quot; aria-label=&quot;Jump to day&quot;&gt;
+&lt;a href=&quot;#day-1&quot;&gt;Mon&lt;small&gt;Nov 9&lt;/small&gt;&lt;/a&gt;
+&lt;a href=&quot;#day-2&quot;&gt;Tue&lt;small&gt;Nov 10&lt;/small&gt;&lt;/a&gt;
+&lt;a href=&quot;#day-3&quot;&gt;Wed&lt;small&gt;Nov 11&lt;/small&gt;&lt;/a&gt;
+&lt;a href=&quot;#day-4&quot;&gt;Thu&lt;small&gt;Nov 12&lt;/small&gt;&lt;/a&gt;
+&lt;span class=&quot;corl-nav-note&quot;&gt;Main conference Nov 9–11 · Workshops Nov 12&lt;/span&gt;
+&lt;/nav&gt;
+
+&lt;div class=&quot;corl-notes&quot;&gt;
+&lt;p&gt;Times shown for oral and spotlight papers are session windows. Individual presentation order is not specified. Papers appear in both their talk and poster sessions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Paper inclusion:&lt;/strong&gt; At least one author is affiliated with UC Berkeley; joint affiliations qualify. Faculty talks, session-chair roles and workshop participation are also included.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Late-breaking results:&lt;/strong&gt;</description>
+        <pubDate>Mon, 09 Nov 2026 01:00:00 -0800</pubDate>
+        <link>http://bair.berkeley.edu/blog/2026/11/09/bair-at-corl-2026/</link>
+        <guid isPermaLink="true">http://bair.berkeley.edu/blog/2026/11/09/bair-at-corl-2026/</guid>
+      </item>
+<item>
+        <title>From CUDA to MLX: How K-Search Brings Decades of Kernel Expertise to Apple Silicon</title>
+        <description>&lt;!-- twitter --&gt;
+&lt;meta name=&quot;twitter:title&quot; content=&quot;From CUDA to MLX: How K-Search Brings Decades of Kernel Expertise to Apple Silicon&quot; /&gt;
+
+&lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot; /&gt;
+
+&lt;meta name=&quot;twitter:image&quot; content=&quot;https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/cover.png&quot; /&gt;
+
+&lt;meta name=&quot;keywords&quot; content=&quot;CUDA, MLX, Apple Silicon, kernel optimization, evolutionary search, K-Search, FlashAttention, Mamba, state space models, Metal&quot; /&gt;
+
+&lt;meta name=&quot;description&quot; content=&quot;IBM Research extends K-Search, the evolutionary kernel search framework from Berkeley Sky Lab, with a CUDA-to-MLX translation layer that transfers expert kernel knowledge to Apple Silicon, reaching 97% of FlashAttention performance and a ~20x faster Mamba SSM prefill.&quot; /&gt;
+
+&lt;meta name=&quot;author&quot; content=&quot;Shiyi Cao, Gal Bloch, Assaf Toledo, Michael Factor, Gil Vernik, Joseph E. Gonzalez&quot; /&gt;
+
+&lt;p class=&quot;center&quot;&gt;
+&lt;img src=&quot;https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/cover.svg&quot; alt=&quot;Kernel knowledge transfer from CUDA to MLX&quot; /&gt;&lt;br /&gt;
+&lt;/p&gt;
+
+&lt;p class=&quot;cuda-mlx-fig-caption&quot;&gt;&lt;strong&gt;Figure 1: CUDA-to-MLX optimization translation map.&lt;/strong&gt; CUDA optimization knowledge can be translated into architecture-native MLX strategies rather than copied instruction-for-instruction.&lt;/p&gt;
+
+&lt;p&gt;We face a new epoch in computing. Hardware is changing rapidly — not just faster GPUs, but a growing range of chips from different vendors, each with its own architecture and often tailored to specific AI workloads. Software is changing just as fast, and AI coding tools now generate in minutes what took months of effort a few years ago.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;With so much of computing now centered on AI, GPU kernels are a crucial component of its success. These are the low-level programs that run inside the GPU, and writing efficient ones is far from obvious — it takes years of expertise to get right. Transferring a kernel from one vendor’s hardware to another is harder still, and often means rediscovering the same optimizations from scratch. The CUDA ecosystem, for example, has accumulated decades of hard-won kernel expertise: hand-tuned implementations of attention, state space models, and other critical operations representing thousands of engineering hours. Newer hardware ecosystems (Apple Silicon, custom AI accelerators, and others) are growing fast but lack this depth.&lt;/p&gt;
+
+&lt;p&gt;In this work we ask whether that expertise can be transferred automatically. We built on &lt;a href=&quot;https://arxiv.org/abs/2602.19128&quot;&gt;K-Search&lt;/a&gt;, an evolutionary kernel search framework introduced by Cao et al. at Berkeley Sky Lab that uses AI to optimize GPU kernels, and extended it with a backend for MLX — Apple’s machine-learning framework for its own Apple Silicon chips. We developed a novel structured CUDA-to-MLX translation layer that lets K-Search take existing CUDA kernels as a knowledge base and adapt them into high-quality GPU kernels for Apple Silicon, rather than rebuilding from scratch.&lt;/p&gt;
+
+&lt;p&gt;We show that our approach reaches near-expert level performance on Apple Silicon with 0.97x speedup compared to the native MLX Attention kernel, and up to a 20x prefill speedup over the community mlx-lm implementation on the Mamba SSM kernel; we report the numbers, and how much of the gain comes from the translation layer, in the sections below. Although we focus on MLX kernels for Apple Silicon, the method is not specific to MLX and applies to any ecosystem where CUDA expertise is transferable.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-mlx&quot;&gt;Why MLX?&lt;/h2&gt;
+
+&lt;p&gt;Apple’s MLX framework has seen remarkable adoption since late 2023. With Apple Silicon in hundreds of millions of MacBooks and Mac Studios, MLX enables local AI inference without cloud costs. The unified memory architecture makes it especially attractive for mid-sized models (7B–70B parameters on M series chips).&lt;/p&gt;
+
+&lt;p&gt;Yet beneath this momentum lies a significant gap: many performance-critical kernels that the NVIDIA ecosystem takes for granted: paged attention, optimized SSM scan kernels, fused MoE routing are either absent or naive without hardware-specific tuning. MLX runs models correctly but often leaves significant performance on the table.&lt;/p&gt;
+
+&lt;p&gt;This gap is what motivates the rest of this post.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-k-search&quot;&gt;What is K-Search?&lt;/h2&gt;
+
+&lt;p&gt;K-Search is an evolutionary kernel optimization framework originally developed by our first author Shiyi Cao at UC Berkeley Sky Lab. Given a naive kernel and a hardware specification, it runs an iterative optimization loop: an LLM reasons about which optimizations to try next, a code-writing model generates candidate kernels, and those candidates are compiled and benchmarked on real hardware.&lt;/p&gt;
+
+&lt;p&gt;Measurements feed back into the search, which keeps refining, pursuing promising directions and dropping dead ends until performance converges.&lt;/p&gt;
+
+&lt;p class=&quot;center&quot;&gt;
+&lt;img src=&quot;https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/algorithm-01-k-search.svg&quot; alt=&quot;Pseudocode for K-Search via co-evolving world models&quot; width=&quot;460&quot; /&gt;&lt;br /&gt;
+&lt;/p&gt;
+
+&lt;p class=&quot;cuda-mlx-fig-caption&quot;&gt;&lt;strong&gt;Algorithm 1: K-Search via co-evolving world models.&lt;/strong&gt; The search alternates between selecting the most promising action, instantiating and evaluating code until improvement stagnates, and evolving the world model through insert, update, and prune operations. Adapted from &lt;a href=&quot;https://arxiv.org/abs/2602.19128&quot;&gt;Cao et al. (2026)&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Search is grounded by a Spec: a domain-specific document encoding hardware rules, optimization patterns, and mathematical constraints which keeps generated code from hallucinating invalid primitives and ensures candidates will actually compile and run efficiently.&lt;/p&gt;
+
+&lt;p&gt;In our runs, a single model (Gemini 3.5 Pro Preview) plays both roles: it maintains the reasoning state and writes the kernels. The reasoning half is prompted as a “GPU kernel performance engineer” and asked to work through a fixed analysis before proposing anything: classify the kernel (reduction, scan, attention/softmax, …), rewrite the reference computation in canonical form, map out data layout and access patterns, and hypothesize the likely bottleneck (bandwidth, latency, compute, or synchronization) in each runtime regime. Only then does it emit candidate optimizations, each as a single change implementable in one iteration.&lt;/p&gt;
+
+&lt;p&gt;We call the persistent reasoning state a &lt;em&gt;world model&lt;/em&gt;. Rather than a flat list of things to try, it is a decision (prefix) tree: each root→leaf path composes a full optimization plan, and sibling branches are competing alternatives. Every node is scored — an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;overall_rating&lt;/code&gt; in [0, 10], a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;confidence&lt;/code&gt; in [0, 1], and per-node &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;impacts&lt;/code&gt; on memory bandwidth, register pressure, and compute/hardware fit — so the search can rank partial plans and expand the most promising ones. The tree persists and grows across rounds: refining an idea adds a child node rather than overwriting its parent, and if the best score fails to improve for a few rounds (a stagnation window) the search backs off to explore an alternative branch. A single node, as it appears mid-run on the attention kernel, looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;post-code-compact&quot;&gt;
+
+  &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;action&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Replace the threadgroup-memory softmax reduction
+             with a register-only reduction: each SIMD group
+             owns 8 query rows and reduces across lanes with
+             simd_shuffle_xor, removing a threadgroup_barrier.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;difficulty_1_to_5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;</description>
+        <pubDate>Wed, 29 Jul 2026 02:00:00 -0700</pubDate>
+        <link>http://bair.berkeley.edu/blog/2026/07/29/cuda-to-mlx-k-search/</link>
+        <guid isPermaLink="true">http://bair.berkeley.edu/blog/2026/07/29/cuda-to-mlx-k-search/</guid>
+      </item>
+     
+    
+  </channel>
+</rss>

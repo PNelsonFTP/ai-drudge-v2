@@ -1,0 +1,39 @@
+/* #/settings - the section order list and the mutes list. */
+
+.sp-order { margin: 0 0 8px; padding: 0; list-style: none; border: 1px solid var(--color-line); }
+
+.sp-order-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+  padding: 3px 6px;
+  border-bottom: 1px solid var(--color-line-soft);
+}
+
+.sp-order-row:last-child { border-bottom: 0; }
+.sp-order-row:nth-child(even) { background: var(--color-surface); }
+
+.sp-order-pos {
+  flex: 0 0 22px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-muted);
+}
+
+.sp-order-name { flex: 1 1 180px; min-width: 0; font-weight: 700; }
+.sp-order-hidden .sp-order-name a { color: var(--color-muted); font-weight: 400; }
+.sp-order .sp-sub { color: var(--color-muted); font-weight: 400; font-size: 11px; }
+
+.sp-mutes { margin: 0 0 8px; padding: 0; list-style: none; max-width: 520px; }
+.sp-mutes li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 3px 0;
+  border-bottom: 1px solid var(--color-line-soft);
+}
+
+.sp-details { margin-top: 6px; }
+.sp-details > summary { cursor: pointer; color: var(--color-link); min-height: 24px; }

@@ -1,0 +1,380 @@
+/* Headline row + hover card (WP9). Class prefix: hl-.
+   Builds on the shared component classes (.headline-*, .headline-seen, .source-badge,
+   .related-badge, .new-badge, .icon-btn, .lead-title, .hover-card) and tokens of src/styles; this
+   file only adds the row's own layout and states. No colour literals: newer tokens fall back to a
+   V1 token. No opacity on text or controls - muted states use the muted tokens.
+   Unlayered on purpose: it must win over the layered component defaults it refines. */
+
+.hl-row {
+  min-width: 0;
+  padding-block: var(--row-pad-y, 3px);
+}
+
+/* ---- title ---------------------------------------------------------------------------------- */
+
+.hl-title {
+  overflow-wrap: anywhere;
+}
+
+/* A red (story-size) headline stays red after it was opened; every other title shows visited.
+   The second rule is needed because the shared `a.headline:visited` (every title carries
+   .headline) would otherwise turn an opened red headline purple. A dimmed (is-seen) row is left to
+   the seen colour. */
+a.hl-title:visited:not(.headline-critical) {
+  color: var(--color-visited, var(--color-muted));
+}
+
+.hl-row:not(.is-seen) a.hl-title.headline-critical:visited {
+  color: var(--siren);
+}
+
+/* A low-tier headline (weight 0) and a seen headline are both regular-weight grey (1.11:1 apart in
+   the light theme, 1.22:1 in the dark one): colour alone cannot tell them apart. Low-tier titles
+   are set in italic - about one homepage row in ten, no extra element, no change of row height -
+   so upright grey always means "seen" and italic grey "minor source". Unlayered: it also styles
+   the About legend's sample. */
+.headline-low {
+  font-style: italic;
+}
+
+/* Seen in a previous session. HeadlineRow never sets is-seen on the lead, on TOP STORIES or on the
+   saved lists (those keep their size, weight and colour), nor when the reader switched
+   "Dim headlines I have seen" off. */
+.hl-row.is-seen .hl-title {
+  font-weight: 400;
+}
+
+.hl-row.is-seen a.hl-title:not(:visited),
+.hl-row.is-seen span.hl-title {
+  color: var(--color-seen, var(--color-muted));
+}
+
+.hl-watch {
+  background: color-mix(in srgb, var(--ft-gold) 40%, var(--color-bg));
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* On the dark page a gold wash would cost the title its contrast: underline instead. */
+html.dark .hl-watch {
+  background: none;
+  text-decoration: underline;
+  text-decoration-color: var(--ft-gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+.hl-new {
+  margin-left: 5px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  vertical-align: top;
+  color: var(--siren);
+}
+
+.hl-count {
+  white-space: nowrap;
+}
+
+button.hl-more {
+  position: relative;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+/* Full-size pointer target without making the row taller. */
+button.hl-more::after {
+  content: "";
+  position: absolute;
+  inset: -6px -3px;
+}
+
+button.hl-more[aria-expanded="true"] {
+  background: var(--chip-active-bg, var(--ft-gold));
+  color: var(--chip-active-fg, var(--ft-navy-dark));
+}
+
+/* ---- meta line ------------------------------------------------------------------------------ */
+
+.hl-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 7px;
+  row-gap: 2px;
+  margin-top: 1px;
+  font-size: 10.5px;
+  line-height: 1.3;
+  color: var(--color-muted);
+}
+
+/* With a mouse the four row actions mount on hover (HeadlineRow `hot`). The line must not wrap
+   then, or the row gains a line and everything below it moves under the pointer: keep one line and
+   let the source badge (the only item that can shrink - it has overflow + ellipsis) give way. */
+@media (hover: hover) and (pointer: fine) {
+  .hl-meta {
+    flex-wrap: nowrap;
+  }
+
+  .hl-meta > * {
+    flex: none;
+  }
+
+  .hl-meta > .source-badge {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+}
+
+.hl-time,
+.hl-latest {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* The section chip is a link in 9 px type: about 10 px high on its own. Like .hl-act it gets the
+   minimum target height (WCAG 2.5.8) by overlapping the lines above and below - the negative
+   block margin keeps its outer height at 14 px, so the meta line and the row do not grow. */
+.hl-section {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target-min, 24px);
+  margin-block: calc((14px - var(--target-min, 24px)) / 2);
+  padding-inline: 2px;
+  margin-inline: -2px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hl-flag {
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0 3px;
+  border: 1px dotted var(--color-muted);
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.hl-text-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: none;
+  border: 0;
+  /* padding + negative margin = a 24 px target on the same line height */
+  padding: 6px 2px;
+  margin: -6px -2px;
+  font-size: inherit;
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.hl-text-btn[aria-expanded="true"] {
+  font-weight: 700;
+}
+
+.hl-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.hl-act {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--target-min, 24px);
+  min-height: var(--target-min, 24px);
+  /* the target overlaps the line above and below instead of spreading the rows */
+  margin-block: calc((14px - var(--target-min, 24px)) / 2);
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 3px;
+  color: var(--icon-idle, var(--color-muted));
+  cursor: pointer;
+}
+
+.hl-act:hover,
+.hl-act[aria-expanded="true"] {
+  color: var(--color-link);
+}
+
+.hl-act-bookmark[aria-pressed="true"] {
+  color: var(--star-active, var(--color-link));
+}
+
+.hl-act-later[aria-pressed="true"] {
+  color: var(--accent, var(--color-link));
+}
+
+.hl-act-mute[aria-pressed="true"] {
+  color: var(--siren);
+}
+
+.hl-act-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.hl-icon {
+  flex: none;
+}
+
+.hl-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---- inline disclosures --------------------------------------------------------------------- */
+
+.hl-summary {
+  margin: 3px 0 2px;
+  padding-left: 8px;
+  border-left: 2px solid var(--color-line);
+  max-width: 75ch;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--color-fg);
+}
+
+.hl-also {
+  margin: 2px 0 1px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+
+.hl-also-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ---- variants ------------------------------------------------------------------------------- */
+
+/* A one-line compact row is a 13 px title on a 17.55 px line (compact density). With 2 px of
+   padding the headline links of neighbouring rows were 21.55 px apart (22.55 px with the 1 px rule
+   the lists draw between rows): under the 24 px pitch WCAG 2.5.8 asks of targets that are less than
+   24 px high. 3 px gives 23.55 px + the rule = 24.55 px, and min-height holds 24 px (32 px on coarse
+   pointers) where a list draws no rule. A row that wraps its meta line is taller anyway. */
+.hl-compact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  align-content: center;
+  column-gap: 8px;
+  padding-block: 3px;
+  min-height: var(--target-min, 24px);
+}
+
+.hl-compact .hl-main {
+  flex: 1 1 16em;
+  min-width: 0;
+}
+
+.hl-compact .hl-meta {
+  flex: 0 1 auto;
+  margin-top: 0;
+}
+
+/* Whether a compact row puts its meta beside or under the title depends on the meta's width.
+   Where rows react to hover, reserve the width of the four hover actions (4 x 24 px + 3 x 2 px) so
+   that does not change - and re-wrap the title - when the pointer enters the row. */
+@media (hover: hover) and (pointer: fine) {
+  .hl-compact .hl-act-group {
+    min-width: calc(4 * var(--target-min, 24px) + 6px);
+  }
+}
+
+.hl-compact .hl-summary,
+.hl-compact .hl-also {
+  flex: 1 0 100%;
+}
+
+.hl-top .hl-title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.hl-lead {
+  padding-block: 2px 8px;
+}
+
+.hl-lead .hl-meta {
+  margin-top: 5px;
+  font-size: 11px;
+}
+
+.hl-lead .hl-summary {
+  margin-top: 6px;
+  padding-left: 0;
+  border-left: 0;
+  font-size: 13px;
+}
+
+.hl-lead .hl-also {
+  font-size: 11.5px;
+}
+
+/* ---- hover card (pointer devices only) ------------------------------------------------------ */
+
+.hl-card {
+  /* The bound HoverCard.tsx plans with (CARD_HEIGHT); real cards are about 90-195 px. */
+  box-sizing: border-box;
+  max-height: 270px;
+  overflow: hidden;
+  padding: 10px 12px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.hl-card-title {
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hl-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: var(--color-muted);
+}
+
+.hl-card-summary {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  margin: 0 0 6px;
+}
+
+.hl-card-also {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+@media not ((hover: hover) and (pointer: fine)) {
+  .hl-card {
+    display: none;
+  }
+}

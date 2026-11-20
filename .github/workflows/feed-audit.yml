@@ -1,0 +1,309 @@
+name: V2 weekly audit (dependencies, feeds, links)
+
+# Weekly health check, independent of the refresh workflow:
+#   1. npm audit on the FULL dependency tree (the build-time parsers are devDependencies) + signatures
+#   2. every registry source: feeds, scrape pages and JSON APIs (scripts/tools/validate-feeds.ts)
+#   3. every URL in the registry and the docs (scripts/tools/check-links.ts)
+#   4. ONE rolling "Feed audit:" issue, opened / edited / closed by scripts/tools/report-feed-audit.ts
+#   5. ONE rolling "Dependency audit failing" issue, opened / commented / closed by the report job
+#      when npm audit or the signature check fails - a red run in the Actions tab notifies nobody
+#   6. docs/SBOM.json against the lockfile and the workflows (scripts/generate-sbom.ts --check):
+#      an out-of-date bill of materials is a warning on the run, never a failure
+#
+# INERT BY DEFAULT: every job is guarded by the repository variable V2_DEPLOY (see refresh.yml).
+#
+# Job graph:  audit (contents:read, parses untrusted feeds, holds no write token)
+#                -> report (issues:write; reads the verdict JSON from an artifact, files the issues,
+#                           then fails the run if the dependency audit failed)
+#
+# The run goes red for: high / critical advisories, a registry signature failure, or the audit
+# itself breaking. Dead feeds do NOT turn the run red - the issue is their signal - so a broken
+# source can never again mask a failing dependency audit.
+
+on:
+  schedule:
+    - cron: "23 12 * * 1" # Mondays 12:23 UTC
+  workflow_dispatch: {}
+
+permissions: {}
+
+concurrency:
+  group: v2-feed-audit
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  SITE_URL: ${{ vars.SITE_URL || 'https://pnelsonftp.github.io/ai-drudge-v2/' }}
+
+jobs:
+  # ------------------------------------------------------------------------------------------------
+  audit:
+    name: Audit dependencies, feeds and links
+    if: vars.V2_DEPLOY == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    outputs:
+      npm_audit: ${{ steps.npm_audit.outcome }}
+      signatures: ${{ steps.signatures.outcome }}
+      feeds: ${{ steps.feeds.outcome }}
+      links: ${{ steps.links.outcome }}
+      sbom: ${{ steps.sbom.outcome }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - name: Install (lifecycle scripts disabled)
+        timeout-minutes: 5
+        run: npm ci --ignore-scripts
+
+      # Each check records its outcome and lets the next one run; the report job decides the verdict.
+      - name: Dependency audit (full tree, high and above)
+        id: npm_audit
+        continue-on-error: true
+        timeout-minutes: 5
+        run: npm audit --audit-level=high
+
+      - name: Registry signatures and attestations
+        id: signatures
+        continue-on-error: true
+        timeout-minutes: 5
+        run: npm audit signatures
+
+      # Exits 1 only when at least one ACTIONABLE source problem exists (transient failures never do).
+      - name: Validate every registry source
+        id: feeds
+        continue-on-error: true
+        timeout-minutes: 15
+        env:
+          VALIDATE_OUT: ${{ runner.temp }}/audit/feed-audit.json
+          FEED_USER_AGENT: ${{ vars.FEED_USER_AGENT }}
+        run: |
+          mkdir -p "${RUNNER_TEMP}/audit"
+          npm run validate:feeds
+
+      # Registry + docs URLs. Exits 0 by design (no --strict): a third party having a bad minute is
+      # reported, not failed. Internal budget 600 s.
+      - name: Check registry and docs links
+        id: links
+        continue-on-error: true
+        timeout-minutes: 15
+        env:
+          FEED_USER_AGENT: ${{ vars.FEED_USER_AGENT }}
+        run: |
+          mkdir -p "${RUNNER_TEMP}/audit"
+          npx --no-install tsx scripts/tools/check-links.ts --out "${RUNNER_TEMP}/audit/link-report"
+
+      # Reads files only (lockfile, workflows, the committed SBOM): no network, nothing written.
+      - name: SBOM matches the lockfile and the workflows
+        id: sbom
+        continue-on-error: true
+        timeout-minutes: 3
+        run: npx --no-install tsx scripts/generate-sbom.ts --check
+
+      - name: Summary
+        if: ${{ always() }}
+        env:
+          O_SBOM: ${{ steps.sbom.outcome }}
+          O_NPM_AUDIT: ${{ steps.npm_audit.outcome }}
+          O_SIGNATURES: ${{ steps.signatures.outcome }}
+          O_FEEDS: ${{ steps.feeds.outcome }}
+          O_LINKS: ${{ steps.links.outcome }}
+        run: |
+          {
+            echo "| Check | Outcome |"
+            echo "|---|---|"
+            echo "| npm audit (high and above, full tree) | ${O_NPM_AUDIT:-not run} |"
+            echo "| npm audit signatures | ${O_SIGNATURES:-not run} |"
+            echo "| Source validation (failure = actionable problems, see the Feed audit issue) | ${O_FEEDS:-not run} |"
+            echo "| Link check | ${O_LINKS:-not run} |"
+            echo "| docs/SBOM.json is current (failure = run \`npm run sbom\` and commit) | ${O_SBOM:-not run} |"
+            echo
+            if [ -s "${RUNNER_TEMP}/audit/link-report.md" ]; then
+              head -c 200000 "${RUNNER_TEMP}/audit/link-report.md"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload audit reports
+        if: ${{ always() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: v2-audit-reports
+          path: ${{ runner.temp }}/audit
+          if-no-files-found: warn
+          retention-days: 30
+          overwrite: true
+
+  # ------------------------------------------------------------------------------------------------
+  report:
+    name: File the issue, then set the verdict
+    needs: audit
+    if: ${{ !cancelled() && vars.V2_DEPLOY == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - name: Install (lifecycle scripts disabled)
+        timeout-minutes: 5
+        run: npm ci --ignore-scripts
+
+      - name: Download audit reports
+        id: download
+        continue-on-error: true
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: v2-audit-reports
+          path: ${{ runner.temp }}/audit
+
+      # Opens, edits or closes the single "Feed audit:" issue. Skips quietly when the verdict file
+      # is missing. The token is on this step only.
+      - name: Open, update or close the feed-audit issue
+        id: issue
+        if: ${{ always() }}
+        continue-on-error: true
+        timeout-minutes: 5
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          VALIDATE_OUT: ${{ runner.temp }}/audit/feed-audit.json
+        run: npx --no-install tsx scripts/tools/report-feed-audit.ts
+
+      # The dependency audit is the urgent half of this workflow, so it gets its own rolling issue:
+      # opened on the first failing audit, commented on by every later failing one (weekly), closed
+      # by the first run in which BOTH checks pass. Same pattern as the refresh alert: list (not
+      # search) by exact title and bot author; every value arrives through the environment. The
+      # token is on this step only.
+      - name: Open, update or close the dependency-audit issue
+        id: dep_issue
+        if: ${{ always() }}
+        continue-on-error: true
+        timeout-minutes: 5
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          NPM_AUDIT: ${{ needs.audit.outputs.npm_audit }}
+          SIGNATURES: ${{ needs.audit.outputs.signatures }}
+        run: |
+          set -euo pipefail
+          title="Dependency audit failing"
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+          bad=""
+          if [ "$NPM_AUDIT" = failure ]; then
+            bad="\`npm audit --audit-level=high\` (high or critical advisories in the dependency tree)"
+          fi
+          if [ "$SIGNATURES" = failure ]; then
+            bad="${bad}${bad:+; }\`npm audit signatures\` (registry signature or attestation verification)"
+          fi
+
+          if ! found="$(gh api --paginate "repos/${GITHUB_REPOSITORY}/issues?state=open&per_page=100" \
+            --jq '.[] | select(.pull_request == null and .user.type == "Bot" and .title == "Dependency audit failing") | .number')"; then
+            echo "::warning title=dependency issue::could not list issues - not opening, updating or closing anything"
+            exit 0
+          fi
+          number="$(printf '%s\n' "$found" | sed -n 1p)"
+
+          if [ -n "$bad" ]; then
+            body="$(mktemp)"
+            {
+              echo "The weekly dependency audit failed: ${bad}."
+              echo
+              echo "- Run: ${run_url} (the \"Audit dependencies, feeds and links\" job log lists the advisories)"
+              echo "- Reproduce locally: \`npm ci --ignore-scripts && npm audit --audit-level=high && npm audit signatures\`"
+              echo "- The build-time feed parser (fast-xml-parser) reads untrusted input on every refresh, so treat a high or critical advisory there as urgent."
+              echo
+              echo "_Commented on by every failing weekly audit. Closed automatically by the first audit in which both checks pass._"
+            } > "$body"
+            if [ -z "$number" ]; then
+              gh issue create --title "$title" --body-file "$body" --assignee "${GITHUB_REPOSITORY_OWNER}" \
+                || gh issue create --title "$title" --body-file "$body"
+            else
+              gh issue comment "$number" --body-file "$body"
+            fi
+            exit 0
+          fi
+
+          if [ "$NPM_AUDIT" = success ] && [ "$SIGNATURES" = success ]; then
+            if [ -n "$number" ]; then
+              gh issue close "$number" --comment "Recovered: both dependency checks passed in ${run_url}. Closing."
+            else
+              echo "Dependency audit passed and no issue is open."
+            fi
+          else
+            echo "Nothing to report (npm audit=${NPM_AUDIT:-not run}, signatures=${SIGNATURES:-not run})."
+          fi
+
+      - name: Fail the run on audit findings
+        if: ${{ always() }}
+        env:
+          AUDIT_JOB: ${{ needs.audit.result }}
+          NPM_AUDIT: ${{ needs.audit.outputs.npm_audit }}
+          SIGNATURES: ${{ needs.audit.outputs.signatures }}
+          FEEDS: ${{ needs.audit.outputs.feeds }}
+          LINKS: ${{ needs.audit.outputs.links }}
+          SBOM: ${{ needs.audit.outputs.sbom }}
+          ISSUE_STEP: ${{ steps.issue.outcome }}
+          DEP_ISSUE_STEP: ${{ steps.dep_issue.outcome }}
+          VALIDATE_OUT: ${{ runner.temp }}/audit/feed-audit.json
+        run: |
+          fail=0
+          if [ "$AUDIT_JOB" != success ]; then
+            echo "::error title=audit::the audit job did not complete (${AUDIT_JOB})"
+            fail=1
+          fi
+          if [ "$NPM_AUDIT" = failure ]; then
+            echo "::error title=npm audit::high or critical advisories in the dependency tree - see the audit job log"
+            fail=1
+          fi
+          if [ "$SIGNATURES" = failure ]; then
+            echo "::error title=npm audit signatures::registry signature or attestation verification failed"
+            fail=1
+          fi
+          if [ "$FEEDS" = failure ]; then
+            if [ -s "$VALIDATE_OUT" ]; then
+              echo "::warning title=source validation::actionable source problems - see the open \"Feed audit:\" issue"
+            else
+              echo "::error title=source validation::the validator failed without writing a verdict file"
+              fail=1
+            fi
+          fi
+          if [ "$LINKS" = failure ]; then
+            echo "::warning title=link check::the link checker did not finish - see the audit job log"
+          fi
+          if [ "$SBOM" = failure ]; then
+            echo "::warning title=SBOM::docs/SBOM.json does not match package-lock.json or the workflows - run npm run sbom and commit the result"
+          fi
+          if [ "$ISSUE_STEP" = failure ]; then
+            echo "::error title=feed-audit issue::could not open, update or close the issue"
+            fail=1
+          fi
+          if [ "$DEP_ISSUE_STEP" = failure ]; then
+            echo "::error title=dependency-audit issue::could not open, update or close the issue"
+            fail=1
+          fi
+          exit "$fail"

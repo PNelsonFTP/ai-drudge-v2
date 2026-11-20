@@ -1,0 +1,360 @@
+/* Secondary pages (WP10): shared page furniture. Every class is prefixed sp- so nothing collides
+   with the shell or the home page; colours come only from the V1 custom properties, so both themes
+   work and no text relies on stacked opacity (the V1 contrast failures). */
+
+.sp-page {
+  margin: 0 0 24px;
+  color: var(--color-fg);
+}
+
+.sp-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 8px;
+  margin: 0 0 8px;
+}
+
+.sp-title {
+  flex: 1 1 260px;
+  margin: 0;
+  justify-content: space-between;
+}
+
+/* Inherits the heading colour: the muted token is only 3.8:1 on the silver heading gradient. */
+.sp-title-meta {
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: inherit;
+}
+
+.sp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.sp-note,
+.sp-intro {
+  margin: 0 0 10px;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.sp-intro { max-width: 78ch; }
+
+.sp-strong { color: var(--color-fg); font-weight: 700; }
+.sp-warn { color: var(--siren); font-weight: 700; }
+.sp-ok { color: var(--color-up); font-weight: 700; }
+
+.sp-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin: 0 0 12px;
+  padding: 6px 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line-soft);
+}
+
+.sp-bar-grow { flex: 1 1 200px; min-width: 0; }
+
+.sp-chips { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+
+.sp-chip,
+.sp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  min-width: 28px;
+  padding: 3px 9px;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-fg);
+  background: linear-gradient(180deg, var(--menu-top) 0%, var(--menu-bot) 100%);
+  border: 1px solid var(--color-line);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sp-chip-count {
+  margin-left: 5px;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.sp-chip:hover,
+.sp-btn:hover { border-color: var(--ft-navy); text-decoration: none; }
+
+.sp-chip[aria-pressed="true"],
+.sp-chip[aria-current="page"],
+.sp-btn[aria-pressed="true"] {
+  color: #fff;
+  background: var(--ft-navy);
+  border-color: var(--ft-navy);
+}
+
+/* Dark theme: navy on the dark button gradient is under 2:1, so the pressed state takes the shell's
+   gold active chip (7.9:1 or better against its unpressed neighbours). Light keeps the navy fill. */
+html.dark .sp-chip[aria-pressed="true"],
+html.dark .sp-chip[aria-current="page"],
+html.dark .sp-btn[aria-pressed="true"] {
+  color: var(--chip-active-fg);
+  background: var(--chip-active-bg);
+  border-color: var(--chip-active-border);
+}
+
+.sp-btn-primary {
+  color: #fff;
+  background: var(--ft-navy);
+  border-color: var(--ft-navy);
+}
+
+/* Flat background: the siren red is only 4.0:1 on the dark end of the button gradient. */
+.sp-btn-danger { color: var(--siren); border-color: var(--siren); background: var(--color-bg); }
+
+.sp-btn-quiet {
+  background: none;
+  border-color: transparent;
+  color: var(--color-link);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.sp-btn[aria-disabled="true"],
+.sp-btn:disabled {
+  color: var(--color-muted);
+  cursor: default;
+  border-color: var(--color-line-soft);
+  background: var(--color-surface);
+}
+
+/* Only controls INSIDE a page or dialog get this ring. The briefing trigger in the masthead
+   (.sp-trigger) keeps the shell's gold ring: this sheet is unlayered, so a rule here would beat the
+   layered chrome rule, and the link blue is 1.2:1 on the navy masthead. */
+.sp-page :is(a, button, input, select, textarea, summary, [tabindex]):focus-visible,
+.sp-dialog :is(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+.sp-group { margin: 0 0 16px; }
+
+.sp-group-title {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 0 0 4px;
+  padding: 0 0 2px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ft-navy-deep);
+  border-bottom: 2px solid var(--ft-navy);
+}
+
+.sp-group-title a { color: inherit; }
+
+.sp-group-extra {
+  margin-left: auto;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-muted);
+}
+
+.sp-rows { display: block; }
+.sp-rows > * + * { border-top: 1px solid var(--color-line-soft); }
+
+.sp-row-context {
+  margin: 0 0 4px 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--color-line-soft);
+  font-size: 11.5px;
+  color: var(--color-muted);
+}
+
+.sp-mark,
+.sp-page mark {
+  background: rgb(237 195 57 / 0.45);
+  color: inherit;
+  padding: 0 1px;
+}
+
+/* Matches inside rows rendered by the shared HeadlineRow are painted with the CSS Custom Highlight
+   API (no DOM change); browsers without it simply show no highlight. */
+::highlight(sp-hit) {
+  background-color: rgb(237 195 57 / 0.45);
+  color: inherit;
+}
+
+/* On the dark page a gold wash would cost muted and visited titles their contrast: underline instead. */
+html.dark .sp-mark,
+html.dark .sp-page mark {
+  background: none;
+  text-decoration: underline;
+  text-decoration-color: var(--ft-gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+html.dark ::highlight(sp-hit) {
+  background-color: transparent;
+  text-decoration: underline;
+  text-decoration-color: var(--ft-gold);
+  text-decoration-thickness: 2px;
+}
+
+.sp-empty {
+  margin: 12px 0;
+  padding: 14px 12px;
+  border: 1px dashed var(--color-line);
+  background: var(--color-surface);
+  color: var(--color-fg);
+}
+
+.sp-empty > :first-child { margin-top: 0; }
+.sp-empty > :last-child { margin-bottom: 0; }
+.sp-empty ul, .sp-prose ul { margin: 6px 0; padding-left: 18px; list-style: disc; }
+.sp-empty li, .sp-prose li { margin: 2px 0; }
+
+.sp-prose { max-width: 82ch; }
+.sp-prose p { margin: 0 0 8px; }
+.sp-prose code, .sp-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  padding: 0 3px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line-soft);
+}
+
+.sp-panel {
+  margin: 0 0 16px;
+  padding: 8px 10px 10px;
+  border: 1px solid var(--color-line);
+  background: var(--color-bg);
+}
+
+.sp-panel > .sp-group-title { margin-bottom: 8px; }
+
+.sp-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-line);
+}
+
+.sp-field { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
+.sp-field > label, .sp-label { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-muted); }
+
+.sp-input,
+.sp-select,
+.sp-textarea {
+  min-height: 28px;
+  padding: 3px 7px;
+  font: inherit;
+  font-size: 13px;
+  /* The field tokens give the box a 3:1 edge on the page and on the .sp-bar surface (the line token is 1.5-1.8:1). */
+  color: var(--field-fg);
+  background: var(--field-bg);
+  border: 1px solid var(--field-border);
+}
+
+.sp-textarea {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  resize: vertical;
+}
+
+.sp-terms { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; padding: 0; list-style: none; }
+
+.sp-term {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding-left: 7px;
+  border: 1px solid var(--badge-border);
+  background: var(--color-surface);
+  font-size: 12px;
+}
+
+.sp-term .sp-btn { border: 0; background: none; min-width: 26px; padding: 0 6px; }
+
+.sp-scroll { overflow-x: auto; border: 1px solid var(--color-line); }
+
+.sp-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.sp-table caption { caption-side: top; text-align: left; padding: 4px 6px; color: var(--color-muted); }
+.sp-table th, .sp-table td { padding: 4px 6px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--color-line-soft); }
+.sp-table thead th {
+  position: sticky;
+  top: 0;
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ft-navy-deep);
+  background: linear-gradient(180deg, var(--silver-top) 0%, var(--silver-bot) 100%);
+  border-bottom: 2px solid var(--ft-navy);
+}
+.sp-table tbody tr:nth-child(even) { background: var(--color-surface); }
+.sp-table .sp-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sp-table .sp-sub { display: block; color: var(--color-muted); font-size: 11px; }
+
+.sp-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---- dialogs (native <dialog>) ---- */
+
+.sp-dialog {
+  /* Tailwind preflight zeroes margins, which removes the UA centring of modal dialogs. */
+  margin: auto;
+  padding: 0;
+  width: calc(100% - 2rem);
+  max-width: 32rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  color: var(--color-fg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-line);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.25);
+}
+
+.sp-dialog-wide { max-width: 48rem; }
+.sp-dialog::backdrop { background: rgb(0 0 0 / 0.6); }
+html:has(.sp-dialog[open]) { overflow: hidden; }
+
+.sp-dialog-head { margin: 0; justify-content: space-between; align-items: center; position: sticky; top: 0; }
+.sp-dialog-title { margin: 0; font: inherit; }
+.sp-dialog-content { padding: 10px 12px 12px; }
+.sp-dialog-content p { margin: 0 0 8px; }
+.sp-dialog-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
+.sp-checks { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0 0 8px; padding: 0; border: 0; }
+.sp-checks legend { padding: 0; margin-bottom: 2px; }
+.sp-check { display: inline-flex; align-items: center; gap: 5px; min-height: 26px; }
+
+/* Trigger buttons mounted outside the secondary pages (header toolbar) keep the host's styling. */
+.sp-trigger { cursor: pointer; }

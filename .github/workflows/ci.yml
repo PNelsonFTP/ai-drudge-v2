@@ -1,0 +1,65 @@
+name: V2 pull-request checks
+
+# Typecheck, unit tests and a site build for every pull request, so a Dependabot bump (or any other
+# change) shows red BEFORE it is merged instead of as a stopped refresh afterwards.
+#
+# - `pull_request`, never `pull_request_target`: the job runs the PR's own code, so it gets a
+#   read-only token and no secrets, variables-from-secrets or write permissions of any kind.
+# - No V2_DEPLOY guard on purpose. This job deploys nothing, and a job skipped by a job-level `if:`
+#   reports success to branch protection: a required check that never ran.
+# - The data gate (scripts/tools/check-data.ts) is NOT run here: the committed fixture has no
+#   feed.xml / feeds.opml, so it would always hold. The gate's logic is covered by its unit tests,
+#   and the real gate runs on every refresh. The site build does not need generated data.
+#
+# Optional repository setting (not code): make "Typecheck, test, build" a required status check on
+# main, with admin bypass - the owner pushes to main directly and refresh.yml builds on that push.
+
+on:
+  pull_request: {}
+
+permissions: {}
+
+# One run per pull request; a new push replaces the run in flight. The group name must never match
+# the refresh workflows' ("v2-refresh-deploy", V1's "refresh-deploy") or the audit's.
+concurrency:
+  group: v2-ci-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  check:
+    name: Typecheck, test, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - name: Install (lifecycle scripts disabled)
+        timeout-minutes: 5
+        run: npm ci --ignore-scripts
+
+      - name: Typecheck
+        timeout-minutes: 5
+        run: npm run typecheck
+
+      - name: Unit tests
+        timeout-minutes: 5
+        run: npm test
+
+      - name: Build site
+        timeout-minutes: 5
+        run: npm run build

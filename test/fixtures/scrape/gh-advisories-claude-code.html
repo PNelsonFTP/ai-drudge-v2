@@ -1,0 +1,360 @@
+<!doctype html>
+<html><head></head><body>
+<!-- fixture: page chrome before the advisory list removed -->
+<input
+role="combobox"
+aria-expanded="false"
+aria-label="Filter advisories: severity:critical, ecosystem:npm"
+aria-controls="repository-advisories-filter-autocomplete-dropdown"
+autocomplete="off"
+class="form-control input-block input-contrast width-full js-navigation-enable subnav-search-input css-truncate css-truncate-overflow"
+spellcheck="false"
+name="query"
+placeholder="Filter advisories: severity:critical, ecosystem:npm"
+type="text"
+value=""
+data-target="repository-advisories-filter.searchInput" data-action="
+input:repository-advisories-filter#updateFilterSuggestionResults
+focusin:repository-advisories-filter#updateFilterSuggestionResults
+focusout:delay:repository-advisories-filter#handleSearchBlur
+keydown:repository-advisories-filter#inputKey
+" data-initial-value="" data-default-value="" data-suggestable-qualifiers="[{&quot;value&quot;:&quot;severity:&quot;,&quot;description&quot;:&quot;critical, high, moderate, low&quot;},{&quot;value&quot;:&quot;ecosystem:&quot;,&quot;description&quot;:&quot;npm, pip, rubygems, maven, nuget, composer, go, rust, pub, swift, actions&quot;},{&quot;value&quot;:&quot;package:&quot;,&quot;description&quot;:&quot;filter by package name&quot;},{&quot;value&quot;:&quot;sort:&quot;,&quot;description&quot;:&quot;newest, oldest, severity&quot;}]" data-negatable-qualifiers="[]"
+data-suggestable-severity="[{&quot;value&quot;:&quot;critical&quot;},{&quot;value&quot;:&quot;high&quot;},{&quot;value&quot;:&quot;moderate&quot;},{&quot;value&quot;:&quot;low&quot;}]" data-suggestable-ecosystem="[{&quot;value&quot;:&quot;npm&quot;},{&quot;value&quot;:&quot;pip&quot;},{&quot;value&quot;:&quot;rubygems&quot;},{&quot;value&quot;:&quot;maven&quot;},{&quot;value&quot;:&quot;nuget&quot;},{&quot;value&quot;:&quot;composer&quot;},{&quot;value&quot;:&quot;go&quot;},{&quot;value&quot;:&quot;rust&quot;},{&quot;value&quot;:&quot;pub&quot;},{&quot;value&quot;:&quot;swift&quot;},{&quot;value&quot;:&quot;actions&quot;}]" data-suggestable-package="[]" data-suggestable-sort="[{&quot;value&quot;:&quot;newest&quot;},{&quot;value&quot;:&quot;oldest&quot;},{&quot;value&quot;:&quot;severity&quot;}]"
+>
+<div id="repository-advisories-filter-autocomplete-dropdown" data-target="repository-advisories-filter.autocompleteDropdown" aria-label="Available filters" hidden="hidden" tabindex="0" data-view-component="true" class="Box card-filter-autocomplete-dropdown overflow-auto color-bg-default rounded-2 color-shadow-large mt-1 tmp-mt-1 width-full position-absolute">
+<div data-view-component="true" class="Box-body px-2 tmp-px-2 py-1 tmp-py-1">
+<div data-target="repository-advisories-filter.autocompleteResults" data-view-component="true"></div>
+</div>
+</div> </div>
+</div>
+</form>
+<button hidden="hidden" data-target="repository-advisories-filter.clearButton" data-action="click:repository-advisories-filter#clear" type="button" data-view-component="true" class="reset-btn-override tmp-mt-3 btn-link d-block position-relative mb-0 tmp-mb-0"> Clear current search query, filters, and sorts
+</button></repository-advisories-filter>
+<div class="Box">
+<div class="hx_Box--firstRowRounded0">
+<ul data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame">
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/anthropics/claude-code/security/advisories/GHSA-v234-4jrq-mgg6" class="Link--primary v-align-middle no-underline h4">
+Claude Desktop (macOS): opening a malicious file from a Cowork folder could run commands on the host
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-v234-4jrq-mgg6
+<span class="opened-by">
+published
+<relative-time datetime="2026-09-25T21:54:09Z" class="no-wrap">Sep 25, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/jenn-newton/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/jenn-newton">jenn-newton</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: high" data-view-component="true" class="Label Label--orange">
+High
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/anthropics/claude-code/security/advisories/GHSA-gfvf-j8jh-jxxw" class="Link--primary v-align-middle no-underline h4">
+Managed Settings Not Applied When a Stored API Key Was Preferred Over Enterprise Sign-In
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-gfvf-j8jh-jxxw
+<span class="opened-by">
+published
+<relative-time datetime="2026-09-29T21:44:55Z" class="no-wrap">Sep 29, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/OctavianGuzu/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/OctavianGuzu">OctavianGuzu</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: low" data-view-component="true" class="Label Label--primary">
+Low
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/anthropics/claude-code/security/advisories/GHSA-5xjx-9qx6-jcrv" class="Link--primary v-align-middle no-underline h4">
+TOCTOU Race in Edit Tool Allows File Writes Outside the Workspace
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-5xjx-9qx6-jcrv
+<span class="opened-by">
+published
+<relative-time datetime="2026-10-26T11:43:04Z" class="no-wrap">Oct 26, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/ddworken/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/ddworken">ddworken</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: high" data-view-component="true" class="Label Label--orange">
+High
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/anthropics/claude-code/security/advisories/GHSA-pq7j-f95f-qfcv" class="Link--primary v-align-middle no-underline h4">
+Plugin Commit SHA Pin Bypass Allows Installation of Attacker-Controlled Code
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-pq7j-f95f-qfcv
+<span class="opened-by">
+published
+<relative-time datetime="2026-10-09T15:14:01Z" class="no-wrap">Oct 9, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/ddworken/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/ddworken">ddworken</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: high" data-view-component="true" class="Label Label--orange">
+High
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/anthropics/claude-code/security/advisories/GHSA-5j29-h97v-84ch" class="Link--primary v-align-middle no-underline h4">
+Arbitrary File Write via Write-Time Symlink Following (TOCTOU) in Claude Code
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-5j29-h97v-84ch
+<span class="opened-by">
+published
+<relative-time datetime="2026-10-05T12:45:33Z" class="no-wrap">Oct 5, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/ddworken/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/ddworken">ddworken</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: high" data-view-component="true" class="Label Label--orange">
+High
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/anthropics/claude-code/security/advisories/GHSA-7835-87q9-rgvv" class="Link--primary v-align-middle no-underline h4">
+Sandbox Escape via Git Worktree Path Confusion Allows Unsandboxed Code Execution
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-7835-87q9-rgvv
+<span class="opened-by">
+published
+<relative-time datetime="2026-06-25T13:14:35Z" class="no-wrap">Jun 25, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/ddworken/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/ddworken">ddworken</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: high" data-view-component="true" class="Label Label--orange">
+High
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/anthropics/claude-code/security/advisories/GHSA-fg94-h982-f3mm" class="Link--primary v-align-middle no-underline h4">
+Out-of-Band Data Exfiltration via Pre-Approved HuggingFace Domain in WebFetch
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-fg94-h982-f3mm
+<span class="opened-by">
+published
+<relative-time datetime="2026-06-13T11:40:00Z" class="no-wrap">Jun 13, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/ddworken/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/ddworken">ddworken</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning">
+Moderate
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/anthropics/claude-code/security/advisories/GHSA-4p2j-qj3c-6x84" class="Link--primary v-align-middle no-underline h4">
+Uncontrolled Search Path Enables Arbitrary Code Execution via Malicious Git Executable
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-4p2j-qj3c-6x84
+<span class="opened-by">
+published
+<relative-time datetime="2026-10-13T12:24:43Z" class="no-wrap">Oct 13, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/ddworken/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/ddworken">ddworken</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: high" data-view-component="true" class="Label Label--orange">
+High
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/anthropics/claude-code/security/advisories/GHSA-4vp2-6q8c-pvq2" class="Link--primary v-align-middle no-underline h4">
+Insecure Temporary File in /copy Command Enables Response Disclosure and Symlink-Based File Write
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-4vp2-6q8c-pvq2
+<span class="opened-by">
+published
+<relative-time datetime="2026-06-25T13:29:49Z" class="no-wrap">Jun 25, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/OctavianGuzu/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/OctavianGuzu">OctavianGuzu</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning">
+Moderate
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/anthropics/claude-code/security/advisories/GHSA-5p5x-5294-qhp3" class="Link--primary v-align-middle no-underline h4">
+Local Privilege Escalation via Directory Junction in CoworkVMService
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-5p5x-5294-qhp3
+<span class="opened-by">
+published
+<relative-time datetime="2026-05-06T20:25:23Z" class="no-wrap">May 6, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/OctavianGuzu/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/OctavianGuzu">OctavianGuzu</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: high" data-view-component="true" class="Label Label--orange">
+High
+</span>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="paginate-container" data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame">
+<div role="navigation" aria-label="Pagination" class="pagination"><span class="previous_page disabled" role="link" aria-label="Previous page" aria-disabled="true">Previous</span> <a class="current" aria-label="Page 1" aria-current="page" data-total-pages="4" href="/anthropics/claude-code/security/advisories?page=1">1</a> <a rel="next" aria-label="Page 2" href="/anthropics/claude-code/security/advisories?page=2">2</a> <a aria-label="Page 3" href="/anthropics/claude-code/security/advisories?page=3">3</a> <a aria-label="Page 4" href="/anthropics/claude-code/security/advisories?page=4">4</a> <a class="next_page" aria-label="Next page" rel="next" href="/anthropics/claude-code/security/advisories?page=2">Next</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</turbo-frame>
+</main>
+</div>
+<footer class="footer f6 color-fg-muted color-border-subtle tmp-pt-7 tmp-pb-6 p-responsive" role="contentinfo" >
+<h2 class='sr-only'>Footer</h2>
+<div class="d-flex flex-justify-center flex-items-center flex-column-reverse flex-lg-row flex-wrap flex-lg-nowrap">
+<div class="d-flex flex-items-center flex-shrink-0 mx-2">
+<a aria-label="GitHub Homepage" class="footer-octicon mr-2" href="https://github.com">
+</a>
+<span>
+&copy; 2026 GitHub,&nbsp;Inc.
+</span>
+</div>
+<nav aria-label="Footer">
+<h3 class="sr-only" id="sr-footer-heading">Footer navigation</h3>
+<ul class="list-style-none d-flex flex-justify-center flex-wrap mb-2 mb-lg-0" aria-labelledby="sr-footer-heading">
+<li class="mx-2">
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to Terms&quot;,&quot;label&quot;:&quot;text:terms&quot;}" href="https://docs.github.com/site-policy/github-terms/github-terms-of-service" data-view-component="true" class="Link--secondary Link">Terms</a>
+</li>
+<li class="mx-2">
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to privacy&quot;,&quot;label&quot;:&quot;text:privacy&quot;}" href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" data-view-component="true" class="Link--secondary Link">
+<!-- fixture truncated here -->
+</body></html>

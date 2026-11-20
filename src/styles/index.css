@@ -1,0 +1,18 @@
+/* AI DRUDGE V2 stylesheet entry (the V1 stylesheet split into tokens / base / chrome / components).
+
+   Tailwind's automatic source detection is OFF: in V1 it scanned public/data, so news text renamed
+   the CSS bundle in a third of deploys. Only src/ and index.html are scanned - never public/
+   or test/ (styles.test.ts enforces this). */
+@import "tailwindcss" source(none);
+@import "./tokens.css";
+@import "./base.css";
+@import "./chrome.css";
+@import "./components.css";
+
+@source "../";
+@source "../../index.html";
+@source not "../**/*.test.ts";
+@source not "../**/*.test.tsx";
+
+/* `dark:` utilities follow the app theme class (html.dark), not the OS media query. */
+@custom-variant dark (&:where(html.dark, html.dark *));

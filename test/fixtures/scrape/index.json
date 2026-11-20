@@ -1,0 +1,491 @@
+[
+ {
+  "id": "anthropic-news",
+  "file": "anthropic-news.html",
+  "url": "https://www.anthropic.com/news",
+  "mode": "html-links",
+  "config": {
+   "base": "https://www.anthropic.com",
+   "linkPattern": "/news/[a-z0-9-]+",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 19,
+   "dated": 19,
+   "firstTitle": "Anthropic prices initial public offering",
+   "firstLink": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+   "firstDate": "2026-11-18"
+  },
+  "v1Scraper": true,
+  "bytes": 79176,
+  "capturedAt": "2026-11-19",
+  "notes": "V1 scraper returned 0 cards for 30 days: href is no longer the first attribute; <time> sits in the card header outside the link; 7 category chips (/news/announcements ...) match the pattern and must not become items"
+ },
+ {
+  "id": "anthropic-research",
+  "file": "anthropic-research.html",
+  "url": "https://www.anthropic.com/research",
+  "mode": "html-links",
+  "config": {
+   "base": "https://www.anthropic.com",
+   "linkPattern": "/research/[a-z0-9-]+",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 24,
+   "dated": 24,
+   "firstTitle": "Claude solves two open problems in the physics of black holes",
+   "firstLink": "https://www.anthropic.com/research/claude-black-hole-physics",
+   "firstDate": "2026-11-17"
+  },
+  "v1Scraper": true,
+  "bytes": 63787,
+  "capturedAt": "2026-11-19",
+  "notes": "Title is the text of <h3><a class=..metaTitleLink href>; date in <time> before the link"
+ },
+ {
+  "id": "uk-aisi-blog",
+  "file": "uk-aisi-blog.html",
+  "url": "https://www.aisi.gov.uk/blog",
+  "mode": "html-links",
+  "config": {
+   "base": "https://www.aisi.gov.uk",
+   "linkPattern": "/blog/[a-z0-9-]+",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 40,
+   "dated": 40,
+   "firstTitle": "Pretraining data filtering in open-weight biological models",
+   "firstLink": "https://www.aisi.gov.uk/blog/pretraining-data-filtering-in-open-weight-biological-models",
+   "firstDate": "2026-10-26"
+  },
+  "v1Scraper": true,
+  "bytes": 59506,
+  "capturedAt": "2026-11-19",
+  "notes": "Webflow: date in <p fs-list-field=\"date\">Oct 26, 2026</p> (V1 emitted every item undated). Fixture truncated to the first 40 of 100 posts"
+ },
+ {
+  "id": "gray-swan",
+  "file": "gray-swan.html",
+  "url": "https://www.grayswan.ai/blog",
+  "mode": "html-links",
+  "config": {
+   "base": "https://www.grayswan.ai",
+   "linkPattern": "/blog/[a-z0-9-]+",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 11,
+   "dated": 11,
+   "firstTitle": "7 Deadly Signs of AI Security Snake Oil: A Developer&#x27;s Field Guide",
+   "firstLink": "https://www.grayswan.ai/blog/7-deadly-signs-of-ai-security-snake-oil-a-developers-field-guide",
+   "firstDate": "2026-08-17"
+  },
+  "v1Scraper": true,
+  "bytes": 48008,
+  "capturedAt": "2026-11-19",
+  "notes": "Webflow: date in <p fs-cmsfilter-field=\"date\">August 17, 2026</p> (V1: undated)"
+ },
+ {
+  "id": "zenity-labs",
+  "file": "zenity-labs.html",
+  "url": "https://labs.zenity.io/",
+  "mode": "html-links",
+  "config": {
+   "base": "https://labs.zenity.io",
+   "linkPattern": "^/post/[a-z0-9-]+$",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 15,
+   "dated": 15,
+   "firstTitle": "Prompted to Discriminate: Generalizing Malicious-Input Probes in the Wild",
+   "firstLink": "https://labs.zenity.io/post/prompted-to-discriminate",
+   "firstDate": "2026-11-09T17:00:00.000Z"
+  },
+  "v1Scraper": false,
+  "bytes": 51419,
+  "capturedAt": "2026-11-19",
+  "notes": "<h3> inside the link, aria-label with a 'read ' prefix, <time dateTime> (camel case) inside the link"
+ },
+ {
+  "id": "anthropic-frontier-red-team",
+  "file": "anthropic-frontier-red-team.html",
+  "url": "https://www.anthropic.com/research/team/frontier-red-team",
+  "mode": "html-links",
+  "config": {
+   "base": "https://www.anthropic.com",
+   "linkPattern": "^/research/[a-z0-9-]+$",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 24,
+   "dated": 24,
+   "firstTitle": "Updating our coordinated vulnerability disclosure policy timelines",
+   "firstLink": "https://www.anthropic.com/research/coordinated-vulnerability-disclosure-timelines",
+   "firstDate": "2026-11-16"
+  },
+  "v1Scraper": false,
+  "bytes": 58303,
+  "capturedAt": "2026-11-19",
+  "notes": "Carousel (<h2> inside link, image-only twins) + grid cards"
+ },
+ {
+  "id": "irregular-research",
+  "file": "irregular-research.html",
+  "url": "https://www.irregular.com/research",
+  "mode": "html-links",
+  "config": {
+   "base": "https://www.irregular.com/",
+   "linkPattern": "^(?:\\./|/)research/[a-z0-9._-]+$",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 12,
+   "dated": 12,
+   "firstTitle": "Assessing GPT-6.2 Astra Against Offensive Security Benchmarks",
+   "firstLink": "https://www.irregular.com/research/assessing-gpt-6.2-astra-against-offensive-security-benchmarks",
+   "firstDate": "2026-11-17T00:00:00.000Z"
+  },
+  "v1Scraper": false,
+  "bytes": 70058,
+  "capturedAt": "2026-11-19",
+  "notes": "Framer: './research/..' relative hrefs with dots in slugs, each card rendered 3x, <time datetime> before the link. Fixture truncated (page has 53 posts)"
+ },
+ {
+  "id": "gh-advisories-vllm",
+  "file": "gh-advisories-vllm.html",
+  "url": "https://github.com/vllm-project/vllm/security/advisories",
+  "mode": "html-links",
+  "config": {
+   "base": "https://github.com",
+   "linkPattern": "^/vllm-project/vllm/security/advisories/GHSA-[a-z0-9-]+$",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 10,
+   "dated": 10,
+   "firstTitle": "/v1/systemone bypasses the --trust-request-chat-template gate",
+   "firstLink": "https://github.com/vllm-project/vllm/security/advisories/GHSA-xgh8-qwjh-q853",
+   "firstDate": "2026-11-18T09:57:27Z"
+  },
+  "v1Scraper": false,
+  "bytes": 17633,
+  "capturedAt": "2026-11-19",
+  "notes": "Plain link text, <relative-time datetime> after the link. Page chrome removed"
+ },
+ {
+  "id": "gh-advisories-claude-code",
+  "file": "gh-advisories-claude-code.html",
+  "url": "https://github.com/anthropics/claude-code/security/advisories",
+  "mode": "html-links",
+  "config": {
+   "base": "https://github.com",
+   "linkPattern": "^/anthropics/claude-code/security/advisories/GHSA-[a-z0-9-]+$",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 10,
+   "dated": 10,
+   "firstTitle": "TOCTOU Race in Edit Tool Allows File Writes Outside the Workspace",
+   "firstLink": "https://github.com/anthropics/claude-code/security/advisories/GHSA-5xjx-9qx6-jcrv",
+   "firstDate": "2026-10-26T11:43:04Z"
+  },
+  "v1Scraper": false,
+  "bytes": 17213,
+  "capturedAt": "2026-11-19",
+  "notes": "Same markup as the vLLM page"
+ },
+ {
+  "id": "gh-advisories-local-llm-stack",
+  "file": "gh-advisories-local-llm-stack.html",
+  "url": "https://github.com/advisories?query=ollama+OR+vllm+OR+litellm+OR+%22llama.cpp%22+OR+%22open+webui%22+OR+%22model+context+protocol%22",
+  "mode": "html-links",
+  "config": {
+   "base": "https://github.com",
+   "linkPattern": "^/advisories/GHSA-[a-z0-9-]+$",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 25,
+   "dated": 25,
+   "firstTitle": "vLLM before 0.33.0 contains a path traversal vulnerability that allows malicious model publishers...",
+   "firstLink": "https://github.com/advisories/GHSA-9f95-xfwr-j77p",
+   "firstDate": "2026-11-18T12:31:28Z"
+  },
+  "v1Scraper": false,
+  "bytes": 43007,
+  "capturedAt": "2026-11-19",
+  "notes": "Global advisory search: <relative-time> 500+ chars after the link"
+ },
+ {
+  "id": "finra-cyber-alerts",
+  "file": "finra-cyber-alerts.html",
+  "url": "https://www.finra.org/rules-guidance/key-topics/cybersecurity",
+  "mode": "html-links",
+  "config": {
+   "base": "https://www.finra.org",
+   "linkPattern": "^/rules-guidance/guidance/(?!faqs$|common-cybersecurity-threats$|cybersecurity-effective-practices$)[A-Za-z0-9%-]+$",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 35,
+   "dated": 35,
+   "firstTitle": "Threat Actors Exploiting Critical Citrix NetScaler Zero-Day Vulnerabilities",
+   "firstLink": "https://www.finra.org/rules-guidance/guidance/cybersecurity-alert-citrix-netscaler-zero-day-vulnerabilities",
+   "firstDate": "2026-10-01"
+  },
+  "v1Scraper": false,
+  "bytes": 44881,
+  "capturedAt": "2026-11-19",
+  "notes": "Drupal views list: date as text after the link ('October 01, 2026', 'Dec. 3, 2025'); one undated evergreen page is dropped. Navigation excerpt + truncated list"
+ },
+ {
+  "id": "artificial-analysis-articles",
+  "file": "artificial-analysis-articles.html",
+  "url": "https://artificialanalysis.ai/articles",
+  "mode": "html-links",
+  "config": {
+   "base": "https://artificialanalysis.ai",
+   "linkPattern": "^/articles/[a-z0-9-]+$",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 12,
+   "dated": 12,
+   "firstTitle": "Google continues to accelerate its release cadence with Gemini 4 Neon",
+   "firstLink": "https://artificialanalysis.ai/articles/gemini-4-neon-intelligence-gain",
+   "firstDate": "2026-11-18"
+  },
+  "v1Scraper": false,
+  "bytes": 21836,
+  "capturedAt": "2026-11-19",
+  "notes": "<h3> and a <p>November 18, 2026</p> inside the link"
+ },
+ {
+  "id": "thinking-machines-news",
+  "file": "thinking-machines-news.html",
+  "url": "https://thinkingmachines.ai/news/",
+  "mode": "html-links",
+  "config": {
+   "base": "https://thinkingmachines.ai",
+   "linkPattern": "^/news/[a-z0-9-]+/$",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 14,
+   "dated": 14,
+   "firstTitle": "Introducing Inkling 2 Small",
+   "firstLink": "https://thinkingmachines.ai/news/inkling-2-small/",
+   "firstDate": "2026-11-05"
+  },
+  "v1Scraper": false,
+  "bytes": 13688,
+  "capturedAt": "2026-11-19",
+  "notes": "class before href, trailing-slash hrefs, <time datetime=\"2026-11-05\"> inside the link"
+ },
+ {
+  "id": "anthropic-engineering",
+  "file": "anthropic-engineering.html",
+  "url": "https://www.anthropic.com/engineering",
+  "mode": "html-links",
+  "config": {
+   "base": "https://www.anthropic.com",
+   "linkPattern": "^/(research|engineering)/[a-z0-9-]+$",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 23,
+   "dated": 23,
+   "firstTitle": "Building strong safety evaluations",
+   "firstLink": "https://www.anthropic.com/research/building-strong-safety-evaluations",
+   "firstDate": "2026-11-13"
+  },
+  "v1Scraper": false,
+  "bytes": 54740,
+  "capturedAt": "2026-11-19",
+  "notes": "Same card markup as the red-team page"
+ },
+ {
+  "id": "ollama-library-newest",
+  "file": "ollama-library-newest.html",
+  "url": "https://ollama.com/search?o=newest",
+  "mode": "html-links",
+  "config": {
+   "base": "https://ollama.com",
+   "linkPattern": "^/library/[a-z0-9._-]+$",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 20,
+   "dated": 20,
+   "firstTitle": "inkling-2-small",
+   "firstLink": "https://ollama.com/library/inkling-2-small",
+   "firstDate": "2026-11-12"
+  },
+  "v1Scraper": false,
+  "bytes": 48412,
+  "capturedAt": "2026-11-19",
+  "notes": "Slug in <h2><span>, date only in a title=\"Updated November 12, 2026\" attribute, 4 slugs under 5 characters"
+ },
+ {
+  "id": "hf-qwen-models",
+  "file": "hf-qwen-models.json",
+  "url": "https://huggingface.co/api/models?author=Qwen&sort=createdAt&direction=-1&limit=10",
+  "mode": "json-api",
+  "config": {
+   "itemsPath": "",
+   "titleField": "id",
+   "urlTemplate": "https://huggingface.co/{id}",
+   "dateField": "createdAt"
+  },
+  "expect": {
+   "cards": 10,
+   "dated": 10,
+   "firstTitle": "Qwen/Qwen-Image-2.1-Turbo",
+   "firstLink": "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo",
+   "firstDate": "2026-10-09T04:50:01.000Z"
+  },
+  "v1Scraper": false,
+  "bytes": 4346,
+  "capturedAt": "2026-11-19",
+  "notes": ""
+ },
+ {
+  "id": "hf-trending-models",
+  "file": "hf-trending-models.json",
+  "url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=30",
+  "mode": "json-api",
+  "config": {
+   "itemsPath": "",
+   "titleField": "id",
+   "urlTemplate": "https://huggingface.co/{id}",
+   "dateField": "createdAt"
+  },
+  "expect": {
+   "cards": 30,
+   "dated": 30,
+   "firstTitle": "sensenova/SenseNova-Loop-9B",
+   "firstLink": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+   "firstDate": "2026-11-17T10:16:41.000Z"
+  },
+  "v1Scraper": false,
+  "bytes": 17049,
+  "capturedAt": "2026-11-19",
+  "notes": ""
+ },
+ {
+  "id": "hf-unsloth-new-models",
+  "file": "hf-unsloth-new-models.json",
+  "url": "https://huggingface.co/api/models?author=unsloth&sort=createdAt&direction=-1&limit=20",
+  "mode": "json-api",
+  "config": {
+   "itemsPath": "",
+   "titleField": "id",
+   "urlTemplate": "https://huggingface.co/{id}",
+   "dateField": "createdAt"
+  },
+  "expect": {
+   "cards": 20,
+   "dated": 20,
+   "firstTitle": "unsloth/MiniMax-H3-Image-GGUF",
+   "firstLink": "https://huggingface.co/unsloth/MiniMax-H3-Image-GGUF",
+   "firstDate": "2026-11-12T12:00:53.000Z"
+  },
+  "v1Scraper": false,
+  "bytes": 10960,
+  "capturedAt": "2026-11-19",
+  "notes": ""
+ },
+ {
+  "id": "eleutherai",
+  "file": "eleutherai.html",
+  "url": "https://blog.eleuther.ai/",
+  "mode": "html-links",
+  "config": {
+   "base": "https://blog.eleuther.ai",
+   "linkPattern": "^/[a-z0-9_-]+/$",
+   "titleSelectorHint": "h3",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 18,
+   "dated": 18,
+   "firstTitle": "Tracing Subliminal Learning Through Pretraining",
+   "firstLink": "https://blog.eleuther.ai/subliminal-learning-pretraining/",
+   "firstDate": "2026-10-25"
+  },
+  "v1Scraper": false,
+  "bytes": 11137,
+  "capturedAt": "2026-11-19",
+  "notes": "The three newest cards put the <h3> BEFORE a link that only says 'Read post'; older rows are <h3><a>TITLE</a></h3>. Date as text in <p class=item-meta>"
+ },
+ {
+  "id": "noma-security",
+  "file": "noma-security.html",
+  "url": "https://noma.security/blog",
+  "mode": "html-links",
+  "config": {
+   "base": "https://noma.security",
+   "linkPattern": "^/blog/[a-z0-9-]+$",
+   "dateHint": "none"
+  },
+  "expect": {
+   "cards": 9,
+   "dated": 0,
+   "firstTitle": "Put Your Agents to The Test: Meet The Next Generation of Noma Red Teaming",
+   "firstLink": "https://noma.security/blog/next-generation-noma-red-teaming",
+   "firstDate": null
+  },
+  "v1Scraper": false,
+  "bytes": 33179,
+  "capturedAt": "2026-11-19",
+  "notes": "Webflow: every link only says 'Read On'; the title is a <p fs-list-field=name> sibling (hero card: an <h2>, under the page's <h1>Noma Blog</h1>). Grid cards carry no date"
+ },
+ {
+  "id": "noma-labs",
+  "file": "noma-labs.html",
+  "url": "https://noma.security/noma-labs",
+  "mode": "html-links",
+  "config": {
+   "base": "https://noma.security",
+   "linkPattern": "^/noma-labs/[a-z0-9-]+$",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 9,
+   "dated": 9,
+   "firstTitle": "SneakPeek: How the Preview Pane in Claude Code Desktop Can Exfiltrate Your Data",
+   "firstLink": "https://noma.security/noma-labs/sneakpeek-how-the-preview-pane-in-claude-code-desktop-can-exfiltrate-your-data",
+   "firstDate": "2026-10-14"
+  },
+  "v1Scraper": false,
+  "bytes": 34377,
+  "capturedAt": "2026-11-19",
+  "notes": "Same 'Read on' cards; 'Mon D, YYYY' date text in the card"
+ },
+ {
+  "id": "thinking-machines-lab",
+  "file": "thinking-machines-lab.html",
+  "url": "https://thinkingmachines.ai/blog/",
+  "mode": "html-links",
+  "config": {
+   "base": "https://thinkingmachines.ai",
+   "linkPattern": "^/blog/[a-z0-9-]+/$",
+   "titleSelectorHint": "h2",
+   "dateHint": "time"
+  },
+  "expect": {
+   "cards": 8,
+   "dated": 8,
+   "firstTitle": "End‑to‑End 4‑Bit Training",
+   "firstLink": "https://thinkingmachines.ai/blog/end-to-end-4-bit-training/",
+   "firstDate": "2026-11-13"
+  },
+  "v1Scraper": false,
+  "bytes": 11940,
+  "capturedAt": "2026-11-19",
+  "notes": "h2.post-title inside the link; <time datetime> inside the link; titles contain U+2011 hyphens"
+ }
+]

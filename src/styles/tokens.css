@@ -1,0 +1,236 @@
+/* AI DRUDGE design tokens - the ONLY file in src/styles that may contain a colour literal
+   (styles.test.ts enforces it). Light is the default; html.dark / html.light switch the palette
+   (the class is set before first paint by the inline script in the HTML entry and kept in sync by
+   AppShell). Every V1 custom property keeps its name. Values that changed from V1 are marked.
+
+   The "@contrast" lines at the end of this file are machine-read by src/styles/contrast.test.ts:
+   each foreground/background pair is checked against WCAG AA in BOTH themes. A new colour token
+   must appear in a pair or in "@contrast-exempt", otherwise that test fails. */
+
+@layer base {
+  :root {
+    /* ---- V1 tokens ------------------------------------------------------------------------ */
+    --font-sans: Arial, Helvetica, sans-serif;
+    --ft-navy: #2f4e75;
+    --ft-navy-dark: #243b5a;
+    --ft-navy-deep: #002f5d;
+    --ft-gold: #edc339;
+    --ft-orange: #f0902a;
+    --ft-blue: #00589f;
+    --siren: #cc0000;
+    --siren-dim: #8b0000;
+    --accent: #00589f;
+    /* V1 #edc339 was 1.68:1 on white (the bookmarked star). Brand gold stays in --ft-gold. */
+    --gold: #8a6d00;
+    --color-bg: #ffffff;
+    --color-surface: #f5f5f5;
+    --color-fg: #000000;
+    --color-muted: #5a6470;
+    --color-line: #bfbfbf;
+    --color-line-soft: #dcdcdc;
+    --color-link: #00589f;
+    --color-up: #007a3d;
+    --color-down: #cc0000;
+    --page-bg: #eeeeee;
+    --page-stripe: repeating-linear-gradient(
+      0deg,
+      #e8e8e8 0px,
+      #e8e8e8 1px,
+      #f3f3f3 1px,
+      #f3f3f3 3px
+    );
+    --shell-max: 1500px;
+    --silver-top: #f8f8f8;
+    --silver-bot: #cdcdcf;
+    --menu-top: #fdfdfd;
+    --menu-bot: #d8d7da;
+
+    /* ---- V2: solid replacements for stacked opacity utilities ------------------------------ */
+    /* Titles of rows seen in a previous session / older than 72 h (weight 400, no row opacity). */
+    --color-seen: #5f6b7a;
+    --color-visited: #5b3f8c;
+    /* Meta text that sits ON the silver heading gradient (--color-muted is 3.8:1 on its dark end). */
+    --color-heading-meta: #414c59;
+    /* Idle bookmark / read-later / row-menu icons: solid, never hover-dependent. */
+    --icon-idle: #6b7480;
+    --star-active: var(--gold);
+
+    /* ---- V2: form fields, chips, focus ---------------------------------------------------- */
+    --field-bg: #ffffff;
+    --field-fg: #000000;
+    --field-border: #5a6470;
+    --field-placeholder: #5a6470;
+    --chip-fg: #002f5d;
+    --chip-border: #5a6470;
+    --chip-active-bg: #edc339;
+    --chip-active-fg: #243b5a;
+    /* Gold on silver is 1.3:1, so the pressed state is carried by a dark edge in light theme. */
+    --chip-active-border: #243b5a;
+    --focus: #00589f;
+
+    /* ---- V2: navy chrome (header + ticker are navy in BOTH themes) ------------------------- */
+    --chrome-fg: #ffffff;
+    --chrome-muted: #c5d3e4;
+    --chrome-stale: #ffc9c9;
+    --focus-chrome: #edc339;
+    --tool-fg: #ffffff;
+    --tool-bg: rgba(255, 255, 255, 0.06);
+    --tool-border: #a9b8cb;
+    --ticker-fg: #e8eef5;
+    --ticker-up: #6ee7a0;
+    /* V1 #ff8f8f was 3.88:1 on the navy gradient. */
+    --ticker-down: #ffb3b3;
+    --ticker-flat: #c5d3e4;
+
+    /* ---- V2: pills ------------------------------------------------------------------------ */
+    --pill-siren-bg: #cc0000;
+    --pill-siren-fg: #ffffff;
+    --pill-related-bg: #2f4e75;
+    --pill-related-fg: #ffffff;
+    --badge-fg: #002f5d;
+    --badge-border: #2f4e75;
+
+    /* ---- V2: dialogs + skip link ---------------------------------------------------------- */
+    --dialog-bg: #ffffff;
+    --dialog-fg: #000000;
+    --dialog-border: #5a6470;
+    --backdrop: rgba(0, 0, 0, 0.6);
+    --skip-bg: #edc339;
+    --skip-fg: #243b5a;
+    --shadow: rgba(0, 0, 0, 0.25);
+    /* Print is always black on white, whatever the screen theme (components.css @media print). */
+    --print-ink: #000000;
+    --print-paper: #ffffff;
+
+    /* ---- V2: density (html[data-density] in base.css overrides these) ---------------------- */
+    --body-size: 13px;
+    --body-leading: 1.35;
+    --row-pad-y: 4px;
+    --section-gap: 16px;
+    /* Minimum pointer target (WCAG 2.2 SC 2.5.8); raised on coarse pointers in base.css. */
+    --target-min: 24px;
+
+    /* ---- V2: sticky chrome geometry (AppShell measures the real values) -------------------- */
+    --masthead-h: 57px;
+    --sticky-h: 124px;
+  }
+
+  html.dark {
+    color-scheme: dark;
+    --color-bg: #0e1b2a;
+    --color-surface: #16273a;
+    --color-fg: #e8eef5;
+    --color-muted: #93a6b9;
+    --color-line: #2b425e;
+    --color-line-soft: #223549;
+    --color-link: #6fb3e8;
+    --color-up: #35c26b;
+    --color-down: #ff4d4d;
+    --siren: #ff4d4d;
+    --page-bg: #0a1522;
+    --page-stripe: repeating-linear-gradient(
+      0deg,
+      #0c1826 0px,
+      #0c1826 1px,
+      #101e2e 1px,
+      #101e2e 3px
+    );
+    --silver-top: #22374f;
+    --silver-bot: #16273a;
+    --menu-top: #1d3149;
+    --menu-bot: #142334;
+    --ft-navy-deep: #e8eef5;
+
+    /* V1 never overrode --accent in dark: #00589f on #0e1b2a was 2.40:1. */
+    --accent: #6fb3e8;
+    --gold: #edc339;
+    --color-seen: #8496a8;
+    --color-visited: #b39ddb;
+    --color-heading-meta: #93a6b9;
+    --icon-idle: #7f93a8;
+    --field-bg: #0e1b2a;
+    --field-fg: #e8eef5;
+    --field-border: #6c8299;
+    --field-placeholder: #93a6b9;
+    --chip-fg: #e8eef5;
+    --chip-border: #6c8299;
+    --chip-active-border: #edc339;
+    --focus: #edc339;
+    --pill-siren-bg: #ff4d4d;
+    --pill-siren-fg: #0e1b2a;
+    --pill-related-bg: #4f73a0;
+    --badge-fg: #e8eef5;
+    --badge-border: #6c8299;
+    --dialog-bg: #0e1b2a;
+    --dialog-fg: #e8eef5;
+    --dialog-border: #6c8299;
+    --shadow: rgba(0, 0, 0, 0.6);
+  }
+
+  html.light {
+    color-scheme: light;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------
+   Contrast contract (read by contrast.test.ts). Syntax, one rule per line:
+
+     @contrast <text|large|ui> <foreground token> on <background tokens...> [over <base tokens...>]
+
+   text  >= 4.5:1   body text, labels, links
+   large >= 3:1     text >= 24 px, or >= 18.66 px bold
+   ui    >= 3:1     borders and icons needed to identify a control or its state, focus rings
+   "over" lists the opaque colours a translucent background is composited on.
+   Gradients are checked at both stops (list both tokens).
+
+   @contrast text --color-fg on --color-bg --color-surface --silver-top --silver-bot --menu-top --menu-bot
+   @contrast text --color-muted on --color-bg --color-surface --page-bg --menu-top
+   @contrast text --color-heading-meta on --silver-top --silver-bot --menu-top --menu-bot
+   @contrast text --color-seen on --color-bg --color-surface
+   @contrast text --color-visited on --color-bg --color-surface
+   @contrast text --color-link on --color-bg --color-surface --silver-top
+   @contrast text --accent on --color-bg --color-surface
+   @contrast text --ft-navy-deep on --color-bg --color-surface --silver-top --silver-bot --menu-top --menu-bot
+   @contrast text --siren on --color-bg --color-surface
+   @contrast text --color-up on --color-bg --color-surface
+   @contrast text --color-down on --color-bg --color-surface
+   @contrast text --badge-fg on --color-bg --color-surface
+   @contrast ui   --badge-border on --color-bg --color-surface
+   @contrast ui   --gold on --color-bg --color-surface
+   @contrast ui   --star-active on --color-bg --color-surface
+   @contrast ui   --icon-idle on --color-bg --color-surface
+
+   @contrast text --field-fg on --field-bg
+   @contrast text --field-placeholder on --field-bg
+   @contrast ui   --field-border on --field-bg --menu-top --menu-bot --color-bg
+   @contrast text --chip-fg on --menu-top --menu-bot --color-bg --color-surface
+   @contrast ui   --chip-border on --menu-top --menu-bot --color-bg
+   @contrast text --chip-active-fg on --chip-active-bg
+   @contrast ui   --chip-active-border on --menu-top --menu-bot --color-bg
+   @contrast ui   --focus on --color-bg --color-surface --silver-top --silver-bot --menu-top --menu-bot --page-bg
+
+   @contrast text --chrome-fg on --ft-navy --ft-navy-dark
+   @contrast text --chrome-muted on --ft-navy --ft-navy-dark
+   @contrast text --chrome-stale on --ft-navy --ft-navy-dark
+   @contrast text --ft-gold on --ft-navy --ft-navy-dark
+   @contrast ui   --focus-chrome on --ft-navy --ft-navy-dark
+   @contrast text --tool-fg on --tool-bg over --ft-navy --ft-navy-dark
+   @contrast ui   --tool-border on --ft-navy --ft-navy-dark
+   @contrast text --ft-navy-dark on --ft-gold
+   @contrast text --ticker-fg on --ft-navy --ft-navy-dark
+   @contrast text --ticker-up on --ft-navy --ft-navy-dark
+   @contrast text --ticker-down on --ft-navy --ft-navy-dark
+   @contrast text --ticker-flat on --ft-navy --ft-navy-dark
+
+   @contrast text --pill-siren-fg on --pill-siren-bg
+   @contrast text --pill-related-fg on --pill-related-bg
+   @contrast ui   --pill-related-bg on --color-bg --color-surface
+   @contrast text --dialog-fg on --dialog-bg
+   @contrast ui   --dialog-border on --dialog-bg
+   @contrast text --skip-fg on --skip-bg
+   @contrast text --print-ink on --print-paper
+
+   Decorative or non-text tokens (hairlines, stripes, shadows, legacy brand swatches that carry no
+   text on their own):
+   @contrast-exempt --color-line --color-line-soft --ft-orange --ft-blue --siren-dim --backdrop --shadow
+   ------------------------------------------------------------------------------------------------ */

@@ -1,0 +1,357 @@
+<!doctype html>
+<html><head></head><body>
+<!-- fixture: page chrome before the advisory list removed -->
+<input
+role="combobox"
+aria-expanded="false"
+aria-label="Filter advisories: severity:critical, ecosystem:npm"
+aria-controls="repository-advisories-filter-autocomplete-dropdown"
+autocomplete="off"
+class="form-control input-block input-contrast width-full js-navigation-enable subnav-search-input css-truncate css-truncate-overflow"
+spellcheck="false"
+name="query"
+placeholder="Filter advisories: severity:critical, ecosystem:npm"
+type="text"
+value=""
+data-target="repository-advisories-filter.searchInput" data-action="
+input:repository-advisories-filter#updateFilterSuggestionResults
+focusin:repository-advisories-filter#updateFilterSuggestionResults
+focusout:delay:repository-advisories-filter#handleSearchBlur
+keydown:repository-advisories-filter#inputKey
+" data-initial-value="" data-default-value="" data-suggestable-qualifiers="[{&quot;value&quot;:&quot;severity:&quot;,&quot;description&quot;:&quot;critical, high, moderate, low&quot;},{&quot;value&quot;:&quot;ecosystem:&quot;,&quot;description&quot;:&quot;npm, pip, rubygems, maven, nuget, composer, go, rust, pub, swift, actions&quot;},{&quot;value&quot;:&quot;package:&quot;,&quot;description&quot;:&quot;filter by package name&quot;},{&quot;value&quot;:&quot;sort:&quot;,&quot;description&quot;:&quot;newest, oldest, severity&quot;}]" data-negatable-qualifiers="[]"
+data-suggestable-severity="[{&quot;value&quot;:&quot;critical&quot;},{&quot;value&quot;:&quot;high&quot;},{&quot;value&quot;:&quot;moderate&quot;},{&quot;value&quot;:&quot;low&quot;}]" data-suggestable-ecosystem="[{&quot;value&quot;:&quot;npm&quot;},{&quot;value&quot;:&quot;pip&quot;},{&quot;value&quot;:&quot;rubygems&quot;},{&quot;value&quot;:&quot;maven&quot;},{&quot;value&quot;:&quot;nuget&quot;},{&quot;value&quot;:&quot;composer&quot;},{&quot;value&quot;:&quot;go&quot;},{&quot;value&quot;:&quot;rust&quot;},{&quot;value&quot;:&quot;pub&quot;},{&quot;value&quot;:&quot;swift&quot;},{&quot;value&quot;:&quot;actions&quot;}]" data-suggestable-package="[]" data-suggestable-sort="[{&quot;value&quot;:&quot;newest&quot;},{&quot;value&quot;:&quot;oldest&quot;},{&quot;value&quot;:&quot;severity&quot;}]"
+>
+<div id="repository-advisories-filter-autocomplete-dropdown" data-target="repository-advisories-filter.autocompleteDropdown" aria-label="Available filters" hidden="hidden" tabindex="0" data-view-component="true" class="Box card-filter-autocomplete-dropdown overflow-auto color-bg-default rounded-2 color-shadow-large mt-1 tmp-mt-1 width-full position-absolute">
+<div data-view-component="true" class="Box-body px-2 tmp-px-2 py-1 tmp-py-1">
+<div data-target="repository-advisories-filter.autocompleteResults" data-view-component="true"></div>
+</div>
+</div> </div>
+</div>
+</form>
+<button hidden="hidden" data-target="repository-advisories-filter.clearButton" data-action="click:repository-advisories-filter#clear" type="button" data-view-component="true" class="reset-btn-override tmp-mt-3 btn-link d-block position-relative mb-0 tmp-mb-0"> Clear current search query, filters, and sorts
+</button></repository-advisories-filter>
+<div class="Box">
+<div class="hx_Box--firstRowRounded0">
+<ul data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame">
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/vllm-project/vllm/security/advisories/GHSA-xgh8-qwjh-q853" class="Link--primary v-align-middle no-underline h4">
+/v1/systemone bypasses the --trust-request-chat-template gate
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-xgh8-qwjh-q853
+<span class="opened-by">
+published
+<relative-time datetime="2026-11-18T09:57:27Z" class="no-wrap">Nov 18, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/jperezdealgaba/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/jperezdealgaba">jperezdealgaba</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning">
+Moderate
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/vllm-project/vllm/security/advisories/GHSA-qrj2-j723-m6w8" class="Link--primary v-align-middle no-underline h4">
+vLLM Speculators Config verifier.name_or_path Element Directory Traversal Information Disclosure Vulnerability
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-qrj2-j723-m6w8
+<span class="opened-by">
+published
+<relative-time datetime="2026-11-02T19:49:32Z" class="no-wrap">Nov 2, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/jperezdealgaba/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/jperezdealgaba">jperezdealgaba</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning">
+Moderate
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/vllm-project/vllm/security/advisories/GHSA-vvpg-rrww-wpmh" class="Link--primary v-align-middle no-underline h4">
+Permissive default CORS origins allow cross-origin requests to the vLLM HTTP server
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-vvpg-rrww-wpmh
+<span class="opened-by">
+published
+<relative-time datetime="2026-10-20T07:37:49Z" class="no-wrap">Oct 20, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/jperezdealgaba/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/jperezdealgaba">jperezdealgaba</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: low" data-view-component="true" class="Label Label--primary">
+Low
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/vllm-project/vllm/security/advisories/GHSA-8397-8qf6-f2gm" class="Link--primary v-align-middle no-underline h4">
+Phi-4 multimodal audio encoder materializes and retains full attention matrices: a single max-length audio OOM-crashes the vLLM engine
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-8397-8qf6-f2gm
+<span class="opened-by">
+published
+<relative-time datetime="2026-10-20T07:37:27Z" class="no-wrap">Oct 20, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/jperezdealgaba/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/jperezdealgaba">jperezdealgaba</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning">
+Moderate
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/vllm-project/vllm/security/advisories/GHSA-h3rc-j82p-2c3h" class="Link--primary v-align-middle no-underline h4">
+Untrusted EPS inputs can trigger denial of service or Ghostscript RCE in vLLM
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-h3rc-j82p-2c3h
+<span class="opened-by">
+published
+<relative-time datetime="2026-10-20T07:36:56Z" class="no-wrap">Oct 20, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/jperezdealgaba/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/jperezdealgaba">jperezdealgaba</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: high" data-view-component="true" class="Label Label--orange">
+High
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/vllm-project/vllm/security/advisories/GHSA-6cxc-2vcg-w5qc" class="Link--primary v-align-middle no-underline h4">
+V1 InputBatch.condense leaves a stale allowed_token_ids mask on recycled batch rows
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-6cxc-2vcg-w5qc
+<span class="opened-by">
+published
+<relative-time datetime="2026-10-06T20:45:08Z" class="no-wrap">Oct 6, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/jperezdealgaba/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/jperezdealgaba">jperezdealgaba</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: low" data-view-component="true" class="Label Label--primary">
+Low
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/vllm-project/vllm/security/advisories/GHSA-q97c-p368-75c4" class="Link--primary v-align-middle no-underline h4">
+Out-of-vocabulary prompt token id passes input validation and triggers a CUDA device-side assert (engine crash / DoS)
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-q97c-p368-75c4
+<span class="opened-by">
+published
+<relative-time datetime="2026-10-20T07:35:17Z" class="no-wrap">Oct 20, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/jperezdealgaba/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/jperezdealgaba">jperezdealgaba</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning">
+Moderate
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/vllm-project/vllm/security/advisories/GHSA-gq5q-89c7-vhvx" class="Link--primary v-align-middle no-underline h4">
+DeepSeek-OCR family: an image whose normalized pixels sum to exactly 0 makes embed_multimodal return None, tripping the encoder-output sanity assert — one unauthenticated request kills the whole vLLM engine (default config)
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-gq5q-89c7-vhvx
+<span class="opened-by">
+published
+<relative-time datetime="2026-10-20T07:37:11Z" class="no-wrap">Oct 20, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/jperezdealgaba/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/jperezdealgaba">jperezdealgaba</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning">
+Moderate
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/vllm-project/vllm/security/advisories/GHSA-894j-wg8m-63h8" class="Link--primary v-align-middle no-underline h4">
+vLLM OpenCVDynamicOpenPanguVideoBackend: request-level num_frames without a ceiling — unauthenticated memory/CPU exhaustion (OOM-kill) on any video-capable deployment
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-894j-wg8m-63h8
+<span class="opened-by">
+published
+<relative-time datetime="2026-10-27T22:24:06Z" class="no-wrap">Oct 27, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/jperezdealgaba/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/jperezdealgaba">jperezdealgaba</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning">
+Moderate
+</span>
+</div>
+</div>
+</div>
+</li>
+<li class="Box-row Box-row--focus-gray p-0 ">
+<div class="d-flex Box-row--drag-hide position-relative">
+<div class="flex-shrink-0 pt-2 tmp-pl-3">
+<span class="tooltipped tooltipped-n" aria-label="Published advisory">
+</span>
+</div>
+<div class="d-flex flex-auto flex-column flex-md-row p-2 tmp-pr-3">
+<div class="lh-condensed flex-auto">
+<a href="/vllm-project/vllm/security/advisories/GHSA-p92p-rxj5-7p2x" class="Link--primary v-align-middle no-underline h4">
+Forged multimodal UUID + P0/P1 processor-cache eviction drift: unauthenticated remote crash of the whole vLLM engine
+</a>
+<div class="mt-1 text-small color-fg-muted">
+GHSA-p92p-rxj5-7p2x
+<span class="opened-by">
+published
+<relative-time datetime="2026-10-06T07:10:22Z" class="no-wrap">Oct 6, 2026</relative-time>
+by
+<a class="author Link--muted" data-hovercard-type="user" data-hovercard-url="/users/jperezdealgaba/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/jperezdealgaba">jperezdealgaba</a>
+</span>
+</div>
+</div>
+<div class="pl-md-2 pt-2 pt-md-0 flex-shrink-0">
+<span title="Severity: moderate" data-view-component="true" class="Label Label--warning">
+Moderate
+</span>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="paginate-container" data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame">
+<div role="navigation" aria-label="Pagination" class="pagination"><span class="previous_page disabled" role="link" aria-label="Previous page" aria-disabled="true">Previous</span> <a class="current" aria-label="Page 1" aria-current="page" data-total-pages="13" href="/vllm-project/vllm/security/advisories?page=1">1</a> <a rel="next" aria-label="Page 2" href="/vllm-project/vllm/security/advisories?page=2">2</a> <a aria-label="Page 3" href="/vllm-project/vllm/security/advisories?page=3">3</a> <a aria-label="Page 4" href="/vllm-project/vllm/security/advisories?page=4">4</a> <a aria-label="Page 5" href="/vllm-project/vllm/security/advisories?page=5">5</a> <span class="gap">&hellip;</span> <a aria-label="Page 12" href="/vllm-project/vllm/security/advisories?page=12">12</a> <a aria-label="Page 13" href="/vllm-project/vllm/security/advisories?page=13">13</a> <a class="next_page" aria-label="Next page" rel="next" href="/vllm-project/vllm/security/advisories?page=2">Next</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</turbo-frame>
+</main>
+</div>
+<footer class="footer f6 color-fg-muted color-border-subtle tmp-pt-7 tmp-pb-6 p-responsive" role="contentinfo" >
+<h2 class='sr-only'>Footer</h2>
+<div class="d-flex flex-justify-center flex-items-center flex-column-reverse flex-lg-row flex-wrap flex-lg-nowrap">
+<div class="d-flex flex-items-center flex-shrink-0 mx-2">
+<a aria-label="GitHub Homepage" class="footer-octicon mr-2" href="https://github.com">
+</a>
+<span>
+&copy; 2026 GitHub,&nbsp;Inc.
+</span>
+</div>
+<nav aria-label="Footer">
+<h3 class="sr-only" id="sr-footer-heading">Footer navigation</h3>
+<ul class="list-style-none d-flex flex-justify-center flex-wrap mb-2 mb-lg-0" aria-labelledby="sr-footer-heading">
+<li class="mx-2">
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to Terms&quot;,&quot;label&quot;:&quot;text:terms&quot;}" href="https://docs.github.com/site-policy/github-terms/github-terms-of-service" data-view-component="true" class="Link--secondary Link">
+<!-- fixture truncated here -->
+</body></html>

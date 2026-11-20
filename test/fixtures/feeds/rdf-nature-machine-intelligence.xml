@@ -1,0 +1,166 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/" xmlns:admin="http://webns.net/mvcb/">
+    <channel rdf:about="http://feeds.nature.com/natmachintell/rss/current">
+        <title>Nature Machine Intelligence</title>
+        <description>Nature Machine Intelligence will publish high-quality original research and reviews in a wide range of topics in machine learning, robotics and AI. The journal will also explore and discuss the significant impact that these fields are beginning to have on other scientific disciplines as well as many aspects of society and industry. There are countless opportunities where machine intelligence can augment human capabilities and knowledge in fields such as scientific discovery, healthcare, medical diagnostics and safe and sustainable cities, transport and agriculture. At the same time, many important questions on ethical, social and legal issues arise, especially given the fast pace of developments Nature Machine Intelligence will provide a platform to discuss these wide implications — encouraging a cross-disciplinary dialogue — with Comments, News Features, News &amp;amp; Views articles and also Correspondence.</description>
+        <link>http://feeds.nature.com/natmachintell/rss/current</link>
+        <admin:generatorAgent rdf:resource="https://www.nature.com/"/>
+        <admin:errorReportsTo rdf:resource="mailto:feedback@nature.com"/>
+        <dc:publisher>Nature Publishing Group</dc:publisher>
+        <dc:language>en</dc:language>
+        <dc:rights>© 2026 Macmillan Publishers Limited, part of Springer Nature. All rights reserved.</dc:rights>
+        <prism:publicationName>Nature Machine Intelligence</prism:publicationName>
+        
+        
+        <prism:copyright>© 2026 Macmillan Publishers Limited, part of Springer Nature. All rights reserved.</prism:copyright>
+        <prism:rightsAgent>permissions@nature.com</prism:rightsAgent>
+        <image rdf:resource="https://www.nature.com/uploads/product/natmachintell/rss.gif"/>
+        <items>
+            <rdf:Seq>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s42256-026-01349-y"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s42256-026-01327-4"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s42256-026-01335-4"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s42256-026-01328-3"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s42256-026-01317-6"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s42256-026-01336-3"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s42256-026-01323-8"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s42256-026-01322-9"/>
+                
+            </rdf:Seq>
+        </items>
+    </channel>
+    <image rdf:about="https://www.nature.com/uploads/product/natmachintell/rss.gif">
+        <title>Nature Machine Intelligence</title>
+        <url>https://www.nature.com/uploads/product/natmachintell/rss.gif</url>
+        <link>http://feeds.nature.com/natmachintell/rss/current</link>
+    </image>
+    
+        <item rdf:about="https://www.nature.com/articles/s42256-026-01349-y">
+            <title><![CDATA[When AI-assisted criticism scales, peer review needs an obligation threshold]]></title>
+            <link>https://www.nature.com/articles/s42256-026-01349-y</link>
+            <content:encoded>
+                <![CDATA[<p>Nature Machine Intelligence, Published online: 18 November 2026; <a href="https://www.nature.com/articles/s42256-026-01349-y">doi:10.1038/s42256-026-01349-y</a></p>When AI-assisted criticism scales, peer review needs an obligation threshold]]></content:encoded>
+            <dc:title><![CDATA[When AI-assisted criticism scales, peer review needs an obligation threshold]]></dc:title>
+            <dc:creator>Yiteng Sun</dc:creator><dc:creator>Fan Li</dc:creator><dc:creator>Ching-Hung Lee</dc:creator><dc:creator>Chun-Hsien Chen</dc:creator>
+            <dc:identifier>doi:10.1038/s42256-026-01349-y</dc:identifier>
+            <dc:source>Nature Machine Intelligence, Published online: 2026-11-18; | doi:10.1038/s42256-026-01349-y</dc:source>
+            <dc:date>2026-11-18</dc:date>
+            <prism:publicationName>Nature Machine Intelligence</prism:publicationName>
+            <prism:doi>10.1038/s42256-026-01349-y</prism:doi>
+            <prism:url>https://www.nature.com/articles/s42256-026-01349-y</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s42256-026-01327-4">
+            <title><![CDATA[Interpretable distance-resolved graph learning for cancer gene priority screening]]></title>
+            <link>https://www.nature.com/articles/s42256-026-01327-4</link>
+            <content:encoded>
+                <![CDATA[<p>Nature Machine Intelligence, Published online: 16 November 2026; <a href="https://www.nature.com/articles/s42256-026-01327-4">doi:10.1038/s42256-026-01327-4</a></p>Wang et al. propose CGMap, a distance-resolved graph-learning framework that maps dispersed oncogenic signals into structured priorities, narrowing the cancer gene candidate space and establishing an interpretable path from hypotheses to practical validation.]]></content:encoded>
+            <dc:title><![CDATA[Interpretable distance-resolved graph learning for cancer gene priority screening]]></dc:title>
+            <dc:creator>Chenhao Wang</dc:creator><dc:creator>Shidong Xu</dc:creator><dc:creator>Li Tang</dc:creator><dc:creator>Gang Luo</dc:creator><dc:creator>Yongchang Zhang</dc:creator><dc:creator>Min Li</dc:creator>
+            <dc:identifier>doi:10.1038/s42256-026-01327-4</dc:identifier>
+            <dc:source>Nature Machine Intelligence, Published online: 2026-11-16; | doi:10.1038/s42256-026-01327-4</dc:source>
+            <dc:date>2026-11-16</dc:date>
+            <prism:publicationName>Nature Machine Intelligence</prism:publicationName>
+            <prism:doi>10.1038/s42256-026-01327-4</prism:doi>
+            <prism:url>https://www.nature.com/articles/s42256-026-01327-4</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s42256-026-01335-4">
+            <title><![CDATA[Tensegrity continuum robots enable task-adaptive morphologies for cooperative behaviours]]></title>
+            <link>https://www.nature.com/articles/s42256-026-01335-4</link>
+            <content:encoded>
+                <![CDATA[<p>Nature Machine Intelligence, Published online: 11 November 2026; <a href="https://www.nature.com/articles/s42256-026-01335-4">doi:10.1038/s42256-026-01335-4</a></p>Saikot et al. present flexible modular robots that combine locomotion and manipulation in a single unit, then physically connect and collaborate in task-adaptive forms to carry objects, cross gaps and navigate challenging terrain.]]></content:encoded>
+            <dc:title><![CDATA[Tensegrity continuum robots enable task-adaptive morphologies for cooperative behaviours]]></dc:title>
+            <dc:creator>Mahmud Hasan Saikot</dc:creator><dc:creator>Sydney Spiegel</dc:creator><dc:creator>Sudheera Akalanka Kariyawasam</dc:creator><dc:creator>Andrew Stefka</dc:creator><dc:creator>Josh Chrisler</dc:creator><dc:creator>Jianguo Zhao</dc:creator>
+            <dc:identifier>doi:10.1038/s42256-026-01335-4</dc:identifier>
+            <dc:source>Nature Machine Intelligence, Published online: 2026-11-11; | doi:10.1038/s42256-026-01335-4</dc:source>
+            <dc:date>2026-11-11</dc:date>
+            <prism:publicationName>Nature Machine Intelligence</prism:publicationName>
+            <prism:doi>10.1038/s42256-026-01335-4</prism:doi>
+            <prism:url>https://www.nature.com/articles/s42256-026-01335-4</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s42256-026-01328-3">
+            <title><![CDATA[Multimodal cell foundation models require synergistic integration beyond alignment]]></title>
+            <link>https://www.nature.com/articles/s42256-026-01328-3</link>
+            <content:encoded>
+                <![CDATA[<p>Nature Machine Intelligence, Published online: 09 November 2026; <a href="https://www.nature.com/articles/s42256-026-01328-3">doi:10.1038/s42256-026-01328-3</a></p>Richter et al. show that simply aligning different types of biological data does not fully integrate them, revealing when data repeat the same information and, conversely, when they provide complementary insights.]]></content:encoded>
+            <dc:title><![CDATA[Multimodal cell foundation models require synergistic integration beyond alignment]]></dc:title>
+            <dc:creator>Till Richter</dc:creator><dc:creator>Eric Zimmermann</dc:creator><dc:creator>James Hall</dc:creator><dc:creator>Fabian J. Theis</dc:creator><dc:creator>Srivatsan Raghavan</dc:creator><dc:creator>Peter S. Winter</dc:creator><dc:creator>Ava P. Amini</dc:creator><dc:creator>Lorin Crawford</dc:creator>
+            <dc:identifier>doi:10.1038/s42256-026-01328-3</dc:identifier>
+            <dc:source>Nature Machine Intelligence, Published online: 2026-11-09; | doi:10.1038/s42256-026-01328-3</dc:source>
+            <dc:date>2026-11-09</dc:date>
+            <prism:publicationName>Nature Machine Intelligence</prism:publicationName>
+            <prism:doi>10.1038/s42256-026-01328-3</prism:doi>
+            <prism:url>https://www.nature.com/articles/s42256-026-01328-3</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s42256-026-01317-6">
+            <title><![CDATA[Towards ecologically meaningful foundation models]]></title>
+            <link>https://www.nature.com/articles/s42256-026-01317-6</link>
+            <content:encoded>
+                <![CDATA[<p>Nature Machine Intelligence, Published online: 06 November 2026; <a href="https://www.nature.com/articles/s42256-026-01317-6">doi:10.1038/s42256-026-01317-6</a></p>Ecology struggles to make broad predictions, as ecological data and theories are scattered across many different sources, scales and approaches. Gardiner et al. propose to create ecological foundation models, which combine large, multi-modal ecological datasets with ecological theory, as a way to create more generalizable and predictive models.]]></content:encoded>
+            <dc:title><![CDATA[Towards ecologically meaningful foundation models]]></dc:title>
+            <dc:creator>Ross J. Gardiner</dc:creator><dc:creator>Henry Cerbone</dc:creator><dc:creator>Hammed A. Akande</dc:creator><dc:creator>Carly H. Batist</dc:creator><dc:creator>Amber Cowans</dc:creator><dc:creator>Stella M. Felsinger</dc:creator><dc:creator>Premdeep S. Gill</dc:creator><dc:creator>Taniya Kapoor</dc:creator><dc:creator>Eliot T. Miller</dc:creator><dc:creator>Rodrigo Oyanedel</dc:creator><dc:creator>Steven Reece</dc:creator><dc:creator>Yan Ying Tan</dc:creator><dc:creator>Jonas Antony</dc:creator><dc:creator>Carlos Rodriguez-Pardo</dc:creator><dc:creator>Amy Hinsley</dc:creator><dc:creator>Micah Bowles</dc:creator><dc:creator>Sebastian A. Heilpern</dc:creator><dc:creator>Rachel H. Parkinson</dc:creator>
+            <dc:identifier>doi:10.1038/s42256-026-01317-6</dc:identifier>
+            <dc:source>Nature Machine Intelligence, Published online: 2026-11-06; | doi:10.1038/s42256-026-01317-6</dc:source>
+            <dc:date>2026-11-06</dc:date>
+            <prism:publicationName>Nature Machine Intelligence</prism:publicationName>
+            <prism:doi>10.1038/s42256-026-01317-6</prism:doi>
+            <prism:url>https://www.nature.com/articles/s42256-026-01317-6</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s42256-026-01336-3">
+            <title><![CDATA[Fractal basin geometry and the limits to predictability and reproducibility in deep learning]]></title>
+            <link>https://www.nature.com/articles/s42256-026-01336-3</link>
+            <content:encoded>
+                <![CDATA[<p>Nature Machine Intelligence, Published online: 05 November 2026; <a href="https://www.nature.com/articles/s42256-026-01336-3">doi:10.1038/s42256-026-01336-3</a></p>Deep learning outcomes are hard to predict and reproduce. Ly and Gong propose fractal basin geometry as a mechanism: starting points leading to different outcomes interweave at arbitrarily fine scales, so greater precision yields little improvement.]]></content:encoded>
+            <dc:title><![CDATA[Fractal basin geometry and the limits to predictability and reproducibility in deep learning]]></dc:title>
+            <dc:creator>Andrew Ly</dc:creator><dc:creator>Pulin Gong</dc:creator>
+            <dc:identifier>doi:10.1038/s42256-026-01336-3</dc:identifier>
+            <dc:source>Nature Machine Intelligence, Published online: 2026-11-05; | doi:10.1038/s42256-026-01336-3</dc:source>
+            <dc:date>2026-11-05</dc:date>
+            <prism:publicationName>Nature Machine Intelligence</prism:publicationName>
+            <prism:doi>10.1038/s42256-026-01336-3</prism:doi>
+            <prism:url>https://www.nature.com/articles/s42256-026-01336-3</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s42256-026-01323-8">
+            <title><![CDATA[AI needs meaningful versioning]]></title>
+            <link>https://www.nature.com/articles/s42256-026-01323-8</link>
+            <content:encoded>
+                <![CDATA[<p>Nature Machine Intelligence, Published online: 02 November 2026; <a href="https://www.nature.com/articles/s42256-026-01323-8">doi:10.1038/s42256-026-01323-8</a></p>Artificial intelligence (AI) providers frequently update their models and system integrations without corresponding changes to their public identifiers. This undermines regulatory oversight and scientific reproducibility. We argue for meaningful AI versioning that meets the needs of regulators and researchers.]]></content:encoded>
+            <dc:title><![CDATA[AI needs meaningful versioning]]></dc:title>
+            <dc:creator>Vasilios Mavroudis</dc:creator><dc:creator>Dan Ristea</dc:creator><dc:creator>Lauritz Morlock</dc:creator><dc:creator>Carlos Mougan</dc:creator>
+            <dc:identifier>doi:10.1038/s42256-026-01323-8</dc:identifier>
+            <dc:source>Nature Machine Intelligence, Published online: 2026-11-02; | doi:10.1038/s42256-026-01323-8</dc:source>
+            <dc:date>2026-11-02</dc:date>
+            <prism:publicationName>Nature Machine Intelligence</prism:publicationName>
+            <prism:doi>10.1038/s42256-026-01323-8</prism:doi>
+            <prism:url>https://www.nature.com/articles/s42256-026-01323-8</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s42256-026-01322-9">
+            <title><![CDATA[Foundation model for particle collision data analysis]]></title>
+            <link>https://www.nature.com/articles/s42256-026-01322-9</link>
+            <content:encoded>
+                <![CDATA[<p>Nature Machine Intelligence, Published online: 29 October 2026; <a href="https://www.nature.com/articles/s42256-026-01322-9">doi:10.1038/s42256-026-01322-9</a></p>Hsu et al. present EVENET, a foundation model pretrained on simulated particle collisions using both self-supervised learning and physics labels, which transfers across many analysis tasks and works on real collider data.]]></content:encoded>
+            <dc:title><![CDATA[Foundation model for particle collision data analysis]]></dc:title>
+            <dc:creator>Ting-Hsiang Hsu</dc:creator><dc:creator>Baihong Zhou</dc:creator><dc:creator>Qibin Liu</dc:creator><dc:creator>Yue Xu</dc:creator><dc:creator>Shu Li</dc:creator><dc:creator>George Wei-Shu Hou</dc:creator><dc:creator>Benjamin Nachman</dc:creator><dc:creator>Shih-Chieh Hsu</dc:creator><dc:creator>Vinicius Mikuni</dc:creator><dc:creator>Yuan-Tang Chou</dc:creator><dc:creator>Yulei Zhang</dc:creator>
+            <dc:identifier>doi:10.1038/s42256-026-01322-9</dc:identifier>
+            <dc:source>Nature Machine Intelligence, Published online: 2026-10-29; | doi:10.1038/s42256-026-01322-9</dc:source>
+            <dc:date>2026-10-29</dc:date>
+            <prism:publicationName>Nature Machine Intelligence</prism:publicationName>
+            <prism:doi>10.1038/s42256-026-01322-9</prism:doi>
+            <prism:url>https://www.nature.com/articles/s42256-026-01322-9</prism:url>
+        </item>
+    
+</rdf:RDF>

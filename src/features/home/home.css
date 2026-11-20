@@ -1,0 +1,300 @@
+/* Home page layout (WP9). Class prefix: home-.
+   Builds on the shared component classes (.section-heading, .heading-meta, .trend-box, .brief-box,
+   .news-columns, .news-col, .icon-btn) and tokens of src/styles. No colour literals; newer tokens
+   fall back to a V1 token. No opacity on text or controls: muted text uses --color-muted, and text
+   on the silver heading gradient uses --color-heading-meta (plain muted grey fails AA on its dark
+   end). Breakpoints follow the shared grid: 1 column below 720 px, 2 from 720 px, 3 from 1100 px.
+   Unlayered on purpose: it must win over the layered component defaults it refines. */
+
+.home .section-heading a {
+  color: inherit;
+}
+
+.home-count {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-heading-meta, var(--ft-navy-deep));
+}
+
+.home-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-empty {
+  padding: 22px 0;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+.home-empty p {
+  margin: 0 0 6px;
+}
+
+/* ---- banner --------------------------------------------------------------------------------- */
+
+.home-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 4px 6px 4px 10px;
+  border: 1px solid var(--color-line);
+  border-left: 4px solid var(--ft-gold);
+  background: var(--color-surface);
+  font-size: 12px;
+}
+
+.home-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  min-width: var(--target-min, 24px);
+  min-height: var(--target-min, 24px);
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 3px;
+  color: inherit;
+  cursor: pointer;
+}
+
+.home-icon-btn:hover {
+  color: var(--siren);
+}
+
+/* ---- top band: TOP STORIES | brief, latest, watchlist --------------------------------------- */
+
+.home-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 720px) {
+  .home-band.has-side {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 3fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .home-band.has-side {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+}
+
+.home-band .trend-box,
+.home-band .brief-box {
+  margin-bottom: 0;
+}
+
+.home-side {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  min-width: 0;
+}
+
+.home-top-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-top-list > li {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  column-gap: 8px;
+  padding: 4px 0;
+  border-top: 1px solid var(--color-line-soft);
+}
+
+.home-rank {
+  padding-top: 3px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: right;
+  color: var(--siren);
+}
+
+.home-top .home-empty {
+  padding: 14px 0;
+}
+
+/* ---- daily brief ---------------------------------------------------------------------------- */
+
+.home-brief-label {
+  margin: 0 0 6px;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.home-brief-headline {
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+
+.home-brief-bullets {
+  margin: 0;
+  padding-left: 16px;
+  list-style: disc;
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.home-brief-bullets li + li {
+  margin-top: 4px;
+}
+
+.home-brief-cited {
+  margin: 8px 0 0;
+  padding-top: 6px;
+  border-top: 1px solid var(--color-line);
+  font-size: 11px;
+  color: var(--color-muted);
+}
+
+.home-brief-cited-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ---- sections ------------------------------------------------------------------------------- */
+
+.home-section + .home-section {
+  margin-top: var(--section-gap, 16px);
+}
+
+.home-section-head {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 8px;
+}
+
+.home-section-head .section-heading {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  border-right: 0;
+}
+
+/* Continues the heading bar, so the controls sit on it without being part of the <h2>. */
+.home-section-tools {
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: 1px;
+  padding: 0 3px 0 6px;
+  background: linear-gradient(180deg, var(--silver-top) 0%, var(--silver-bot) 100%);
+  border: 1px solid var(--color-line);
+  border-left: 0;
+  border-bottom: 2px solid var(--ft-navy);
+  color: var(--color-heading-meta, var(--ft-navy-deep));
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-section-tools .home-icon-btn {
+  /* the bar must not grow with the pointer target */
+  margin-block: -6px;
+}
+
+.home-src-count {
+  margin-right: 3px;
+  white-space: nowrap;
+}
+
+.home-section-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 14px;
+  margin: 3px 0 0;
+  font-size: 11px;
+}
+
+.home-section-foot:empty {
+  display: none;
+}
+
+.home-view-all,
+.home-more-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target-min, 24px);
+  padding: 0;
+  background: none;
+  border: 0;
+  font-size: 11px;
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+/* "N more" is the phone disclosure: hidden where every row is shown anyway. */
+.home-more-btn {
+  display: none;
+}
+
+.home-more-btn.home-always {
+  display: inline-flex;
+}
+
+@media (max-width: 719.98px) {
+  .home-section:not([data-expanded="true"]) .home-row-extra {
+    display: none;
+  }
+
+  .home-more-btn {
+    display: inline-flex;
+  }
+}
+
+.home-latest .home-rows > li + li,
+.home-watch .home-rows > li + li {
+  border-top: 1px dotted var(--color-line-soft);
+}
+
+.home-hidden {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 18px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-line);
+  font-size: 11px;
+  color: var(--color-muted);
+}
+
+.home-chip-btn {
+  min-height: var(--target-min, 24px);
+  padding: 2px 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-muted);
+  color: var(--color-fg);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.home-chip-btn:hover {
+  background: var(--ft-gold);
+  border-color: var(--ft-gold);
+  color: var(--ft-navy-dark);
+}

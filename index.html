@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--app:csp-->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#2f4e75" />
+    <title>AI DRUDGE</title>
+    <meta name="description" content="AI DRUDGE: the day's machine-intelligence news on one dense page. Top stories ranked by how many outlets cover them, AI security, local models, policy, markets and research." />
+    <!-- Sets the theme class on <html> before first paint (no flash). Injected by vite.config.ts from src/state/themeBootstrap.ts; its hash is the only inline script the CSP allows. -->
+    <!--app:theme-bootstrap-->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=3" />
+    <!--
+      Preload the three files the first render needs, so they download in parallel with the script
+      instead of after it has been parsed. The app fetches exactly these URLs (<base>data/v2/...)
+      with default caching and same-origin credentials, so the preloaded responses are reused.
+      rest.json and river.json are loaded later, on demand.
+    -->
+    <link rel="preload" href="./data/v2/front.json" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="./data/v2/brief.json" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="./data/v2/stocks.json" as="fetch" crossorigin="anonymous" />
+    <link rel="alternate" type="application/atom+xml" title="AI DRUDGE: top stories" href="./feed.xml" />
+    <link rel="alternate" type="text/x-opml" title="AI DRUDGE: every source (OPML)" href="./feeds.opml" />
+  </head>
+  <body>
+    <noscript>AI DRUDGE needs JavaScript to show the headlines. The Atom feed (feed.xml) works without it.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
